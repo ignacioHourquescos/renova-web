@@ -1,17 +1,15 @@
 //WHATSAPP FUNCTION
 $(function () {
-	// Phone numbers for each section
-	//const phoneNumbers = {
-	//	transporte: "5491165106333", // HEMAN
-	//	lubricentro: "5491140565047", // LUCAS MOSTRADOR
-	//	agro: "5491144075850", // NUEVO NÚMERO
-	//	industria: "5491144075850", // NUEVO NÚMERO
-	//};
-	const phoneNumbers = {
-		transporte: "5491165106333", // HEMAN
-		lubricentro: "5491165106333", // LUCAS MOSTRADOR
-		agro: "5491165106333", // NUEVO NÚMERO
-		industria: "5491165106333", // NUEVO NÚMERO
+	// Phone number (same for all sections)
+	const phoneNumber = "5491141674140";
+	
+	// Default messages for each section
+	const defaultMessages = {
+		transporte: "Hola, estoy interesado en filtros y lubricantes para mi flota de transporte",
+		lubricentro: "Hola, necesito información sobre productos para mi lubricentro",
+		agro: "Hola, busco filtros y lubricantes para maquinaria agrícola",
+		industria: "Hola, queria  sobre filtros y lubricantes industriales",
+		general: "Hola, me gustaría recibir más información sobre sus productos"
 	};
 
 	// Create modal HTML if it doesn't exist yet
@@ -43,13 +41,16 @@ $(function () {
 		// Handle section selection
 		$("#whatsappSectionModal .list-group-item").on("click", function () {
 			const section = $(this).data("section");
-			const phone = phoneNumbers[section];
+			const message = defaultMessages[section] || defaultMessages.general;
+			
+			// Encode message for URL
+			const encodedMessage = encodeURIComponent(message);
 
 			// Close the modal
 			$("#whatsappSectionModal").modal("hide");
 
-			// Open WhatsApp with the selected phone number
-			const whatsappURL = `https://wa.me/${phone}`;
+			// Open WhatsApp with the selected phone number and default message
+			const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 			window.open(whatsappURL);
 		});
 	}
