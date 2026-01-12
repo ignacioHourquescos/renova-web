@@ -5,6 +5,7 @@
 <title>Abrir un lubricentro</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 <link rel="stylesheet"    href="../css/base.css">
 <link rel="stylesheet"    href="../css/vendor.css">  
 <link rel="stylesheet"    href="../css/main.css">  
@@ -19,6 +20,7 @@
 
 
 <!-- Jquery3.4.1      --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- Bootstrap JS     --><script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 <!-- modernz infinity --><script src="../js/src/modernizr.js"></script>
 <!-- pace infinity    --><script src="../js/src/pace.min.js"></script>
 <!-- #rWPP            --><script type="text/javascript" src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/floating-wpp.min.js"></script>
@@ -99,11 +101,11 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                         <h1>Abrir un lubricentro</h1>
                             <h2 id="titulo" class="section-intro animate-this">
                                 Te listamos las preguntas mas frecuentes que pueden surgir a la hora de embarcarse
-                                en la apertura de un lubricentro. Las mismas son a modo orintativo. Para un mayor detalle
+                                en la apertura de un lubricentro. Las mismas son a modo orientativo. Para un mayor detalle
                                 no dudes en contactarnos<br></h2>
                             <div style="margin-top: 2rem; text-align: center;">
-                                <a href="https://wa.me/5491165106333" target="_blank" class="button stroke" style="display: inline-block; padding: 1rem 2rem; text-decoration: none;">
-                                    Más información
+                                <a href="#" id="btnContactoAsesoria" style="display: inline-block; padding: 1rem 2rem; text-decoration: none; background-color: #25D366; color: white; border-radius: 25px; font-weight: 600; transition: all 0.3s ease; cursor: pointer;">
+                                    Contactanos para asesorarte
                                 </a>
                             </div>
 						  	<h3 id="descripcion" class="animate-intro"><br></h3>
@@ -211,14 +213,88 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
    style="font-family: Arial, Helvetica, sans-serif; z-index:1003;position:fixed;bottom:2rem;right:2rem;opacity:0.7;">
 
 </div>
-<button id="WAButton" onclick="return gtag_report_conversion3();" style="z-index:1001">
-   <img id="WAButton" src="../images/whatsapp.png" style="height:40px; 
-      width:40px;
-      position:fixed;
-      bottom:4rem;
-      right:3rem;
-      z-index:1001" />
-</button>
+
+<!-- Botón de WhatsApp flotante -->
+<div id="customWhatsAppBtnFaq" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; cursor: pointer;">
+    <div class="whatsapp-button-inner"
+         style="background-color: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+         onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.4)';"
+         onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#FFFFFF">
+            <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.87.116-.174.232-.09.428.086.195.384.829.826 1.342.567.678 1.04 1.028 1.188 1.102.148.074.237.037.324-.055.087-.093.374-.435.474-.582.1-.148.201-.126.336-.076s.881.407 1.032.484c.151.077.249.116.287.179.038.063.038.362-.106.711z" />
+        </svg>
+    </div>
+    <!-- Pulse effect -->
+    <div
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background-color: #25D366; opacity: 0.7; animation: pulse 2s infinite; pointer-events: none;">
+    </div>
+</div>
+
+<style>
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.7;
+        }
+        70% {
+            transform: scale(1.3);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1.3);
+            opacity: 0;
+        }
+    }
+</style>
+
+<!-- Modal de Contacto para Asesoría -->
+<div class="modal fade" id="modalAsesoria" tabindex="-1" role="dialog" aria-labelledby="modalAsesoriaLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close-modal-btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form id="formAsesoria">
+                    <div class="form-group">
+                        <label for="nombreAsesoria">Nombre</label>
+                        <input type="text" class="form-control" id="nombreAsesoria" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Localidad</label>
+                        <div class="localidad-buttons" id="localidadButtons">
+                            <button type="button" class="localidad-btn" data-value="buenos-aires">Buenos Aires</button>
+                            <button type="button" class="localidad-btn" data-value="interior">Interior</button>
+                        </div>
+                        <input type="hidden" id="localidadAsesoria" name="localidad" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Nivel de experiencia</label>
+                        <div class="experiencia-buttons" id="experienciaButtons">
+                            <button type="button" class="experiencia-btn" data-value="sin-experiencia">No tengo experiencia</button>
+                            <button type="button" class="experiencia-btn" data-value="conozco-rubro">Conozco del rubro automotor</button>
+                        </div>
+                        <input type="hidden" id="experienciaAsesoria" name="experiencia" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Capital para invertir <span class="label-subtitle">(En millones de pesos)</span></label>
+                        <div class="capital-buttons" id="capitalButtons">
+                            <button type="button" class="capital-btn" data-value="menos-2m">menos de 2</button>
+                            <button type="button" class="capital-btn" data-value="2m-5m">entre 2 y 5</button>
+                            <button type="button" class="capital-btn" data-value="mas-5m">más de 5</button>
+                        </div>
+                        <input type="hidden" id="capitalInvertir" name="capital" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 2rem;">
+                        <button type="button" class="btn btn-primary btn-enviar-modal" id="btnEnviarAsesoria">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 
 
@@ -227,7 +303,6 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
 <script  src="../js/faq.js"></script> 
 <script  src="../js/src/plugins.js"></script>
 <script  src="../js/src/main.js"></script>
-<script  src="../js/indexService.js"></script>
 
 
 </html>

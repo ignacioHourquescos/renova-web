@@ -1,5 +1,10 @@
 //WHATSAPP FUNCTION
 $(function () {
+	// Only initialize if the WhatsApp button exists (e.g., on index.html)
+	if ($("#customWhatsAppBtn").length === 0) {
+		return;
+	}
+
 	// Phone number (same for all sections)
 	const phoneNumber = "5491141674140";
 	

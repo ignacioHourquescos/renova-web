@@ -133,3 +133,232 @@ iframe{
         bottom: 0;
         width: 100%;
     }
+
+/* Estilos para el modal de asesoría */
+#modalAsesoria .modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#modalAsesoria .modal-body {
+    padding: 2rem;
+    position: relative;
+}
+
+#modalAsesoria .close-modal-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #f0f0f0;
+    border: none;
+    font-size: 2.2rem;
+    color: #666;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+#modalAsesoria .close-modal-btn:hover {
+    opacity: 1;
+    color: #333;
+    background: #e0e0e0;
+}
+
+#modalAsesoria .form-group {
+    margin-bottom: 1.5rem;
+}
+
+#modalAsesoria .form-group label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+#modalAsesoria .form-group label .label-subtitle {
+    font-weight: 400;
+    font-size: 0.9em;
+    color: #666;
+}
+
+#modalAsesoria .form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #333;
+}
+
+#modalAsesoria .form-control:focus {
+    border-color: #25D366;
+    box-shadow: 0 0 0 0.2rem rgba(37, 211, 102, 0.25);
+    background-color: #ffffff;
+}
+
+/* Estilos para botones de localidad */
+.localidad-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.localidad-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ddd;
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.localidad-btn:hover {
+    border-color: #25D366;
+    background-color: #e8f5e9;
+}
+
+.localidad-btn.selected {
+    background-color: #25D366;
+    color: white;
+    border-color: #25D366;
+}
+
+/* Estilos para botones de experiencia */
+.experiencia-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.experiencia-btn {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ddd;
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.experiencia-btn:hover {
+    border-color: #25D366;
+    background-color: #e8f5e9;
+}
+
+.experiencia-btn.selected {
+    background-color: #25D366;
+    color: white;
+    border-color: #25D366;
+}
+
+/* Estilos para botones de capital */
+.capital-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.capital-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ddd;
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.capital-btn:hover {
+    border-color: #25D366;
+    background-color: #e8f5e9;
+}
+
+.capital-btn.selected {
+    background-color: #25D366;
+    color: white;
+    border-color: #25D366;
+}
+
+@media only screen and (max-width: 768px) {
+    .localidad-btn {
+        min-width: calc(50% - 0.5rem);
+        flex: 1;
+    }
+    
+    .experiencia-btn {
+        min-width: calc(50% - 0.5rem);
+        flex: 1;
+    }
+    
+    .capital-btn {
+        min-width: calc(33.333% - 0.67rem);
+        flex: 1;
+    }
+}
+
+#modalAsesoria .btn-enviar-modal {
+    background-color: #25D366;
+    border-color: #25D366;
+    border-radius: 5px;
+    padding: 0.75rem 3rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+#modalAsesoria .btn-enviar-modal:hover {
+    background-color: #20ba5a;
+    border-color: #20ba5a;
+}

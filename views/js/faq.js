@@ -76,3 +76,90 @@ function insertarpreguntas(faqs){
 
 cargarIntro();
 cargarPreguntas();
+
+// Manejo del modal de asesoría
+$(document).ready(function() {
+    // Abrir modal al hacer clic en el botón "Contactanos para asesorarte"
+    $('#btnContactoAsesoria').on('click', function(e) {
+        e.preventDefault();
+        $('#modalAsesoria').modal('show');
+    });
+
+    // Abrir modal al hacer clic en el botón de WhatsApp flotante
+    $('#customWhatsAppBtnFaq').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('#modalAsesoria').modal('show');
+        return false;
+    });
+
+    // Manejar selección de localidad
+    $('.localidad-btn').on('click', function() {
+        $('.localidad-btn').removeClass('selected');
+        $(this).addClass('selected');
+        const localidadText = $(this).text().trim();
+        $('#localidadAsesoria').val(localidadText);
+    });
+
+    // Manejar selección de experiencia
+    $('.experiencia-btn').on('click', function() {
+        $('.experiencia-btn').removeClass('selected');
+        $(this).addClass('selected');
+        const experienciaText = $(this).text().trim();
+        $('#experienciaAsesoria').val(experienciaText);
+    });
+
+    // Manejar selección de capital
+    $('.capital-btn').on('click', function() {
+        $('.capital-btn').removeClass('selected');
+        $(this).addClass('selected');
+        const capitalText = $(this).text().trim();
+        $('#capitalInvertir').val(capitalText);
+    });
+
+    // Limpiar selecciones al cerrar el modal
+    $('#modalAsesoria').on('hidden.bs.modal', function() {
+        $('.localidad-btn').removeClass('selected');
+        $('.experiencia-btn').removeClass('selected');
+        $('.capital-btn').removeClass('selected');
+        $('#localidadAsesoria').val('');
+        $('#experienciaAsesoria').val('');
+        $('#capitalInvertir').val('');
+    });
+
+    // Manejar envío del formulario
+    $('#btnEnviarAsesoria').on('click', function() {
+        const nombre = $('#nombreAsesoria').val().trim();
+        const localidad = $('#localidadAsesoria').val().trim();
+        const experiencia = $('#experienciaAsesoria').val().trim();
+        const capital = $('#capitalInvertir').val().trim();
+
+        // Validar que todos los campos estén completos
+        if (!nombre || !localidad || !experiencia || !capital) {
+            alert('Por favor complete todos los campos');
+            return;
+        }
+
+        // Crear mensaje para WhatsApp con formato específico
+        const mensaje = `Quiero abrir un lubricentro || ${nombre} || ${localidad} || ${experiencia} || ${capital}`;
+
+        // Codificar mensaje para URL
+        const mensajeCodificado = encodeURIComponent(mensaje);
+        const whatsappURL = `https://wa.me/5491165106333?text=${mensajeCodificado}`;
+
+        // Cerrar modal
+        $('#modalAsesoria').modal('hide');
+
+        // Abrir WhatsApp
+        window.open(whatsappURL, '_blank');
+
+        // Limpiar formulario
+        $('#formAsesoria')[0].reset();
+        $('.localidad-btn').removeClass('selected');
+        $('.experiencia-btn').removeClass('selected');
+        $('.capital-btn').removeClass('selected');
+        $('#localidadAsesoria').val('');
+        $('#experienciaAsesoria').val('');
+        $('#capitalInvertir').val('');
+    });
+});
