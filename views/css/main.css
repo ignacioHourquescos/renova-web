@@ -1305,16 +1305,18 @@ header .header-logo a {
   width: 42px;
   line-height: 42px;
   font-family: "montserrat-regular", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .2rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: #FFFFFF;
   -moz-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  z-index:-1000;
+  z-index: 1000;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 #header-menu-trigger.opaque {
   background-color: #000000;
@@ -1341,13 +1343,14 @@ header .header-logo a {
 }
 #header-menu-trigger .header-menu-icon {
   display: block;
-  height: 3px;
-  width: 24px;
+  height: 4px;
+  width: 28px;
   background-color: #FFFFFF;
   position: absolute;
   top: 50%;
-  right: 9px;
-  margin-top: -1.5px;
+  right: 7px;
+  margin-top: -2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 #header-menu-trigger .header-menu-icon::before, 
 #header-menu-trigger .header-menu-icon::after {
@@ -1528,16 +1531,23 @@ header .header-logo a {
 #home {
   width: 100%;
   height: 100vh;
-  background-color: #151515;
-  background-image: url(../images/fondoNaranja.jpg);
+  background-color: #f9a828;
+  background-image: url(../images/fondo_hero_nuevo.png);
   background-repeat: no-repeat;
-  background-position: center 30%;
+  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   /* min-height: 600px; */
   position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  #home {
+    background-image: url(../images/fondo_hero_nuevo_mobile.png);
+    background-attachment: scroll;
+  }
 }
 #home .overlay {
   position: absolute;
@@ -1545,8 +1555,9 @@ header .header-logo a {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: .2;
-  background-color: #19191b;
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 30%, transparent 60%);
+  z-index: 1;
 }
 
 .home-content-table {
@@ -1554,18 +1565,19 @@ header .header-logo a {
   height: 100%;
   display: table;
   position: relative;
-  text-align: center;
+  text-align: left;
 }
 
 .home-content-tablecell {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: top;
   z-index: 500;
 }
 .home-content-tablecell .row {
   position: relative;
-  padding-top: 16.2rem;
-  padding-bottom: 15rem;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  padding-left: 0;
 }
 .home-content-tablecell h3 {
   font-family: "montserrat-bold", sans-serif;
