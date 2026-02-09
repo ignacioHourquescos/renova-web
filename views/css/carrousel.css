@@ -6,15 +6,24 @@
   align-content: center;
   justify-items: center;
   align-items: center;
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1.5rem 20rem;
   flex-wrap: wrap;
+ 
+  margin: 0 auto;
 }
 
 .logo{
-  width:10rem;
-  height: 10rem;
-  margin:1rem 0.5rem;
-  padding:1rem 0rem;
- }
+  width: 7rem;
+  height: 7rem;
+  margin: 0.5rem 1rem;
+  padding: 0.5rem 0;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .carusel {
+    display: none;
+  }
+}
 
  

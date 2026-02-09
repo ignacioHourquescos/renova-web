@@ -1,10 +1,135 @@
+/* Products Grid with Cards */
+#portfolio {
+  background: #f5f5f5;
+  padding: 6rem 0;
+}
+
+#divGaleria {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+.brands-section-title {
+  text-align: left;
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 4rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: "montserrat-bold", sans-serif;
+}
+
+.brands-category-title {
+  text-align: center;
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0 0 4rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  font-family: "montserrat-bold", sans-serif;
+}
+
+.brands-category-title:first-of-type {
+  margin-top: 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  padding: 2rem 0;
+}
+
+.product-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18), 0 8px 16px rgba(0, 0, 0, 0.12);
+  border-color: rgba(249, 168, 40, 0.3);
+}
+
+.product-card-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.product-card-image::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(249, 168, 40, 0.03) 100%);
+  pointer-events: none;
+}
+
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.08);
+}
+
+.product-card-brand {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  border-top: 3px solid #f9a828;
+  background: linear-gradient(180deg, #1a1a1a 0%, #000000 100%);
+  font-family: "montserrat-bold", sans-serif;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.product-card-brand::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #f9a828, transparent);
+  opacity: 0.6;
+}
+
 .gallery {
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
-    -webkit-column-width: 33%;
-    -moz-column-width: 33%;
-    column-width: 33%; 
+    -webkit-column-width: 20%;
+    -moz-column-width: 20%;
+    column-width: 20%; 
   }
   .gallery .pics {
     -webkit-transition: all 350ms ease;
@@ -24,7 +149,39 @@
     column-count: 1;
   
     }
-  
+    
+    .products-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.5rem;
+      padding: 1rem 0.5rem;
+    }
+    
+    /* Ocultar última tarjeta si el número total es impar */
+    .products-grid .product-card:nth-child(odd):last-child {
+      display: none;
+    }
+    
+    .product-card-image {
+      height: 140px;
+      padding: 1rem;
+    }
+    
+    .product-card-brand {
+      font-size: 1.3rem;
+      padding: 1rem 0.5rem;
+      letter-spacing: 0.05rem;
+    }
+    
+    .brands-section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .brands-category-title {
+      font-size: 2.2rem;
+      margin: 0 0 2rem 0;
+      text-align: center;
+    }
   }
     
   
@@ -43,8 +200,53 @@
   }
   @media only screen and (min-width: 600px){
     #divGaleria{
-      padding:10rem 10rem;
+      padding: 4rem 2rem;
       padding-bottom: 5rem;
+    }
+    
+    .brands-section-title {
+      font-size: 3.1rem;
+      margin-bottom: 3.5rem;
+      text-align: left;
+    }
+    
+    .brands-category-title {
+      font-size: 2.1rem;
+      margin: 3.5rem 0 2rem;
+      text-align: center;
+    }
+    
+    .products-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2.5rem;
+      padding: 2rem 2rem;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px){
+    .brands-section-title {
+      font-size: 3.6rem;
+      text-align: left;
+    }
+    
+    .brands-category-title {
+      font-size: 3.6rem;
+      text-align: center;
+    }
+    
+    .products-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
+      padding: 2rem 3rem;
+    }
+    
+    .product-card-image {
+      height: 240px;
+    }
+    
+    .product-card-brand {
+      font-size: 1.7rem;
+      padding: 2.2rem 1.5rem;
     }
   }
 
@@ -55,4 +257,276 @@
 }
 
 
-/*****************efectos en botonoes ****************/
+  /*****************efectos en botonoes ****************/
+
+/* Modal de Información de Marca */
+#brandModal .modal-content,
+#consultaModal .modal-content {
+  border-radius: 18px;
+  border: none;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+#brandModal .modal-header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  color: #ffffff;
+  border-bottom: 3px solid #f9a828;
+  border-radius: 18px 18px 0 0;
+  padding: 2.5rem 3rem;
+}
+
+#consultaModal .modal-header {
+  background: #ffffff;
+  color: #000000;
+  border-bottom: 2px solid #e0e0e0;
+  border-radius: 18px 18px 0 0;
+  padding: 2.5rem 3rem;
+}
+
+#brandModal .modal-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-family: "montserrat-bold", sans-serif;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#consultaModal .modal-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-family: "montserrat-bold", sans-serif;
+  color: #000000;
+}
+
+#brandModal .close {
+  color: #ffffff;
+  opacity: 1;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-shadow: none;
+  transition: opacity 0.3s ease;
+}
+
+#brandModal .close:hover {
+  opacity: 0.7;
+}
+
+#consultaModal .close {
+  color: #000000;
+  opacity: 1;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-shadow: none;
+  transition: opacity 0.3s ease;
+}
+
+#consultaModal .close:hover {
+  opacity: 0.5;
+}
+
+#brandModal .modal-body,
+#consultaModal .modal-body {
+  padding: 3rem;
+  background: #ffffff;
+}
+
+/* Estilos específicos para el modal de consulta */
+.consulta-text {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-family: "montserrat-bold", sans-serif;
+}
+
+#consultaForm {
+  margin-top: 2rem;
+}
+
+#consultaForm .form-group {
+  margin-bottom: 2rem;
+}
+
+#consultaTextarea {
+  width: 100%;
+  padding: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-family: "montserrat-regular", sans-serif;
+  line-height: 1.6;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+#consultaTextarea:focus {
+  outline: none;
+  border-color: #f9a828;
+  box-shadow: 0 0 0 3px rgba(249, 168, 40, 0.1);
+}
+
+.btn-enviar {
+  width: 100%;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%);
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  font-family: "montserrat-bold", sans-serif;
+}
+
+.btn-enviar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-enviar:active {
+  transform: translateY(0);
+}
+
+.brand-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 3rem;
+}
+
+.brand-info-section {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.brand-info-section:last-child {
+  grid-column: 1 / -1;
+  padding-top: 1rem;
+  border-top: 2px solid #f0f0f0;
+}
+
+.brand-info-section h6 {
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  font-family: "montserrat-bold", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.brand-info-section h6 i {
+  color: #f9a828;
+  font-size: 1.4rem;
+}
+
+.brand-info-section p {
+  color: #555;
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 400;
+}
+
+.brand-info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.brand-info-section ul li {
+  color: #555;
+  font-size: 1.3rem;
+  line-height: 2;
+  padding-left: 2rem;
+  position: relative;
+  font-weight: 400;
+}
+
+.brand-info-section ul li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #f9a828;
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  #brandModal .modal-dialog,
+  #consultaModal .modal-dialog {
+    margin: 1rem;
+  }
+  
+  #brandModal .modal-header {
+    padding: 2rem 2rem;
+  }
+
+  #consultaModal .modal-header {
+    padding: 2rem 2rem;
+    background: #ffffff;
+    border-bottom: 2px solid #e0e0e0;
+  }
+  
+  #brandModal .modal-title {
+    font-size: 2rem;
+  }
+
+  #consultaModal .modal-title {
+    font-size: 2rem;
+    color: #000000;
+  }
+  
+  #brandModal .modal-body,
+  #consultaModal .modal-body {
+    padding: 2rem;
+  }
+
+  .consulta-text {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #consultaTextarea {
+    font-size: 1.3rem;
+    padding: 1.2rem;
+  }
+
+  .btn-enviar {
+    font-size: 1.4rem;
+    padding: 1.3rem 2.5rem;
+  }
+  
+  .brand-info-section h6 {
+    font-size: 1.4rem;
+  }
+  
+  .brand-info-section p,
+  .brand-info-section ul li {
+    font-size: 1.2rem;
+  }
+  
+  .brand-info {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .brand-info-section:last-child {
+    grid-column: 1;
+    padding-top: 1rem;
+    border-top: 2px solid #f0f0f0;
+  }
+}
