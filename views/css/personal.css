@@ -311,7 +311,7 @@
 
 .services-features {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 3rem;
   width: 100%;
 }
@@ -332,7 +332,7 @@
 }
 
 .service-feature h4 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -343,7 +343,7 @@
 
 @media only screen and (max-width: 768px) {
   .services-features {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     padding: 0 1.5rem;
   }
@@ -436,6 +436,113 @@
   }
 
   .cliente-logo {
+    max-width: 120px;
+    max-height: 70px;
+  }
+}
+
+/* ===== Confían en nosotros section ===== */
+#confian-en-nosotros {
+  background-color: #ffffff;
+  padding: 6rem 0;
+}
+
+.confian-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.confian-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.confian-title {
+  font-size: 3.6rem;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+  font-family: "montserrat-bold", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.confian-logos {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2rem 1.5rem;
+  align-items: center;
+  justify-items: center;
+  padding: 2rem 0;
+}
+
+.confian-logo {
+  width: 100%;
+  max-width: 130px;
+  height: auto;
+  max-height: 80px;
+  object-fit: contain;
+  background-color: #ffffff;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.confian-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media only screen and (max-width: 1024px) {
+  .confian-logos {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #confian-en-nosotros {
+    padding: 4rem 0;
+  }
+
+  .confian-title {
+    font-size: 2.8rem;
+  }
+
+  .confian-header {
+    margin-bottom: 3rem;
+  }
+
+  .confian-logos {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1.5rem;
+    padding: 1.5rem 0;
+  }
+
+  .confian-logo {
+    max-width: 140px;
+    max-height: 80px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #confian-en-nosotros {
+    padding: 3rem 0;
+  }
+
+  .confian-title {
+    font-size: 2.4rem;
+  }
+
+  .confian-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .confian-logos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+  }
+
+  .confian-logo {
     max-width: 120px;
     max-height: 70px;
   }
@@ -807,27 +914,32 @@
   }
   
   .col-twelve .hero-content-wrapper {
-    padding: 4rem 1.5rem 2rem 1.5rem !important;
+    padding: 4rem 1rem 2rem 1rem !important;
     margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    text-align: left !important;
   }
   
   .hero-title {
     font-size: 6rem !important;
+    text-align: left !important;
+    margin-left: 0 !important;
   }
   
   .hero-subtitle {
     font-size: 1rem !important;
+    text-align: left !important;
   }
   
   .hero-buttons {
     width: 100% !important;
     max-width: 100% !important;
     gap: 0.5rem !important;
+    align-items: flex-start !important;
   }
   
   .hero-button {
@@ -852,10 +964,13 @@
   
   .hero-logo-section {
     width: 100%;
+    text-align: left !important;
   }
   
   .hero-logo-section #logo {
     max-width: 200px;
+    margin-left: 0 !important;
+    transform: translateX(0) !important;
   }
   
   /* Ocultar botón MI CUENTA en móvil */
@@ -870,39 +985,62 @@
   }
   
   .col-twelve .hero-content-wrapper {
-    padding: 3rem 1.5rem 2rem 1.5rem !important;
+    padding: 3rem 1rem 2rem 1rem !important;
     margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
+    text-align: left !important;
+  }
+  
+  .hero-title {
+    text-align: left !important;
+    margin-left: 0 !important;
+  }
+  
+  .hero-logo-section #logo {
+    margin-left: 0 !important;
+    transform: translateX(0) !important;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .col-twelve .hero-content-wrapper {
-    padding: 3rem 1.5rem 2rem 1.5rem !important;
+    padding: 3rem 1rem 2rem 1rem !important;
+    text-align: left !important;
   }
   
   .hero-title {
     font-size: 5rem !important;
+    text-align: left !important;
+    margin-left: 0 !important;
   }
   
   .hero-subtitle {
     font-size: 0.9rem !important;
+    text-align: left !important;
   }
   
   .hero-buttons {
     gap: 0.5rem !important;
     width: 100% !important;
+    align-items: flex-start !important;
   }
   
   .hero-button {
     padding: 1rem 1.5rem !important;
     font-size: 1.3rem !important;
     width: 100% !important;
+    text-align: left !important;
   }
   
   .hero-logo-section {
     width: 100%;
+    text-align: left !important;
+  }
+  
+  .hero-logo-section #logo {
+    margin-left: 0 !important;
+    transform: translateX(0) !important;
   }
   
   /* Ocultar botón MI CUENTA en móvil */
