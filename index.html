@@ -153,10 +153,10 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       <!-- WPP BUTTON ================================================== -->
       <div id="customWhatsAppBtn" style="position: fixed; bottom: 20px; right: 30px; z-index: 1000; cursor: pointer;">
             <div class="whatsapp-button-inner"
-                  style="background-color: #25D366; width: 80px; height: 80px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                  style="background-color: #25D366; width: 100px; height: 100px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;"
                   onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.4)';"
                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="#FFFFFF">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 24 24" fill="#FFFFFF">
                         <path
                               d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.87.116-.174.232-.09.428.086.195.384.829.826 1.342.567.678 1.04 1.028 1.188 1.102.148.074.237.037.324-.055.087-.093.374-.435.474-.582.1-.148.201-.126.336-.076s.881.407 1.032.484c.151.077.249.116.287.179.038.063.038.362-.106.711z" />
                   </svg>
@@ -891,17 +891,12 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                                     </fieldset>
                                     <fieldset class="pure-group"><textarea id="message" name="message" rows="10"
                                                 placeholder="Mensaje"></textarea></fieldset>
-                                    <fieldset class="pure-group"><input id="email" name="email" type="email" value=""
-                                                placeholder="your.name@email.com" /></fieldset>
 
                                     <div class="form-field">
-                                          <button href="#" style="all:unset" name="button1"
-                                                onclick="dataLayer.push({'event': 'button1-click'});"></button>
-                                          <a style="display: inline-flex; align-items: center; justify-content: center; padding: 1.2rem 3.2rem; border-radius: 999px; background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%); color: #ffffff; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15rem; font-size: 1.3rem; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 20px 40px rgba(37, 211, 102, 0.35);"
-                                                href="mailto:renovafiltros@gmail.com"
+                                          <a id="whatsapp-contact-btn" style="display: inline-flex; align-items: center; justify-content: center; padding: 1.2rem 3.2rem; border-radius: 999px; background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%); color: #ffffff; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15rem; font-size: 1.3rem; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 20px 40px rgba(37, 211, 102, 0.35); cursor: pointer;"
+                                                onclick="enviarWhatsApp()"
                                                 onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 24px 44px rgba(37, 211, 102, 0.45)';"
-                                                onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 20px 40px rgba(37, 211, 102, 0.35)';">CONTACTANOS VIA MAIL</a>
-                                          </button>
+                                                onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 20px 40px rgba(37, 211, 102, 0.35)';">CONTACTANOS</a>
                                           <div id="submit-loader">
                                                 <div class="text-loader">Enviando</div>
                                                 <div class="s-loader">
@@ -950,7 +945,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                               <button href="#" style="all:unset;padding-top:1rem" name="button1"
                                     onclick="dataLayer.push({'event': 'button1-click'});">
                                     <a style="color:white;padding-top:1rem"
-                                          href="mailto:renovafiltros@gmail.com">info@distribuidorarenova.com</a>
+                                          href="mailto:renovafiltros@gmail.com">renovafiltros@gmail.com</a>
                               </button>
                         </div>
 
@@ -960,15 +955,21 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                               <button href="#" style="all:unset" name="button1"
                                     onclick="dataLayer.push({'event': 'button1-click'})"></button>
                               <a style="display: inline-flex; align-items: center; justify-content: center; padding: 1.2rem 3.2rem; border-radius: 999px; background: linear-gradient(135deg, #25D366 0%, #20BA5A 100%); color: #ffffff; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15rem; font-size: 1.3rem; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 20px 40px rgba(37, 211, 102, 0.35);"
-                                    href="mailto:renovafiltros@gmail.com"
+                                    href="https://wa.me/5491141674140" target="_blank"
                                     onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 24px 44px rgba(37, 211, 102, 0.45)';"
-                                    onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 20px 40px rgba(37, 211, 102, 0.35)';">LLAMANOS</a>
+                                    onmouseout="this.style.transform='translateY(0px)'; this.style.boxShadow='0 20px 40px rgba(37, 211, 102, 0.35)';">ESCRIBINOS</a>
                               </button>
                               </br> </br>
                               <button href="#" style="all:unset;padding-top:1rem" name="button1"
                                     onclick="dataLayer.push({'event': 'button1-click'});">
-                                    <a style="color:white;padding-top:1rem"
-                                          href="mailto:renovafiltros@gmail.com">45822887</a>
+                                    <a style="color:white;padding-top:1rem;font-size:2.2rem;font-weight:600"
+                                          href="tel:+541145822887">11 4582 2887</a>
+                              </button>
+                              </br>
+                              <button href="#" style="all:unset;padding-top:1rem" name="button1"
+                                    onclick="dataLayer.push({'event': 'button1-click'});">
+                                    <a style="color:white;padding-top:1rem;font-size:2.2rem;font-weight:600"
+                                          href="tel:+5411458145444">11 4581 45444</a>
                               </button>
 
                         </div>
@@ -977,8 +978,22 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
       </section>
 
       <script>
-            function displayAlert() {
-                  alert("Comuniquese via Mail")
+            function enviarWhatsApp() {
+                  var nombre = document.getElementById('name').value.trim();
+                  var mensaje = document.getElementById('message').value.trim();
+                  var texto = '';
+                  if (nombre && mensaje) {
+                        texto = 'Soy ' + nombre + ', ' + mensaje;
+                  } else if (nombre) {
+                        texto = 'Soy ' + nombre;
+                  } else if (mensaje) {
+                        texto = mensaje;
+                  }
+                  var url = 'https://wa.me/5491141674140';
+                  if (texto) {
+                        url += '?text=' + encodeURIComponent(texto);
+                  }
+                  window.open(url, '_blank');
             }
       </script>
       <!-- footer
