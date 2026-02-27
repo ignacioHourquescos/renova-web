@@ -1,46 +1,109 @@
 // Al finalizarse de cargar el DOM:
 var server = "https://renovaapi-production.up.railway.app";
-// var server ="http://localhost:5000";
 
 var id = getQueryParam("id");
+var listCode = getQueryParam("listCode") || "2";
 
-function obtenerListaEspecifica(id) {
-	$(document).ready(
-		$.getJSON(server + "/listas/" + id, function (data) {
-			if (window.matchMedia("(max-width: 400px)").matches) {
-				for (i = 0; i < data.resultado.length; i++) {
-					let stock = convertirStockNumericoEnEscala(data.resultado[i].s); //calculo VALOR STOCK
-					let precioConIva = (data.resultado[i].p * 1.21).toFixed(0); //calculo VALOR precio con IVA
-					data.resultado[i].p = sacarDescuetnoTamboresyBaldes(
-						id,
-						data.resultado[i].id,
-						precioConIva
-					); // Calculo descuentos en base a Agrupacion y tipo de producto
-					data.resultado[i].s = "Stock: " + stock;
-					data.resultado[i].pf =
-						"Unitario Final x unid:\xa0\xa0\xa0$" + precioConIva; //Concateno UNITARIO: al precio unitario
+function normalizarResultado(data, id) {
+	var resultado = data.resultado;
+	if (resultado) {
+		var idNum = parseInt(id, 10);
+		if (window.matchMedia("(max-width: 400px)").matches) {
+			for (var i = 0; i < resultado.length; i++) {
+				var stock = convertirStockNumericoEnEscala(resultado[i].s);
+				var precioConIva = (resultado[i].p * 1.21).toFixed(0);
+				resultado[i].p = sacarDescuetnoTamboresyBaldes(idNum, resultado[i].id, precioConIva);
+				resultado[i].s = "Stock: " + stock;
+				resultado[i].pf = "Unitario Final x unid:\xa0\xa0\xa0$" + precioConIva;
+			}
+		} else {
+			for (var j = 0; j < resultado.length; j++) {
+				var stock2 = convertirStockNumericoEnEscala(resultado[j].s);
+				var precioConIva2 = (resultado[j].p * 1.21).toFixed(0);
+				resultado[j].p = sacarDescuetnoTamboresyBaldes2(idNum, resultado[j].id, precioConIva2);
+				resultado[j].s = stock2;
+				resultado[j].pf = "$" + precioConIva2;
+			}
+		}
+		return { resultado: resultado, agrupacion: data.agrupacion, descuento: data.descuento };
+	}
+	// Formato listasDetalle2 (recordsets[0])
+	var filas = data.recordsets && data.recordsets[0] ? data.recordsets[0] : [];
+	var idNum = parseInt(id, 10);
+	resultado = filas.map(function (row) {
+		var p = row.precio != null ? row.precio : row.Precio || row.p;
+		if (p == null) p = 0;
+		var precioConIva = (parseFloat(p) * 1.21).toFixed(0);
+		var idProd = row.id != null ? row.id : row.codigo || row.articulo || row.Articulo || row.Codigo || "";
+		var desc = row.descripcion != null ? row.descripcion : row.Descripcion || (row.d != null ? row.d : "");
+		var stock = row.stock != null ? row.stock : row.Stock || row.s;
+		if (typeof stock === "number") stock = stock > 20 ? "Disponible" : "Consultar";
+		var r = row.rubro != null ? row.rubro : row.Rubro || (row.r != null ? row.r : "");
+		return {
+			id: idProd,
+			d: desc,
+			p: "$" + precioConIva,
+			s: stock,
+			pf: "$" + precioConIva,
+			r: r
+		};
+	});
+	for (var k = 0; k < resultado.length; k++) {
+		resultado[k].p = sacarDescuetnoTamboresyBaldes2(idNum, resultado[k].id, resultado[k].pf.replace("$", ""));
+	}
+	return { resultado: resultado, agrupacion: data.agrupacion || "Lista", descuento: data.descuento != null ? data.descuento : "" };
+}
+
+function pintarLista(info) {
+	var resultado = info.resultado;
+
+	// Si el cliente es restringido, enmascaramos precios en los datos *antes* de pintar
+	// para que nunca se vean los valores reales.
+	try {
+		var restringido = localStorage.getItem("renova_cliente_restringido") === "1";
+		if (restringido && resultado && resultado.length) {
+			for (var i = 0; i < resultado.length; i++) {
+				var mascara = "$XXXXX";
+
+				// Precio unitario final
+				if (resultado[i].pf != null && resultado[i].pf !== "-" && resultado[i].pf !== "—") {
+					resultado[i].pf = mascara;
 				}
-			} else {
-				for (i = 0; i < data.resultado.length; i++) {
-					let stock = convertirStockNumericoEnEscala(data.resultado[i].s); //calculo VALOR STOCK
-					let precioConIva = (data.resultado[i].p * 1.21).toFixed(0); //calculo VALOR precio con IVA
-					data.resultado[i].p = sacarDescuetnoTamboresyBaldes2(
-						id,
-						data.resultado[i].id,
-						precioConIva
-					); // Calculo descuentos en base a Agrupacion y tipo de producto
-					data.resultado[i].s = stock;
-					data.resultado[i].pf = "$" + precioConIva; //Concateno UNITARIO: al precio unitario
+
+				// Precio por caja cerrada (solo si tiene valor)
+				if (resultado[i].p != null && resultado[i].p !== "-" && resultado[i].p !== "—") {
+					resultado[i].p = mascara;
 				}
 			}
-			$("table").bootstrapTable({
-				data: data.resultado,
-			});
+		}
+	} catch (e) {}
+
+	$("table").bootstrapTable({ data: resultado });
+	$(".spinner-border").remove();
+	document.getElementById("nombreLista").innerHTML = "Lista de Precios";
+	document.getElementById("descuento").innerHTML = info.descuento;
+}
+
+function obtenerListaEspecifica(id) {
+	if (!id) {
+		$(".spinner-border").remove();
+		document.getElementById("nombreLista").innerHTML = "Lista no especificada";
+		return;
+	}
+	// Probar primero endpoint de producción (listasDetalle2), luego formato con resultado
+	$.getJSON(server + "/listasDetalle2/" + id, function (data) {
+		var info = normalizarResultado(data, id);
+		pintarLista(info);
+	}).fail(function () {
+		$.getJSON(server + "/listas/" + id + "?listCode=" + listCode, function (data) {
+			var info = normalizarResultado(data, id);
+			pintarLista(info);
+		}).fail(function () {
 			$(".spinner-border").remove();
-			document.getElementById("nombreLista").innerHTML = data.agrupacion;
-			document.getElementById("descuento").innerHTML = data.descuento;
-		})
-	);
+			document.getElementById("nombreLista").innerHTML = "Error al cargar la lista";
+			document.getElementById("descuento").innerHTML = "Intentá de nuevo más tarde.";
+		});
+	});
 }
 
 //escondo table header cuando es un celular, y si es en PC lo muestro

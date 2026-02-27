@@ -3,131 +3,109 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="format-detection" content="telephone=no">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<title>Lista de precios</title>
-		<link rel="stylesheet" 		href="./views/css/base.css">
-		<link rel="stylesheet" 		href="./views/css/vendor.css">
-		<link rel="stylesheet" 		href="./views/css/main.css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
 		<script src="../js/src/jquery.js"></script>
 		<script src="../js/src/helpers.js"></script>
-		<script src="../js/src/modernizr.js"></script>
-		<script src="..js/src/pace.min.js"></script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-179250562-2"></script>
-		<!-- Global site tag (gtag.js) - Google Ads: 963730457 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-963730457"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-963730457');
-</script>
-<!-- Event snippet for Website sale conversion page -->
-<script>
-	gtag('event', 'conversion', {
-		'send_to': 'AW-963730457/bIxHCP_s5OIBEJm4xcsD',
-		'transaction_id': ''
-	});
-  </script>
-  
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css">
+		<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.17.1/dist/extensions/sticky-header/bootstrap-table-sticky-header.css">
 
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/extensions/sticky-header/bootstrap-table-sticky-header.min.js"></script>
+		<script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/extensions/mobile/bootstrap-table-mobile.min.js"></script>
+		<script src="https://unpkg.com/bootstrap-table@1.17.1/dist/extensions/print/bootstrap-table-print.min.js"></script>
+
+		<!-- Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-963730457"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		
-		  gtag('config', 'UA-179250562-2');
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'AW-963730457');
+			gtag('config', 'UA-179250562-2');
 		</script>
 
-		<!-- Hotjar Tracking Code -->
+		<!-- Hotjar -->
 		<script>
-		    (function(h,o,t,j,a,r){
-		        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-		        h._hjSettings={hjid:6618678,hjsv:6};
-		        a=o.getElementsByTagName('head')[0];
-		        r=o.createElement('script');r.async=1;
-		        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-		        a.appendChild(r);
-		    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+			(function(h,o,t,j,a,r){
+				h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+				h._hjSettings={hjid:6618678,hjsv:6};
+				a=o.getElementsByTagName('head')[0];
+				r=o.createElement('script');r.async=1;
+				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+				a.appendChild(r);
+			})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 		</script>
-
-
-
 
 		<link rel="stylesheet" type="text/css" href="../css/main.css">
 		<link rel="stylesheet" type="text/css" href="../css/listas.css">
 	</head>
 
-
-<body>
-<!--Div where the WhatsApp will be rendered-->
-
-
-<!-- SIDE MENU
-================================================== -->
- <!-- <header>
-
-
-	<a id="header-menu-trigger" href="#0">
-		  <span class="header-menu-text">Menu</span>
-		   <span class="header-menu-icon"></span>
-	</a> 
-	<nav id="menu-nav-wrap" style="text-align:left;">
-		<a href="#0" class="close-button" title="close"><span>Close</span></a>	
-		<h3>Renova</h3>  
-		<ul class="nav-list">
-			<li><a class="" href="../../index.html" 		title="">Home</a></li>
-			<li><a class="" href="listas.html"				title="">Listas</a></li>
-			<li><a class="" href="login.html" 			title="">Ofertas</a></li>
-			<li><a class="" href="faq.html" 				title="">Abrir un lubricentro</a></li>				
-		</ul>		
-	 </nav> 
-
-</header>     -->
-
-
-
-
-
-<!-- SECCION DE LISTAS
-================================================== -->
-
 <body>
 
-
-<section>
-<div class="container-fluid cabecera"> 
-		<h1 id="nombreLista">Listas De Precios</h1>
-		<h3  style="color:rgb(255, 255, 255);transform:translateY(-1rem); font:2rem;text-shadow: 2px 2px #383838;">TODOS PRECIOS FINALES</h3>
-		<h2 id="ultimaActualizacion"></h2>
+<!-- CABECERA -->
+<div class="container-fluid cabecera">
+	<h1 id="nombreLista">Lista De Precios</h1>
 </div>
 
-	<div class="competenciaPlantilla competencia">
-		
+<!-- SECCION LOGIN -->
+<section id="loginSection" class="login-section">
+	<div id="verificandoCredenciales" class="login-page" style="display:none; flex-direction:column; align-items:center; justify-content:center;">
+		<p style="color:#333; font-size:1.2rem; margin-bottom:1rem;">Verificando credenciales...</p>
+		<div class="spinner-border" role="status">
+			<span class="sr-only" style="color:black;">Cargando...</span>
+		</div>
+	</div>
+	<div id="loginFormContainer" class="login-page">
+		<form id="formListaLogin" class="login-form" onsubmit="loginYCargarLista(event)">
+			<label class="login-label" for="numCliente">Número de Cliente *</label>
+			<input id="numCliente" type="text" placeholder="Ej: 9291" required autocomplete="off" />
+			<label class="login-label" for="cuit">Número de CUIT sin guiones *</label>
+			<input id="cuit" type="text" placeholder="11 dígitos" required />
+			<button type="submit" id="btnLogin" class="login-btn login-btn-primary">Iniciar sesión</button>
+
+			<a href="listas.html?explorar=1"
+			   class="login-btn login-btn-secondary login-btn-highlight"
+			   onclick="try{localStorage.setItem('renova_cliente_restringido','1')}catch(e){}">
+			   Explorar productos sin cuenta
+			</a>
+
+			<a href="../../index.html" class="login-btn login-btn-secondary login-btn-ghost">← Volver a inicio</a>
+
+			<p id="errorMsg" class="login-error"></p>
+		</form>
+	</div>
+</section>
+
+<!-- SECCION TARJETAS DE MARCAS (visible después del login) -->
+<section id="listasSection" style="display:none;">
+	<div class="competenciaPlantilla competencia" style="display:none;">
 		<div class="card" id="card1">
-			<a class="link2" style="position:absolute; top:0;right:0;width:100%; height:100%;background-color:transparent; display:block" href="https://listasrenova.netlify.app/views/html/listaEspecifica2.html?id="></a>
-				<h2><a class="link titulo" href="https://listasrenova.netlify.app/views/html/listaEspecifica2.html?id="></a></h2>
-				<h3 class="mes"  style="color:rgb(211, 213, 186)"></h3>
-				<h3 class="mes2" style=font-size:2rem></h3>
-            <h3 class="aumento" style="color:rgb(243, 243, 243); font-size:1rem"></h3>
+			<a class="link2" style="position:absolute; top:0;right:0;width:100%; height:100%;background-color:transparent; display:block" href="listaEspecifica2.html?id="></a>
+			<h2><a class="link titulo" href="listaEspecifica2.html?id="></a></h2>
+			<h3 class="mes" style="color:rgb(211, 213, 186)"></h3>
+			<h3 class="mes2" style="font-size:2rem"></h3>
+			<h3 class="aumento" style="color:rgb(243, 243, 243); font-size:1rem"></h3>
 		</div>
 	</div>
 
-	<div class="competencias"><a class="link titulo" href="https://listasrenova.netlify.app/views/html/listaEspecifica2.html?id=" ></a></div>
+	<div class="competencias"></div>
+
+	<div class="spinner-border" id="spinnerListas" role="status">
+		<span class="sr-only" style="color:black;">Loading...</span>
+	</div>
 </section>
-
-<div class="spinner-border" role="status">
-	<span class="sr-only" style="color:black;">Loading...</span>
-</div>
-
 
 </body>
 
-
-
-<script src="../js/src/helpers.js"></script>
 <script src="../js/src/plugins.js"></script>
 <script src="../js/src/main.js"></script>
 <script src="../js/listasService.js"></script>
