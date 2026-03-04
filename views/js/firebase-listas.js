@@ -28,7 +28,10 @@
 	function registrarIngresoAListas(clientId, listCode, clientName) {
 		if (!firestore) {
 			init();
-			if (!firestore) return;
+			if (!firestore) {
+				console.error("[Firestore] No se pudo inicializar. Revisá que firebase-config.js exista y defina window.__FIREBASE_CONFIG__ (apiKey, projectId).");
+				return;
+			}
 		}
 		try {
 			var doc = {
@@ -42,11 +45,15 @@
 			if (clientName != null && String(clientName).trim() !== "") {
 				doc.ClientName = String(clientName).trim();
 			}
-			firestore.collection("ingreso_a_listas").add(doc).catch(function (err) {
-				console.warn("Firestore ingreso_a_listas:", err);
-			});
+			firestore.collection("ingreso_a_listas").add(doc)
+				.then(function () {
+					console.info("[Firestore] Sesión registrada: Client " + clientId + ", listCode " + (doc.listCode || "(sin listCode)"));
+				})
+				.catch(function (err) {
+					console.error("[Firestore] Error al guardar sesión en ingreso_a_listas:", err);
+				});
 		} catch (e) {
-			console.warn("registrarIngresoAListas:", e);
+			console.error("[Firestore] registrarIngresoAListas:", e);
 		}
 	}
 
