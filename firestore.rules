@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Solo permitir CREAR documentos desde la web (ingresos a listas y visitas). No leer/editar/borrar.
+    match /ingreso_a_listas/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+    match /visitas_web/{doc} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
+    // Resto de colecciones: denegado por defecto (acceso solo desde backend/admin si aplica)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

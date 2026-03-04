@@ -2,7 +2,8 @@
 var server = "https://renovaapi-production.up.railway.app";
 
 var id = getQueryParam("id");
-var listCode = getQueryParam("listCode") || "2";
+var listCode = "";
+try { listCode = localStorage.getItem("renova_listCode") || ""; } catch (e) {}
 
 function normalizarResultado(data, id) {
 	var resultado = data.resultado;
@@ -57,28 +58,16 @@ function normalizarResultado(data, id) {
 function pintarLista(info) {
 	var resultado = info.resultado;
 
-	// Si el cliente es restringido, enmascaramos precios en los datos *antes* de pintar
-	// para que nunca se vean los valores reales.
-	try {
-		var restringido = localStorage.getItem("renova_cliente_restringido") === "1";
-		if (restringido && resultado && resultado.length) {
-			for (var i = 0; i < resultado.length; i++) {
-				var mascara = "$XXXXX";
-
-				// Precio unitario final
-				if (resultado[i].pf != null && resultado[i].pf !== "-" && resultado[i].pf !== "—") {
-					resultado[i].pf = mascara;
-				}
-
-				// Precio por caja cerrada (solo si tiene valor)
-				if (resultado[i].p != null && resultado[i].p !== "-" && resultado[i].p !== "—") {
-					resultado[i].p = mascara;
-				}
-			}
-		}
-	} catch (e) {}
+	resultado = resultado.filter(function (row) {
+		return String(row.id || "").trim().toUpperCase().indexOf("KIT") !== 0;
+	});
 
 	$("table").bootstrapTable({ data: resultado });
+
+	if (listCode === "0" || listCode === "1" || listCode === "3") {
+		$('#myTable').bootstrapTable('hideColumn', 'p');
+	}
+
 	$(".spinner-border").remove();
 	document.getElementById("nombreLista").innerHTML = "Lista de Precios";
 	document.getElementById("descuento").innerHTML = info.descuento;

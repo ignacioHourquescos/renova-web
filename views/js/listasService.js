@@ -1,18 +1,16 @@
 var server = "https://renovaapi-production.up.railway.app";
-var NUMERO_CLIENTE_MAXIMO = 9290;
+var serverV3 = "https://renova-svc-api-v3-production.up.railway.app";
 
 function cargarListas(listCode) {
 	$.getJSON(server + "/listas", function (data) {
 		var cantidad = data.length;
 		var idColor = 1;
-		var code = listCode != null ? listCode : "";
 		for (var i = 0; i < cantidad; i++) {
 			var divCompetencia = $(".competenciaPlantilla")
 				.clone()
 				.removeClass("competenciaPlantilla");
 
 			var url = "listaEspecifica2.html?id=" + data[i].codigo;
-			if (code !== "") url += "&listCode=" + code;
 
 			$(divCompetencia).find(".link2").attr("href", url);
 			$(divCompetencia)
@@ -36,22 +34,18 @@ function cargarListas(listCode) {
 	});
 }
 
+/** Deja solo dígitos del CUIT (quita guiones, espacios y cualquier otro carácter no numérico). */
+function normalizarCuit(valor) {
+	if (valor == null) return "";
+	var s = String(valor).trim();
+	return s.replace(/\D/g, "");
+}
+
 async function hacerLogin(numCliente, cuit) {
 	var errorMsg = document.getElementById("errorMsg");
 	var btnLogin = document.getElementById("btnLogin");
 
 	errorMsg.style.display = "none";
-
-	var numClienteNum = parseInt(numCliente, 10);
-	var esClienteNuevo = !isNaN(numClienteNum) && numClienteNum > NUMERO_CLIENTE_MAXIMO;
-
-	try {
-		if (esClienteNuevo) {
-			localStorage.setItem("renova_cliente_restringido", "1");
-		} else {
-			localStorage.setItem("renova_cliente_restringido", "0");
-		}
-	} catch (e) {}
 
 	if (cuit.length < 10) {
 		errorMsg.textContent = "CUIT inválido. Debe tener al menos 10 dígitos.";
@@ -73,11 +67,30 @@ async function hacerLogin(numCliente, cuit) {
 
 		btnLogin.textContent = "Obteniendo lista...";
 
-		var clientDetails = await $.getJSON(
-			server + "/getClient?clientId=" + numCliente
+		var listCodeResponse = await $.getJSON(
+			serverV3 + "/api/clients/" + numCliente + "/list-code"
 		);
 
-		var listCode = clientDetails.LISTA_CODI;
+		var listCode = null;
+		var clientName = "";
+		if (Array.isArray(listCodeResponse) && listCodeResponse.length > 0) {
+			var first = listCodeResponse[0];
+			listCode = first.LISTA_CODI;
+			// Nombre/razón social del cliente (según lo que devuelva la API)
+			clientName = (first.RAZON_SOCIAL || first.NOMBRE || first.nombre || first.clientName || first.CLIENTE_NOMBRE || first.razon_social || "").trim();
+		}
+
+		// Si la API de list-code no trajo el nombre, intentar GET /api/clients/{id}
+		if (!clientName) {
+			try {
+				var clientData = await $.getJSON(serverV3 + "/api/clients/" + numCliente);
+				if (clientData && typeof clientData === "object") {
+					clientName = (clientData.RAZON_SOCIAL || clientData.razon_social || clientData.NOMBRE || clientData.nombre || clientData.clientName || clientData.name || "").trim();
+				}
+			} catch (e) {
+				// El endpoint puede no existir o no devolver nombre; se sigue sin nombre
+			}
+		}
 
 		if (listCode === undefined || listCode === null) {
 			errorMsg.textContent =
@@ -88,11 +101,15 @@ async function hacerLogin(numCliente, cuit) {
 			return false;
 		}
 
-		// Guardar credenciales para la próxima vez
 		try {
 			localStorage.setItem("renova_numCliente", numCliente);
 			localStorage.setItem("renova_cuit", cuit);
+			localStorage.setItem("renova_listCode", String(listCode));
 		} catch (e) {}
+
+		if (typeof window.registrarIngresoAListas === "function") {
+			window.registrarIngresoAListas(numCliente, String(listCode), clientName);
+		}
 
 		document.getElementById("nombreLista").textContent = "Lista de Precios";
 		document.getElementById("loginSection").style.display = "none";
@@ -118,7 +135,9 @@ async function hacerLogin(numCliente, cuit) {
 async function loginYCargarLista(event) {
 	event.preventDefault();
 	var numCliente = document.getElementById("numCliente").value.trim();
-	var cuit = document.getElementById("cuit").value.trim();
+	var inputCuit = document.getElementById("cuit");
+	var cuit = normalizarCuit(inputCuit.value);
+	inputCuit.value = cuit; // mostramos solo dígitos en el campo
 	await hacerLogin(numCliente, cuit);
 }
 
