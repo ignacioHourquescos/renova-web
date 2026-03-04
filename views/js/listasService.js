@@ -41,11 +41,56 @@ function normalizarCuit(valor) {
 	return s.replace(/\D/g, "");
 }
 
+/**
+ * Credenciales passkey para clientes potenciales (sin registro).
+ * Usuario y contraseña iguales; permiten ver la lista indicada sin llamar al backend.
+ */
+var PASSKEYS_LISTAS = [
+	{ usuario: "reventa", contrasena: "reventa", listCode: "1" },
+	{ usuario: "normal", contrasena: "normal", listCode: "2" },
+	{ usuario: "taller", contrasena: "taller", listCode: "3" }
+];
+
+function validarPasskeyLista(numCliente, cuit) {
+	var user = String(numCliente || "").trim().toLowerCase();
+	var pass = String(cuit || "").trim().toLowerCase();
+	for (var i = 0; i < PASSKEYS_LISTAS.length; i++) {
+		var p = PASSKEYS_LISTAS[i];
+		if (user === p.usuario && pass === p.contrasena) return p.listCode;
+	}
+	return null;
+}
+
 async function hacerLogin(numCliente, cuit) {
 	var errorMsg = document.getElementById("errorMsg");
 	var btnLogin = document.getElementById("btnLogin");
 
 	errorMsg.style.display = "none";
+	btnLogin.disabled = true;
+	btnLogin.textContent = "Verificando...";
+
+	// Validar passkeys para clientes potenciales (antes de llamar al backend)
+	var listCodePasskey = validarPasskeyLista(numCliente, cuit);
+	if (listCodePasskey) {
+		try {
+			localStorage.setItem("renova_listCode", listCodePasskey);
+			localStorage.setItem("renova_numCliente", String(numCliente).trim());
+			localStorage.setItem("renova_cuit", String(cuit).trim());
+		} catch (e) {}
+		if (typeof window.registrarIngresoAListas === "function") {
+			window.registrarIngresoAListas(String(numCliente).trim(), listCodePasskey, "Potencial - Lista " + listCodePasskey);
+		}
+		document.getElementById("nombreLista").textContent = "Lista de Precios (vista previa)";
+		document.getElementById("loginSection").style.display = "none";
+		document.getElementById("listasSection").style.display = "block";
+		cargarListas(listCodePasskey);
+		btnLogin.disabled = false;
+		btnLogin.textContent = "Iniciar sesión";
+		return true;
+	}
+
+	btnLogin.disabled = false;
+	btnLogin.textContent = "Iniciar sesión";
 
 	if (cuit.length < 10) {
 		errorMsg.textContent = "CUIT inválido. Debe tener al menos 10 dígitos.";
@@ -136,9 +181,15 @@ async function loginYCargarLista(event) {
 	event.preventDefault();
 	var numCliente = document.getElementById("numCliente").value.trim();
 	var inputCuit = document.getElementById("cuit");
-	var cuit = normalizarCuit(inputCuit.value);
-	inputCuit.value = cuit; // mostramos solo dígitos en el campo
-	await hacerLogin(numCliente, cuit);
+	var cuitRaw = inputCuit.value;
+	// Passkey usa usuario/contraseña tal cual; login normal usa CUIT solo dígitos
+	if (validarPasskeyLista(numCliente, cuitRaw)) {
+		await hacerLogin(numCliente, cuitRaw);
+	} else {
+		var cuit = normalizarCuit(cuitRaw);
+		inputCuit.value = cuit;
+		await hacerLogin(numCliente, cuit);
+	}
 }
 
 // Si entró por "Explorar productos sin cuenta" (?explorar=1), mostrar tarjetas sin login
