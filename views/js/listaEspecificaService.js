@@ -5,6 +5,16 @@ var id = getQueryParam("id");
 var listCode = "";
 try { listCode = localStorage.getItem("renova_listCode") || ""; } catch (e) {}
 
+function enmascararPreciosSiSinCuenta(resultado) {
+	if (!listCode || String(listCode).trim() === "") {
+		var precioOculto = "$XX.XXX";
+		for (var i = 0; i < resultado.length; i++) {
+			resultado[i].p = precioOculto;
+			resultado[i].pf = precioOculto;
+		}
+	}
+}
+
 function normalizarResultado(data, id) {
 	var resultado = data.resultado;
 	if (resultado) {
@@ -26,6 +36,7 @@ function normalizarResultado(data, id) {
 				resultado[j].pf = "$" + precioConIva2;
 			}
 		}
+		enmascararPreciosSiSinCuenta(resultado);
 		return { resultado: resultado, agrupacion: data.agrupacion, descuento: data.descuento };
 	}
 	// Formato listasDetalle2 (recordsets[0])
@@ -52,6 +63,7 @@ function normalizarResultado(data, id) {
 	for (var k = 0; k < resultado.length; k++) {
 		resultado[k].p = sacarDescuetnoTamboresyBaldes2(idNum, resultado[k].id, resultado[k].pf.replace("$", ""));
 	}
+	enmascararPreciosSiSinCuenta(resultado);
 	return { resultado: resultado, agrupacion: data.agrupacion || "Lista", descuento: data.descuento != null ? data.descuento : "" };
 }
 
@@ -64,7 +76,8 @@ function pintarLista(info) {
 
 	$("table").bootstrapTable({ data: resultado });
 
-	if (listCode === "0" || listCode === "1" || listCode === "3") {
+	// Ocultar columna "Unitario x caja cerrada" para ciertas listas o modo solo catálogo (sin cuenta)
+	if (listCode === "0" || listCode === "1" || listCode === "3" || !listCode || String(listCode).trim() === "") {
 		$('#myTable').bootstrapTable('hideColumn', 'p');
 	}
 
