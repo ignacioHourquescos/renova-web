@@ -341,6 +341,22 @@
   font-family: "montserrat-bold", sans-serif;
 }
 
+/* Precio mayorista: enlace a listas de precios / login */
+.service-feature-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.service-feature-link:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+.service-feature-link:hover h4,
+.service-feature-link:hover i {
+  color: #f9a828;
+}
+
 @media only screen and (max-width: 768px) {
   .services-features {
     grid-template-columns: repeat(2, 1fr);
