@@ -78,7 +78,8 @@ async function hacerLogin(numCliente, cuit) {
 			localStorage.setItem("renova_cuit", String(cuit).trim());
 		} catch (e) {}
 		if (typeof window.registrarIngresoAListas === "function") {
-			window.registrarIngresoAListas(String(numCliente).trim(), listCodePasskey, "Potencial - Lista " + listCodePasskey);
+			var nombrePasskey = "Potencial - " + String(cuit).trim().toLowerCase();
+			window.registrarIngresoAListas(String(numCliente).trim(), listCodePasskey, nombrePasskey);
 		}
 		document.getElementById("nombreLista").textContent = "Lista de Precios (vista previa)";
 		document.getElementById("loginSection").style.display = "none";
@@ -153,7 +154,8 @@ async function hacerLogin(numCliente, cuit) {
 		} catch (e) {}
 
 		if (typeof window.registrarIngresoAListas === "function") {
-			window.registrarIngresoAListas(numCliente, String(listCode), clientName);
+			var nombreCliente = (clientName && clientName.trim()) ? clientName.trim() : "Cliente " + numCliente;
+			window.registrarIngresoAListas(numCliente, String(listCode), nombreCliente);
 		}
 
 		document.getElementById("nombreLista").textContent = "Lista de Precios";
