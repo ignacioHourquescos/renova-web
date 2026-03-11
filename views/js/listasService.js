@@ -43,12 +43,12 @@ function normalizarCuit(valor) {
 
 /**
  * Credenciales passkey para clientes potenciales (sin registro).
- * Usuario y contraseña iguales; permiten ver la lista indicada sin llamar al backend.
+ * Usuario: renova. Contraseñas: reventa, invitado, taller. Permiten ver la lista indicada sin llamar al backend.
  */
 var PASSKEYS_LISTAS = [
-	{ usuario: "reventa", contrasena: "reventa", listCode: "1" },
-	{ usuario: "normal", contrasena: "normal", listCode: "2" },
-	{ usuario: "taller", contrasena: "taller", listCode: "3" }
+	{ usuario: "renova", contrasena: "reventa", listCode: "1" },
+	{ usuario: "renova", contrasena: "invitado", listCode: "2" },
+	{ usuario: "renova", contrasena: "taller", listCode: "3" }
 ];
 
 function validarPasskeyLista(numCliente, cuit) {

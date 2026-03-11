@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="no-js" lang="es">
+
+<head>
+      <meta charset="UTF-8">
+      <title>Normas de aceites: API, ACEA y más | Renova</title>
+      <meta name="description" content="Guía completa sobre las normas de lubricantes: API, ACEA, ILSAC y SAE. Entendé qué significan las clasificaciones en tu aceite y elegí el correcto para tu vehículo.">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+      <meta name="keywords" content="normas API, ACEA, aceites, lubricantes, viscosidad SAE, clasificación aceites">
+
+      <link rel="canonical" href="https://www.distribuidorarenova.com.ar/views/html/normas-aceites.html" />
+      <link rel="icon" type="image/png" href="../images/logoRenova3.png" />
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" crossorigin="anonymous">
+      <link rel="stylesheet" href="../css/base.css">
+      <link rel="stylesheet" href="../css/vendor.css">
+      <link rel="stylesheet" href="../css/main.css">
+      <link rel="stylesheet" href="../css/personal.css">
+      <link rel="stylesheet" href="../css/index.css">
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+      <style>
+            /* Normas - Look & feel Renova, diseño propio */
+            .normas-page { font-family: "librebaskerville-regular", serif; }
+            .normas-page h1, .normas-page h2, .normas-page h3 { font-family: "montserrat-bold", sans-serif; }
+
+            .normas-hero {
+                  min-height: 50vh;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  position: relative;
+                  background: #0a0a0a;
+                  overflow: hidden;
+            }
+            .normas-hero__bg {
+                  position: absolute;
+                  inset: 0;
+                  background: url('../images/portfolio/valvoline2.webp') center/cover;
+                  opacity: 0.2;
+            }
+            .normas-hero__gradient {
+                  position: absolute;
+                  inset: 0;
+                  background: radial-gradient(ellipse at center, transparent 0%, rgba(0,0,0,0.7) 100%);
+            }
+            .normas-hero__content {
+                  position: relative;
+                  z-index: 2;
+                  padding: 4rem 2rem;
+            }
+            .normas-hero__title {
+                  font-size: clamp(2.8rem, 5vw, 4.5rem);
+                  font-weight: 700;
+                  color: #fff;
+                  margin: 0 0 1rem;
+                  letter-spacing: -0.02em;
+                  line-height: 1.15;
+            }
+            .normas-hero__tagline {
+                  color: #f9a828;
+                  font-size: 1.3rem;
+                  font-weight: 600;
+                  letter-spacing: 0.15em;
+                  text-transform: uppercase;
+            }
+            .normas-hero__back {
+                  margin-top: 2rem;
+                  color: rgba(255,255,255,0.7);
+                  text-decoration: none;
+                  font-size: 1.2rem;
+                  transition: color 0.3s;
+            }
+            .normas-hero__back:hover { color: #f9a828; }
+
+            .normas-intro {
+                  background: #fff;
+                  padding: 5rem 2rem;
+                  text-align: center;
+            }
+            .normas-intro__text {
+                  max-width: 680px;
+                  margin: 0 auto;
+                  font-size: 1.7rem;
+                  line-height: 1.7;
+                  color: #333;
+            }
+
+            .normas-block {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  min-height: 380px;
+                  align-items: center;
+            }
+            @media (max-width: 900px) {
+                  .normas-block { grid-template-columns: 1fr; }
+            }
+            .normas-block--dark {
+                  background: #0d0d0d;
+                  color: #fff;
+            }
+            .normas-block--dark .normas-block__text { color: rgba(255,255,255,0.9); }
+            .normas-block--dark .normas-block__text p { color: rgba(255,255,255,0.8); }
+            .normas-block--dark .normas-block__text ul { color: rgba(255,255,255,0.85); }
+            .normas-block--light {
+                  background: #f5f5f5;
+                  color: #1a1a1a;
+            }
+            .normas-block--light .normas-block__text { color: #333; }
+            .normas-block__text {
+                  padding: 4rem 3rem;
+            }
+            .normas-block__text h3 {
+                  font-size: 2.2rem;
+                  margin-bottom: 1.5rem;
+                  display: flex;
+                  align-items: center;
+                  gap: 0.8rem;
+            }
+            .normas-block__badge {
+                  display: inline-block;
+                  background: #f9a828;
+                  color: #000;
+                  padding: 0.3rem 0.9rem;
+                  border-radius: 4px;
+                  font-size: 1.1rem;
+                  font-weight: 700;
+                  letter-spacing: 0.05em;
+            }
+            .normas-block__text p {
+                  font-size: 1.5rem;
+                  line-height: 1.65;
+                  margin-bottom: 1rem;
+            }
+            .normas-block__text ul {
+                  padding-left: 2rem;
+                  font-size: 1.4rem;
+                  line-height: 1.8;
+            }
+            .normas-block__img {
+                  height: 100%;
+                  min-height: 280px;
+                  overflow: hidden;
+            }
+            .normas-block__img img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+            }
+            .normas-block--reverse .normas-block__img { order: -1; }
+
+            .normas-viscosidad {
+                  background: #0d0d0d;
+                  padding: 5rem 2rem;
+                  color: #fff;
+            }
+            .normas-viscosidad h3 {
+                  text-align: center;
+                  font-size: 2.4rem;
+                  margin-bottom: 2rem;
+                  color: #fff;
+            }
+            .normas-viscosidad h3 span { color: #f9a828; }
+
+            .normas-table-wrap {
+                  max-width: 700px;
+                  margin: 0 auto 2rem;
+                  border: 1px solid rgba(249, 168, 40, 0.3);
+                  border-radius: 12px;
+                  overflow: hidden;
+            }
+            .normas-table {
+                  width: 100%;
+                  border-collapse: collapse;
+            }
+            .normas-table th, .normas-table td {
+                  padding: 1.2rem 1.8rem;
+                  text-align: left;
+                  border-bottom: 1px solid rgba(249, 168, 40, 0.18);
+            }
+            .normas-table th {
+                  background: rgba(249, 168, 40, 0.15);
+                  color: #f9a828;
+                  font-weight: 700;
+                  font-size: 1.2rem;
+            }
+            .normas-table td {
+                  color: rgba(255,255,255,0.9);
+                  font-size: 1.4rem;
+            }
+            .normas-table tr:last-child td { border-bottom: none; }
+
+            .normas-cta {
+                  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                  padding: 4rem 2rem;
+                  text-align: center;
+                  border-top: 4px solid #f9a828;
+            }
+            .normas-cta p {
+                  color: rgba(255,255,255,0.9);
+                  font-size: 1.5rem;
+                  margin-bottom: 1.5rem;
+            }
+            .normas-cta .btn-whatsapp {
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 0.8rem;
+                  padding: 1.2rem 2.5rem;
+                  background: #25D366;
+                  color: #fff;
+                  font-weight: 700;
+                  text-decoration: none;
+                  border-radius: 50px;
+                  font-size: 1.2rem;
+                  transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .normas-cta .btn-whatsapp:hover {
+                  transform: translateY(-3px);
+                  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+                  color: #fff;
+            }
+      </style>
+</head>
+
+<body id="top" class="normas-page" style="padding:0px;">
+      <!-- Header -->
+      <header>
+            <a id="header-menu-trigger" href="#0">
+                  <span class="header-menu-text">Menu</span>
+                  <span class="header-menu-icon"></span>
+            </a>
+            <nav id="menu-nav-wrap">
+                  <a href="#0" class="close-button"><span>Close</span></a>
+                  <h3>Renova</h3>
+                  <ul class="nav-list">
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="listas.html">Listas</a></li>
+                        <li><a href="normas-aceites.html">Normas de aceites</a></li>
+                  </ul>
+            </nav>
+      </header>
+
+      <!-- Hero -->
+      <section class="normas-hero">
+            <div class="normas-hero__bg"></div>
+            <div class="normas-hero__gradient"></div>
+            <div class="normas-hero__content">
+                  <h1 class="normas-hero__title">Normas de lubricantes</h1>
+                  <p class="normas-hero__tagline">API · ACEA · ILSAC · SAE</p>
+                  <a href="../../index.html" class="normas-hero__back">← Volver al inicio</a>
+            </div>
+      </section>
+
+      <div style="border: 3px solid #f39c12; width: 100%;"></div>
+
+      <!-- Intro -->
+      <section class="normas-intro">
+            <p class="normas-intro__text">
+                  Las etiquetas de los aceites pueden parecer un código secreto. En esta guía te explicamos qué significan las principales normas y cómo elegir el lubricante correcto para tu vehículo o maquinaria.
+            </p>
+      </section>
+
+      <!-- API -->
+      <section class="normas-block normas-block--dark">
+            <div class="normas-block__text">
+                  <h3><span class="normas-block__badge">API</span> American Petroleum Institute</h3>
+                  <p>El estándar más reconocido a nivel mundial. Clasifica los lubricantes según rendimiento y compatibilidad con motores.</p>
+                  <ul>
+                        <li><strong>Nafta:</strong> API SP, SN, SM — letras más avanzadas = mayor protección</li>
+                        <li><strong>Diésel:</strong> API CK-4, CJ-4, CI-4 (camiones, flotas)</li>
+                        <li>Ejemplo: API SP/CF = nafta y diésel ligero</li>
+                  </ul>
+            </div>
+            <div class="normas-block__img">
+                  <img src="../images/portfolio/valvoline2.webp" alt="Aceite Valvoline - Norma API" loading="lazy">
+            </div>
+      </section>
+
+      <!-- ACEA -->
+      <section class="normas-block normas-block--light normas-block--reverse">
+            <div class="normas-block__text">
+                  <h3><span class="normas-block__badge">ACEA</span> Estándar europeo</h3>
+                  <p>Exigido por Volkswagen, BMW, Mercedes, Renault, Fiat. Especificaciones más estrictas en intervalos y protección.</p>
+                  <ul>
+                        <li><strong>A/B</strong> — Motores nafta y diésel de pasajeros</li>
+                        <li><strong>C</strong> — Bajo cenizas (compatible con catalizadores)</li>
+                        <li><strong>E</strong> — Diésel pesados (camiones, buses)</li>
+                  </ul>
+            </div>
+            <div class="normas-block__img">
+                  <img src="../images/portfolio/petronas.webp" alt="Aceite Petronas - Norma ACEA" loading="lazy">
+            </div>
+      </section>
+
+      <!-- ILSAC -->
+      <section class="normas-block normas-block--dark">
+            <div class="normas-block__text">
+                  <h3><span class="normas-block__badge">ILSAC</span> Japonés / Americano</h3>
+                  <p>Estándar de Toyota, Honda, Nissan y marcas americanas. Enfocado en eficiencia de combustible y protección del motor.</p>
+                  <ul>
+                        <li>GF-6A y GF-6B (versiones más recientes)</li>
+                        <li>Mejor protección contra desgaste y LSPI</li>
+                        <li>Buscá el sello en el envase si tu manual lo indica</li>
+                  </ul>
+            </div>
+            <div class="normas-block__img">
+                  <img src="../images/portfolio/moutl2.jpg" alt="Aceite Motul - Norma ILSAC" loading="lazy">
+            </div>
+      </section>
+
+      <div style="border: 3px solid #f39c12; width: 100%;"></div>
+
+      <!-- SAE Viscosidad -->
+      <section class="normas-viscosidad">
+            <h3><span>SAE</span> — Viscosidad del aceite</h3>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto 2rem; font-size: 1.5rem; color: rgba(255,255,255,0.85);">
+                  El número antes de la W (winter) indica el comportamiento en frío; el número después, en caliente.
+            </p>
+            <div class="normas-table-wrap">
+                  <table class="normas-table">
+                        <thead>
+                              <tr><th>Clasificación</th><th>Uso recomendado</th></tr>
+                        </thead>
+                        <tbody>
+                              <tr><td><strong>0W-20, 5W-30</strong></td><td>Motores modernos, clima frío, ahorro de combustible</td></tr>
+                              <tr><td><strong>5W-40, 10W-40</strong></td><td>Uso general, amplio rango de temperaturas</td></tr>
+                              <tr><td><strong>15W-40, 20W-50</strong></td><td>Motores diésel, vehículos antiguos, clima cálido</td></tr>
+                        </tbody>
+                  </table>
+            </div>
+            <p style="text-align: center; font-size: 1.3rem; color: rgba(255,255,255,0.7); font-style: italic;">
+                  Ejemplo: 5W-40 = fluye bien en frío (5) y mantiene protección en caliente (40).
+            </p>
+      </section>
+
+      <!-- CTA -->
+      <section class="normas-cta">
+            <p>¿Necesitás asesoramiento para elegir el aceite correcto?</p>
+            <p style="font-size: 1.3rem; margin-bottom: 1.5rem;">En Renova te ayudamos con stock de las mejores marcas y 40 años de experiencia.</p>
+            <a href="https://wa.me/5491141674140?text=Hola%2C%20necesito%20asesoramiento%20sobre%20qué%20aceite%20usar%20para%20mi%20vehículo" target="_blank" class="btn-whatsapp">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.87.116-.174.232-.09.428.086.195.384.829.826 1.342.567.678 1.04 1.028 1.188 1.102.148.074.237.037.324-.055.087-.093.374-.435.474-.582.1-.148.201-.126.336-.076s.881.407 1.032.484c.151.077.249.116.287.179.038.063.038.362-.106.711z"/>
+                  </svg>
+                  Consultar por WhatsApp
+            </a>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+            <div class="footer-main">
+                  <div class="row">
+                        <div class="col-three tab-full footer-about">
+                              <h4 class="h05">RENOVA</h4>
+                              <p class="col-nine"><a href="https://www.cuitonline.com/detalle/20934613008/grosso-fiore.html" target="_blank"><img src="../images/qrafip.jpg" id="qrAfip" alt="Código QR AFIP"></a></p>
+                        </div>
+                        <div class="col-three tab-full footer-nav">
+                              <h4 class="h05">Navegación</h4>
+                              <ul class="list-links">
+                                    <li><a href="../../index.html">Home</a></li>
+                                    <li><a href="listas.html">Listas</a></li>
+                                    <li><a href="normas-aceites.html">Normas de aceites</a></li>
+                                    <li><a href="../../index.html#contactenos">Contacto</a></li>
+                              </ul>
+                        </div>
+                        <div class="col-three tab-full footer-contact">
+                              <h4 class="h05">Contacto</h4>
+                              <ul class="list-links">
+                                    <li><a href="https://wa.me/5491141674140" target="_blank" style="color: #25D366;">WhatsApp</a></li>
+                                    <li><a href="mailto:renovafiltros@gmail.com">renovafiltros@gmail.com</a></li>
+                                    <li><a href="tel:+541145822887">(011) 4582-2887</a></li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </footer>
+
+      <!-- WhatsApp Button -->
+      <div id="customWhatsAppBtn" style="position: fixed; bottom: 20px; right: 30px; z-index: 1000; cursor: pointer;">
+            <div style="background-color: #25D366; width: 100px; height: 100px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                  onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.4)';"
+                  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';">
+                  <a href="https://wa.me/5491141674140" target="_blank" style="display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 24 24" fill="#FFFFFF">
+                              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.87.116-.174.232-.09.428.086.195.384.829.826 1.342.567.678 1.04 1.028 1.188 1.102.148.074.237.037.324-.055.087-.093.374-.435.474-.582.1-.148.201-.126.336-.076s.881.407 1.032.484c.151.077.249.116.287.179.038.063.038.362-.106.711z"/>
+                        </svg>
+                  </a>
+            </div>
+      </div>
+
+      <script src="../js/src/plugins.js"></script>
+      <script src="../js/src/main.js"></script>
+</body>
+
+</html>
