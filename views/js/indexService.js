@@ -5,8 +5,20 @@ $(function () {
 		return;
 	}
 
-	// Phone number (same for all sections)
-	const phoneNumber = "5491141674140";
+	const WHATSAPP_LUBRICENTRO = "5491141674140";
+	const WHATSAPP_GENERAL = "5491140565047";
+
+	function getPhoneNumber(category) {
+		return category === "abrirLubricentro" ? WHATSAPP_LUBRICENTRO : WHATSAPP_GENERAL;
+	}
+
+	function openWhatsApp(category, location) {
+		const message = buildMessage(category, location);
+		const encodedMessage = encodeURIComponent(message);
+		const phoneNumber = getPhoneNumber(category);
+		const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+		window.open(whatsappURL);
+	}
 	
 	// Store selected category (outside modal creation to persist)
 	let selectedCategory = null;
@@ -100,57 +112,42 @@ $(function () {
 				</div>
 			</div>
 		`);
-
-		// Handle tab switching
-		$("#whatsappSectionModal").on("click", ".modal-tab", function () {
-			const tabName = $(this).data("tab");
-			
-			// Update tabs
-			$(".modal-tab").removeClass("active");
-			$(this).addClass("active");
-			
-			// Update tab content
-			$(".modal-tab-content").hide().removeClass("active");
-			$("#tab-" + tabName).show().addClass("active");
-		});
-
-		// Handle category selection
-		$("#whatsappSectionModal").on("click", ".section-btn[data-category]", function () {
-			selectedCategory = $(this).data("category");
-			
-			// Switch to location tab
-			$(".modal-tab").removeClass("active");
-			$(".modal-tab[data-tab='location']").addClass("active");
-			
-			$(".modal-tab-content").hide().removeClass("active");
-			$("#tab-location").show().addClass("active");
-		});
-
-		// Reset modal when closed
-		$("#whatsappSectionModal").on("hidden.bs.modal", function () {
-			resetModal();
-		});
-
-		// Handle location selection (Step 2)
-		$("#whatsappSectionModal").on("click", ".location-btn", function () {
-			const selectedLocation = $(this).data("location");
-			
-			if (selectedCategory && selectedLocation) {
-				// Build message with category and location
-				const message = buildMessage(selectedCategory, selectedLocation);
-				
-				// Encode message for URL
-				const encodedMessage = encodeURIComponent(message);
-
-				// Close the modal
-				$("#whatsappSectionModal").modal("hide");
-
-				// Open WhatsApp with the selected phone number and message
-				const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-				window.open(whatsappURL);
-			}
-		});
 	}
+
+	const $whatsappModal = $("#whatsappSectionModal");
+
+	$whatsappModal.on("click", ".modal-tab", function () {
+		const tabName = $(this).data("tab");
+
+		$(".modal-tab").removeClass("active");
+		$(this).addClass("active");
+
+		$(".modal-tab-content").hide().removeClass("active");
+		$("#tab-" + tabName).show().addClass("active");
+	});
+
+	$whatsappModal.on("click", ".section-btn[data-category]", function () {
+		selectedCategory = $(this).attr("data-category");
+
+		$(".modal-tab").removeClass("active");
+		$(".modal-tab[data-tab='location']").addClass("active");
+
+		$(".modal-tab-content").hide().removeClass("active");
+		$("#tab-location").show().addClass("active");
+	});
+
+	$whatsappModal.on("hidden.bs.modal", function () {
+		resetModal();
+	});
+
+	$whatsappModal.on("click", ".location-btn", function () {
+		const selectedLocation = $(this).attr("data-location");
+
+		if (selectedCategory && selectedLocation) {
+			$whatsappModal.modal("hide");
+			openWhatsApp(selectedCategory, selectedLocation);
+		}
+	});
 
 	// Set up custom WhatsApp button click handler
 	$("#customWhatsAppBtn").on("click", function () {
