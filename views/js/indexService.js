@@ -5,19 +5,10 @@ $(function () {
 		return;
 	}
 
-	const WHATSAPP_LUBRICENTRO = "5491141674140";
-	const WHATSAPP_GENERAL = "5491140565047";
-
-	function getPhoneNumber(category) {
-		return category === "abrirLubricentro" ? WHATSAPP_LUBRICENTRO : WHATSAPP_GENERAL;
-	}
-
 	function openWhatsApp(category, location) {
 		const message = buildMessage(category, location);
-		const encodedMessage = encodeURIComponent(message);
-		const phoneNumber = getPhoneNumber(category);
-		const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-		window.open(whatsappURL);
+		const intent = category === "abrirLubricentro" ? "abrirLubricentro" : "general";
+		window.RenovaWhatsApp.open(message, intent);
 	}
 	
 	// Store selected category (outside modal creation to persist)

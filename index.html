@@ -194,7 +194,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
           }
         ],
         "sameAs": [
-          "https://wa.me/5491140565047"
+          "https://wa.me/5491141674140"
         ]
           },
           {
@@ -1045,6 +1045,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
             </div>
       </section>
 
+      <script src="./views/js/whatsapp-routing.js"></script>
       <script>
             function enviarWhatsApp() {
                   var nombre = document.getElementById('name').value.trim();
@@ -1057,11 +1058,7 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                   } else if (mensaje) {
                         texto = mensaje;
                   }
-                  var url = 'https://wa.me/5491140565047';
-                  if (texto) {
-                        url += '?text=' + encodeURIComponent(texto);
-                  }
-                  window.open(url, '_blank');
+                  window.RenovaWhatsApp.open(texto, 'general');
             }
       </script>
       <!-- footer
@@ -1334,16 +1331,8 @@ In your html page, add the snippet and call gtag_report_conversion when someone 
                   const consulta = $('#consultaTextarea').val().trim();
                   
                   if (consulta) {
-                        // Codificar el texto para URL
-                        const textoEncoded = encodeURIComponent(consulta);
-                        // Número de WhatsApp (ajustar si es necesario)
-                        const whatsappNumber = '5491140565047';
-                        // Crear URL de WhatsApp
-                        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${textoEncoded}`;
-                        
-                        // Abrir WhatsApp en nueva pestaña
-                        window.open(whatsappURL, '_blank');
-                        
+                        window.RenovaWhatsApp.open(consulta, 'general');
+
                         // Cerrar el modal
                         $('#consultaModal').modal('hide');
                         

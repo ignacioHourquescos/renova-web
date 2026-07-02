@@ -140,18 +140,10 @@ $(document).ready(function() {
             return;
         }
 
-        // Crear mensaje para WhatsApp con formato específico
         const mensaje = `Quiero abrir un lubricentro || ${nombre} || ${localidad} || ${experiencia} || ${capital}`;
 
-        // Codificar mensaje para URL
-        const mensajeCodificado = encodeURIComponent(mensaje);
-        const whatsappURL = `https://wa.me/5491165106333?text=${mensajeCodificado}`;
-
-        // Cerrar modal
         $('#modalAsesoria').modal('hide');
-
-        // Abrir WhatsApp
-        window.open(whatsappURL, '_blank');
+        window.RenovaWhatsApp.open(mensaje, 'abrirLubricentro');
 
         // Limpiar formulario
         $('#formAsesoria')[0].reset();
