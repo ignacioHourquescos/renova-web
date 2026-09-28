@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Alta de cliente | Renova</title>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-963730457"></script>
+      <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'AW-963730457');
+
+            function gtag_report_conversion(url) {
+                  var callback = function () {
+                        if (typeof url !== 'undefined') {
+                              window.location = url;
+                        }
+                  };
+                  gtag('event', 'conversion', {
+                        'send_to': 'AW-963730457/zkajCPemyvMCEJm4xcsD',
+                        'event_callback': callback
+                  });
+                  return false;
+            }
+      </script>
+      <style>
+            html,
+            body {
+                  margin: 0;
+                  padding: 0;
+                  min-height: 100%;
+                  background: #f6f4ef;
+                  color: #1a1a1a;
+                  font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                  min-height: 100vh;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 24px;
+                  box-sizing: border-box;
+            }
+
+            .alta-wrap {
+                  width: 100%;
+                  max-width: 460px;
+            }
+
+            .alta-card {
+                  width: 100%;
+                  background: #ffffff;
+                  border-radius: 16px;
+                  padding: 32px 28px;
+                  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+                  box-sizing: border-box;
+            }
+
+            h1 {
+                  margin: 0 0 8px;
+                  font-size: 1.8rem;
+            }
+
+            .alta-intro {
+                  margin: 0 0 24px;
+                  color: #5c574e;
+                  line-height: 1.4;
+            }
+
+            label {
+                  display: block;
+                  margin-bottom: 14px;
+                  font-size: 0.92rem;
+                  font-weight: 700;
+            }
+
+            input {
+                  display: block;
+                  width: 100%;
+                  margin-top: 6px;
+                  padding: 12px 14px;
+                  border: 1px solid #d9d3c7;
+                  border-radius: 10px;
+                  font: inherit;
+                  box-sizing: border-box;
+            }
+
+            input:focus {
+                  outline: 2px solid #f39c12;
+                  border-color: #f39c12;
+            }
+
+            button {
+                  width: 100%;
+                  margin-top: 8px;
+                  padding: 14px 18px;
+                  border: 0;
+                  border-radius: 999px;
+                  background: #f39c12;
+                  color: #1a1a1a;
+                  font: inherit;
+                  font-weight: 700;
+                  letter-spacing: 0.04em;
+                  text-transform: uppercase;
+                  cursor: pointer;
+            }
+
+            button:hover {
+                  background: #e67e22;
+            }
+
+            .alta-error {
+                  min-height: 1.2em;
+                  margin: 8px 0 0;
+                  color: #c0392b;
+                  font-size: 0.9rem;
+            }
+
+            .alta-ok {
+                  display: none;
+                  margin: 0;
+                  font-size: 1.2rem;
+                  line-height: 1.4;
+            }
+
+            .alta-origen {
+                  margin: 16px 0 0;
+                  color: #5c574e;
+                  font-size: 0.95rem;
+                  text-align: center;
+            }
+      </style>
+</head>
+<body>
+      <div class="alta-wrap">
+      <main class="alta-card">
+            <form id="alta-form">
+                  <h1>Alta de cliente</h1>
+                  <p class="alta-intro">Dejanos tus datos y te damos de alta.</p>
+
+                  <label>Nombre
+                        <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+                  </label>
+                  <label>Empresa
+                        <input id="empresa" name="empresa" type="text" autocomplete="organization" required>
+                  </label>
+                  <label>Teléfono
+                        <input id="telefono" name="telefono" type="tel" autocomplete="tel" required>
+                  </label>
+                  <label>Email
+                        <input id="email" name="email" type="email" autocomplete="email" required>
+                  </label>
+
+                  <button type="submit">Darme de alta</button>
+                  <p id="alta-error" class="alta-error" role="alert"></p>
+            </form>
+            <p id="alta-ok" class="alta-ok">Listo. Recibimos tu solicitud de alta.</p>
+      </main>
+      <p id="alta-origen" class="alta-origen" hidden></p>
+      </div>
+
+      <script src="../views/js/whatsapp-routing.js"></script>
+      <script src="../views/js/admin-bar.js"></script>
+      <script>
+            var landingLabels = {
+                  flotas: "Vengo de la landing de Flotas",
+                  "flota-autos": "Vengo de la landing de Flota de autos",
+                  "flota-camiones": "Vengo de la landing de Flota de camiones",
+                  agro: "Vengo de la landing de Agro",
+                  industria: "Vengo de la landing de Industria",
+                  lubricentro: "Vengo de la landing de Lubricentro",
+                  talleres: "Vengo de la landing de Talleres",
+                  qaul: "Vengo de la landing de QAUL",
+                  estaciones: "Vengo de la landing de Estaciones",
+                  revendedores: "Vengo de la landing de Revendedores"
+            };
+            var landing = sessionStorage.getItem("renova_landing");
+            var origen = document.getElementById("alta-origen");
+
+            if (landingLabels[landing]) {
+                  origen.textContent = landingLabels[landing];
+                  origen.hidden = false;
+            }
+      </script>
+      <script>
+            document.getElementById('alta-form').addEventListener('submit', function (event) {
+                  event.preventDefault();
+
+                  var nombre = document.getElementById('nombre').value.trim();
+                  var empresa = document.getElementById('empresa').value.trim();
+                  var telefono = document.getElementById('telefono').value.trim();
+                  var email = document.getElementById('email').value.trim();
+                  var error = document.getElementById('alta-error');
+
+                  if (!nombre || !empresa || !telefono || !email) {
+                        error.textContent = 'Completá nombre, empresa, teléfono y email.';
+                        return;
+                  }
+
+                  error.textContent = '';
+                  gtag_report_conversion();
+
+                  var mensaje = 'Hola, quiero darme de alta.\n'
+                        + 'Nombre: ' + nombre + '\n'
+                        + 'Empresa: ' + empresa + '\n'
+                        + 'Teléfono: ' + telefono + '\n'
+                        + 'Email: ' + email;
+
+                  if (window.RenovaWhatsApp) {
+                        window.RenovaWhatsApp.open(mensaje);
+                  }
+
+                  document.getElementById('alta-form').style.display = 'none';
+                  document.getElementById('alta-ok').style.display = 'block';
+            });
+      </script>
+</body>
+</html>

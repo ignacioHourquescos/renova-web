@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Admin | Renova</title>
+      <style>
+            html,
+            body {
+                  margin: 0;
+                  padding: 0;
+                  min-height: 100%;
+                  background: #f6f4ef;
+                  color: #1a1a1a;
+                  font-family: Arial, Helvetica, sans-serif;
+            }
+
+            body {
+                  min-height: 100vh;
+                  display: flex;
+                  align-items: flex-start;
+                  justify-content: center;
+                  padding: 24px;
+                  box-sizing: border-box;
+            }
+
+            .admin-card {
+                  width: 100%;
+                  max-width: 420px;
+                  background: #ffffff;
+                  border-radius: 16px;
+                  padding: 32px 28px;
+                  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+                  box-sizing: border-box;
+            }
+
+            h1 {
+                  margin: 0 0 8px;
+                  font-size: 1.8rem;
+            }
+
+            .admin-intro {
+                  margin: 0 0 24px;
+                  color: #5c574e;
+                  line-height: 1.4;
+            }
+
+            label {
+                  display: block;
+                  margin-bottom: 14px;
+                  font-size: 0.92rem;
+                  font-weight: 700;
+            }
+
+            input {
+                  display: block;
+                  width: 100%;
+                  margin-top: 6px;
+                  padding: 12px 14px;
+                  border: 1px solid #d9d3c7;
+                  border-radius: 10px;
+                  font: inherit;
+                  box-sizing: border-box;
+            }
+
+            input:focus {
+                  outline: 2px solid #f39c12;
+                  border-color: #f39c12;
+            }
+
+            button {
+                  width: 100%;
+                  margin-top: 8px;
+                  padding: 14px 18px;
+                  border: 0;
+                  border-radius: 999px;
+                  background: #f39c12;
+                  color: #1a1a1a;
+                  font: inherit;
+                  font-weight: 700;
+                  letter-spacing: 0.04em;
+                  text-transform: uppercase;
+                  cursor: pointer;
+            }
+
+            .admin-error {
+                  min-height: 1.2em;
+                  margin: 8px 0 0;
+                  color: #c0392b;
+                  font-size: 0.9rem;
+            }
+
+            .admin-links {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+            }
+
+            .admin-links a {
+                  display: block;
+                  padding: 14px 16px;
+                  border-radius: 12px;
+                  background: #f6f4ef;
+                  color: #1a1a1a;
+                  text-decoration: none;
+                  font-weight: 700;
+            }
+
+            .admin-links a:hover {
+                  background: #f39c12;
+            }
+      </style>
+</head>
+<body>
+      <main class="admin-card">
+            <form id="admin-login">
+                  <h1>Admin</h1>
+                  <p class="admin-intro">Ingresá para ver las landings.</p>
+                  <label>Usuario
+                        <input id="usuario" name="usuario" type="text" autocomplete="username" required>
+                  </label>
+                  <label>Contraseña
+                        <input id="clave" name="clave" type="password" autocomplete="current-password" required>
+                  </label>
+                  <button type="submit">Entrar</button>
+                  <p id="admin-error" class="admin-error" role="alert"></p>
+            </form>
+            <section id="admin-home" hidden>
+                  <h1>Landings</h1>
+                  <p class="admin-intro">Elegí una para abrirla.</p>
+                  <nav class="admin-links">
+                        <a href="/flota-de-autos/">Flota de autos</a>
+                        <a href="/flota-de-camiones/">Flota de camiones</a>
+                        <a href="/agro/">Agro</a>
+                        <a href="/industria/">Industria</a>
+                        <a href="/lubricentro/">Lubricentro</a>
+                        <a href="/talleres/">Talleres</a>
+                        <a href="/qaul/">QAUL</a>
+                        <a href="/estaciones/">Estaciones</a>
+                        <a href="/revendedores/">Revendedores</a>
+                        <a href="/alta/">Alta</a>
+                  </nav>
+            </section>
+      </main>
+      <script src="../views/js/admin-bar.js"></script>
+      <script>
+            var USUARIO = "admin";
+            var CLAVE = "Rnv_12345";
+            var form = document.getElementById("admin-login");
+            var home = document.getElementById("admin-home");
+
+            function mostrarLandings() {
+                  form.hidden = true;
+                  home.hidden = false;
+            }
+
+            if (sessionStorage.getItem("renova_admin") === "1") {
+                  mostrarLandings();
+            }
+
+            form.addEventListener("submit", function (event) {
+                  event.preventDefault();
+                  var usuario = document.getElementById("usuario").value.trim();
+                  var clave = document.getElementById("clave").value;
+                  var error = document.getElementById("admin-error");
+
+                  if (usuario === USUARIO && clave === CLAVE) {
+                        sessionStorage.setItem("renova_admin", "1");
+                        error.textContent = "";
+                        mostrarLandings();
+                        if (!document.querySelector(".renova-admin-bar")) {
+                              window.location.reload();
+                        }
+                        return;
+                  }
+
+                  error.textContent = "Usuario o contraseña incorrectos";
+            });
+      </script>
+</body>
+</html>
