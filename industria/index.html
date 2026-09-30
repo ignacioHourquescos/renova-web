@@ -1,80 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Renova Industria</title>
-      <style>
-            html,
-            body {
-                  margin: 0;
-                  padding: 0;
-                  min-height: 100%;
-                  background: #ffffff;
-            }
-
-            body {
-                  min-height: 100vh;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-            }
-
-            .landing-placeholder {
-                  margin: 0;
-                  color: #1a1a1a;
-                  font-family: Arial, Helvetica, sans-serif;
-                  font-size: 2.4rem;
-                  font-weight: 600;
-                  text-align: center;
-            }
-
-            @keyframes pulse {
-                  0% {
-                        transform: scale(1);
-                        opacity: 0.7;
-                  }
-
-                  70% {
-                        transform: scale(1.3);
-                        opacity: 0;
-                  }
-
-                  100% {
-                        transform: scale(1.3);
-                        opacity: 0;
-                  }
-            }
-      </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo paratu industria | RENOVA</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="../hero.css">
+  <style>:root { --color-page: #111111; --color-text: #ffffff; --color-muted: #e0e0e0; --color-accent: #f9a828; --color-accent-dark: #c97a10; --color-accent-text: #1a1a1a; --color-overlay: rgba(17, 17, 17, 0.55); --font-heading: "Segoe UI", Arial, Helvetica, sans-serif; --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif }</style>
 </head>
 <body>
-      <!-- LANDING: reemplazar este bloque con el HTML cuando lo pasen. -->
-      <h1 class="landing-placeholder">landing de Industria</h1>
-
-      <a id="customWhatsAppBtn"
-            href="https://wa.me/5491140565047?text=industria-campaign"
-            target="_blank"
-            rel="noopener"
-            aria-label="Escribir por WhatsApp"
-            style="position: fixed; bottom: 20px; right: 30px; z-index: 1000; cursor: pointer; text-decoration: none;">
-            <div class="whatsapp-button-inner"
-                  style="background-color: #25D366; width: 100px; height: 100px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 8px rgba(0,0,0,0.3); transition: transform 0.3s ease, box-shadow 0.3s ease;"
-                  onmouseover="this.style.transform='scale(1.1)'; this.style.boxShadow='0 6px 12px rgba(0,0,0,0.4)';"
-                  onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0,0,0,0.3)';">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 24 24" fill="#FFFFFF">
-                        <path
-                              d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.87.116-.174.232-.09.428.086.195.384.829.826 1.342.567.678 1.04 1.028 1.188 1.102.148.074.237.037.324-.055.087-.093.374-.435.474-.582.1-.148.201-.126.336-.076s.881.407 1.032.484c.151.077.249.116.287.179.038.063.038.362-.106.711z" />
-                  </svg>
-            </div>
-            <div
-                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%; background-color: #25D366; opacity: 0.7; animation: pulse 2s infinite; pointer-events: none;">
-            </div>
-      </a>
-
-      <script src="../views/js/whatsapp-routing.js"></script>
-      <script src="../views/js/admin-bar.js"></script>
-      <script>
-            sessionStorage.setItem("renova_landing", "industria");
-      </script>
+<section class="hero"><p class="hero__brand">RENOVA</p><div class="hero__content"><h1>Todo paratu industria</h1><span class="hero__cta">Quiero que me contacten</span></div></section><section class="site-clients" aria-labelledby="site-clients-title"><h2 id="site-clients-title">Confían en nosotros</h2><ul class="site-clients__logos"><li><img src="../assets/clients/axion.png" alt="Axion energy"/></li><li><img src="../assets/clients/gobierno.png" alt="Gobierno de la Ciudad"/></li><li><img src="../assets/clients/hertz.png" alt="Hertz"/></li><li><img src="../assets/clients/images.png" alt="Petronor"/></li><li><img src="../assets/clients/kavak.png" alt="Kavak"/></li><li><img src="../assets/clients/roggio_bn.png" alt="Roggio"/></li><li><img src="../assets/clients/subte.png" alt="Subte"/></li></ul></section><section class="diferencial" aria-labelledby="diferencial-title"><div class="diferencial__inner"><h2 id="diferencial-title">Por qué trabajan con nosotros</h2><ul class="diferencial__grid"><li class="diferencial__card"><span class="diferencial__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.2 3.5H5.2A1.7 1.7 0 0 0 3.5 5.2v7l8.6 8.6a1.7 1.7 0 0 0 2.4 0l6.3-6.3a1.7 1.7 0 0 0 0-2.4l-8.6-8.6z"></path><circle cx="8" cy="8" r="1" fill="currentColor" stroke="none"></circle></svg></span><h3>Precio mayorista</h3><p>Comprás al valor de distribuidor, directo y sin recargos de reventa.</p></li><li class="diferencial__card"><span class="diferencial__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8 12 4l8.5 4L12 12 3.5 8z"></path><path d="M3.5 8v8L12 20l8.5-4V8"></path><path d="M12 12v8"></path></svg></span><h3>Stock permanente</h3><p>Filtros y lubricantes listos para salir cuando los pedís.</p></li><li class="diferencial__card"><span class="diferencial__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7.5h10.5V17H3z"></path><path d="M13.5 10.5H18l2.5 3V17h-7"></path><circle cx="7" cy="17.5" r="1.4"></circle><circle cx="17" cy="17.5" r="1.4"></circle></svg></span><h3>Entrega en todo el país</h3><p>Llegamos a tu depósito, taller o campo, estés donde estés.</p></li><li class="diferencial__card"><span class="diferencial__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M8.4 12.2 10.8 14.6 15.7 9.5"></path></svg></span><h3>Sin monto mínimo</h3><p>Pedís lo que necesitás. No hay un volumen obligatorio.</p></li></ul><div class="page-cta page-cta--inline"><span class="hero__cta">Quiero que me contacten</span></div></div></section><section class="cotizar" aria-labelledby="cotizar-title"><div class="cotizar__inner"><h2 id="cotizar-title">Cómo cotizar</h2><p class="cotizar__lead">En tres pasos, por WhatsApp. No hace falta un listado perfecto.</p><ol class="cotizar__steps"><li class="cotizar__step"><span class="cotizar__num">1</span><h3>Mandás marca, código o patente</h3><p>Si no tenés el código, con la patente o el modelo alcanza.</p></li><li class="cotizar__step"><span class="cotizar__num">2</span><h3>Te respondemos la cotización por WhatsApp</h3><p>Te pasamos el precio mayorista por el mismo chat.</p></li><li class="cotizar__step"><span class="cotizar__num">3</span><h3>Coordinamos la entrega</h3><p>A tu depósito, taller o campo.</p></li></ol><div class="page-cta"><span class="hero__cta">Quiero que me contacten</span></div></div></section><section class="destacados" aria-labelledby="destacados-title"><h2 id="destacados-title">Destacados</h2><ul class="destacados__grid"><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest1_1789745095773_thumb.webp?alt=media&amp;token=3b02c18e-37fa-4635-a3b7-eb51c84cc554" alt="8100 ECO-NERGY 5W30 5L" loading="lazy" decoding="async"/><span class="destacados__badge">5W30</span></div><div class="destacados__info"><p class="destacados__brand">MOTUL</p><p class="destacados__name">8100 ECO-NERGY 5W30 5L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1786467241299_thumb.webp?alt=media&amp;token=ef4c5b3e-1243-4906-b051-79a7d651beb2" alt="PUMA EXTRA GD 10W40 // 4 X 4L" loading="lazy" decoding="async"/></div><div class="destacados__info"><p class="destacados__brand">PUMA</p><p class="destacados__name">PUMA EXTRA GD 10W40 // 4 X 4L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1786467267579_thumb.webp?alt=media&amp;token=f5d55338-8ebf-4938-8ffb-78cae865b6d5" alt="VR1 RACING 10W60 SL; A3,B4 X 5L" loading="lazy" decoding="async"/></div><div class="destacados__info"><p class="destacados__brand">VALVOLINE</p><p class="destacados__name">VR1 RACING 10W60 SL; A3,B4 X 5L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1789753466215_thumb.webp?alt=media&amp;token=d4c559cf-a234-4f0d-9977-276eb14f85bf" alt="4100 POWER 15W50 5L" loading="lazy" decoding="async"/></div><div class="destacados__info"><p class="destacados__brand">MOTUL</p><p class="destacados__name">4100 POWER 15W50 5L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1786467238385_thumb.webp?alt=media&amp;token=02aeb827-af2b-44f4-a2f9-0116b099f535" alt="PUMA SYNTHETIC FD 5W40 // 4 X 4L" loading="lazy" decoding="async"/></div><div class="destacados__info"><p class="destacados__brand">PUMA</p><p class="destacados__name">PUMA SYNTHETIC FD 5W40 // 4 X 4L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1786467256328_thumb.webp?alt=media&amp;token=ee3eb4e8-77ae-4730-a098-49b8b87e4805" alt="ALL FLEET MAX 20W50 X 20L" loading="lazy" decoding="async"/></div><div class="destacados__info"><p class="destacados__brand">VALVOLINE</p><p class="destacados__name">ALL FLEET MAX 20W50 X 20L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1786467201091_thumb.webp?alt=media&amp;token=cef8373d-21dc-4200-9374-989e51eb14e8" alt="8100 5W40 X-CESS GEN 2 X 5L" loading="lazy" decoding="async"/><span class="destacados__badge">5W40</span></div><div class="destacados__info"><p class="destacados__brand">MOTUL</p><p class="destacados__name">8100 5W40 X-CESS GEN 2 X 5L</p></div></div></li><li class="destacados__card"><div class="destacados__fit"><div class="destacados__media"><img src="https://firebasestorage.googleapis.com/v0/b/renova-errores-2.appspot.com/o/destacados%2Fdest_1786467237300_thumb.webp?alt=media&amp;token=2ac8f988-93e9-4588-bf6c-252360a2c0ff" alt="PUMA SYNTHETIC FD 5W30 // 4 X 4L" loading="lazy" decoding="async"/></div><div class="destacados__info"><p class="destacados__brand">PUMA</p><p class="destacados__name">PUMA SYNTHETIC FD 5W30 // 4 X 4L</p></div></div></li></ul></section><section class="site-map" aria-labelledby="site-map-title"><div class="site-map__copy"><h2 id="site-map-title">Dónde estamos</h2><p>Dr. Adolfo Dickman 984, La Paternal, CABA, Argentina</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Dr.%20Adolfo%20Dickman%20984%2C%20La%20Paternal%2C%20CABA%2C%20Argentina" target="_blank" rel="noopener noreferrer">Cómo llegar</a></div><div class="site-map__canvas"><iframe title="Mapa de Dr. Adolfo Dickman 984, La Paternal, CABA, Argentina" src="https://maps.google.com/maps?q=Dr.%20Adolfo%20Dickman%20984%2C%20La%20Paternal%2C%20CABA%2C%20Argentina&amp;z=16&amp;hl=es&amp;output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowfullscreen=""></iframe></div></section><div class="page-cta"><span class="hero__cta">Quiero que me contacten</span></div><footer class="site-footer"><p class="site-footer__brand">RENOVA</p><p class="site-footer__qr"><a href="https://www.cuitonline.com/detalle/20934613008/grosso-fiore.html" target="_blank" rel="noopener noreferrer"><img src="../assets/qrafip.jpg" alt="Código QR AFIP"/></a></p><p>Renova (Grosso Fiore) · CUIT 20-93461300-8</p><p>Dr. Adolfo Dickman 984, La Paternal, CABA, Argentina</p><p><a href="#privacidad">Aviso de privacidad</a></p><p class="site-footer__legal">© 2026 Renova. Todos los derechos reservados.</p><aside class="site-footer__privacy" id="privacidad"><h3>Aviso de privacidad</h3><p>Responsable del tratamiento de tus datos: Renova (Grosso Fiore), CUIT 20-93461300-8, con domicilio en Dr. Adolfo Dickman 984, La Paternal, Ciudad Autónoma de Buenos Aires. Finalidad: usar los datos que nos enviás exclusivamente para contactarte y enviarte la cotización mayorista solicitada. Tus datos no se ceden ni comparten con terceros. Podés ejercer tus derechos de acceso, rectificación y supresión escribiendo a renovafiltros@gmail.com, conforme la Ley 25.326 de Protección de Datos Personales.</p></aside></footer><a class="wa-float" href="https://wa.me/5491140565047?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20mayorista." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.44 1.72 6.36L3.2 28.8l6.6-1.73a12.75 12.75 0 0 0 6.24 1.6h.01c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.67-12.81-12.67zm0 23.42h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.02 1.06 1.07-3.9-.25-.4a10.6 10.6 0 0 1-1.63-5.67c0-5.86 4.77-10.62 10.64-10.62 2.84 0 5.51 1.11 7.52 3.12a10.55 10.55 0 0 1 3.11 7.51c0 5.86-4.77 10.61-10.64 10.61zm5.83-7.95c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.38.24-.7.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.87-1.76-2.19-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.56.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.53-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.67 0 1.57 1.15 3.08 1.31 3.3.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.67.77.24 1.46.21 2.02.13.62-.09 1.89-.77 2.16-1.51.27-.75.27-1.38.19-1.51-.08-.14-.29-.21-.61-.37z"></path></svg></a>
+<script src="../views/js/whatsapp-routing.js"></script>
+<script src="../views/js/admin-bar.js"></script>
+<script>sessionStorage.setItem("renova_landing", "industria");</script>
 </body>
 </html>
