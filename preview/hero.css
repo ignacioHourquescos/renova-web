@@ -1,0 +1,186 @@
+:root {
+  --color-page: #111111;
+  --color-text: #ffffff;
+  --color-muted: #e0e0e0;
+  --color-accent: #f9a828;
+  --color-accent-dark: #c97a10;
+  --color-accent-text: #1a1a1a;
+  --color-overlay: rgba(17, 17, 17, 0.55);
+  --font-heading: "Segoe UI", Arial, Helvetica, sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px 56px;
+  text-align: center;
+  color: var(--color-text);
+  background-color: var(--color-page);
+  background-size: cover;
+  background-position: center;
+  font-family: var(--font-body);
+}
+
+.hero__brand {
+  margin: 0 0 28px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+  color: var(--color-accent);
+}
+
+.hero__content {
+  width: min(680px, 100%);
+}
+
+.hero__eyebrow {
+  margin: 0 0 12px;
+  color: var(--color-accent);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+}
+
+.hero h1 {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.hero__subhead {
+  margin: 0 auto 28px;
+  max-width: 38rem;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: min(100%, 240px);
+  padding: 16px 28px;
+  border-radius: 8px;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+a.hero__cta:hover,
+a.hero__cta:focus-visible {
+  background: var(--color-accent-dark);
+}
+
+.site-footer {
+  padding: 36px 20px 48px;
+  text-align: center;
+  color: #b0b0b0;
+  background: #0c0c0c;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.site-footer p {
+  margin: 0 0 8px;
+}
+
+.site-footer__brand {
+  margin-bottom: 14px;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  font-size: 0.95rem;
+}
+
+.site-footer a {
+  color: var(--color-accent);
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--color-accent-dark);
+}
+
+.site-footer__legal {
+  margin-top: 16px;
+  color: #777;
+  font-size: 0.82rem;
+}
+
+.site-footer__privacy {
+  max-width: 40rem;
+  margin: 28px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: left;
+}
+
+.site-footer__privacy h3 {
+  margin: 0 0 8px;
+  color: var(--color-accent);
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+}
+
+.site-footer__privacy p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.wa-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+  text-decoration: none;
+}
+
+.wa-float svg {
+  width: 36px;
+  height: 36px;
+}
+
+.wa-float:hover,
+.wa-float:focus-visible {
+  background: #1ebe5d;
+}
