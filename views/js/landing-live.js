@@ -215,6 +215,33 @@
 		if (empty) empty.remove();
 	}
 
+	function withPagePhone(href, digits) {
+		var value = String(href || "");
+		var url;
+		try { url = new URL(value); } catch (error) { return ""; }
+		var host = url.hostname.replace(/^www\./, "");
+		if (host === "wa.me") {
+			if (url.pathname.replace(/\D/g, "") === digits) return value;
+			url.pathname = "/" + digits;
+			return url.toString();
+		}
+		if (host === "api.whatsapp.com" || host === "web.whatsapp.com") {
+			if ((url.searchParams.get("phone") || "").replace(/\D/g, "") === digits) return value;
+			url.searchParams.set("phone", digits);
+			return url.toString();
+		}
+		return "";
+	}
+
+	function applyPageWhatsapp(landing) {
+		var digits = String(landing && landing.whatsapp || "").replace(/\D/g, "");
+		if (digits.length < 8) return;
+		document.querySelectorAll("a[href]").forEach(function (node) {
+			var next = withPagePhone(node.getAttribute("href"), digits);
+			if (next) node.setAttribute("href", next);
+		});
+	}
+
 	function applyFooter(site) {
 		var footer = site && site.footer;
 		if (!footer) return;
@@ -355,6 +382,7 @@
 			applyFaq(landing.faq, landing.sections && landing.sections.faq);
 		}
 		applyFooter(site);
+		applyPageWhatsapp(landing);
 		document.documentElement.setAttribute("data-landing-cloud", slug);
 	}).catch(function () {});
 })();

@@ -1,220 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Alta de cliente | Renova</title>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-963730457"></script>
-      <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'AW-963730457');
-
-            function gtag_report_conversion(url) {
-                  var callback = function () {
-                        if (typeof url !== 'undefined') {
-                              window.location = url;
-                        }
-                  };
-                  gtag('event', 'conversion', {
-                        'send_to': 'AW-963730457/zkajCPemyvMCEJm4xcsD',
-                        'event_callback': callback
-                  });
-                  return false;
-            }
-      </script>
-      <style>
-            html,
-            body {
-                  margin: 0;
-                  padding: 0;
-                  min-height: 100%;
-                  background: #f6f4ef;
-                  color: #1a1a1a;
-                  font-family: Arial, Helvetica, sans-serif;
-            }
-
-            body {
-                  min-height: 100vh;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  padding: 24px;
-                  box-sizing: border-box;
-            }
-
-            .alta-wrap {
-                  width: 100%;
-                  max-width: 460px;
-            }
-
-            .alta-card {
-                  width: 100%;
-                  background: #ffffff;
-                  border-radius: 16px;
-                  padding: 32px 28px;
-                  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-                  box-sizing: border-box;
-            }
-
-            h1 {
-                  margin: 0 0 8px;
-                  font-size: 1.8rem;
-            }
-
-            .alta-intro {
-                  margin: 0 0 24px;
-                  color: #5c574e;
-                  line-height: 1.4;
-            }
-
-            label {
-                  display: block;
-                  margin-bottom: 14px;
-                  font-size: 0.92rem;
-                  font-weight: 700;
-            }
-
-            input {
-                  display: block;
-                  width: 100%;
-                  margin-top: 6px;
-                  padding: 12px 14px;
-                  border: 1px solid #d9d3c7;
-                  border-radius: 10px;
-                  font: inherit;
-                  box-sizing: border-box;
-            }
-
-            input:focus {
-                  outline: 2px solid #f39c12;
-                  border-color: #f39c12;
-            }
-
-            button {
-                  width: 100%;
-                  margin-top: 8px;
-                  padding: 14px 18px;
-                  border: 0;
-                  border-radius: 999px;
-                  background: #f39c12;
-                  color: #1a1a1a;
-                  font: inherit;
-                  font-weight: 700;
-                  letter-spacing: 0.04em;
-                  text-transform: uppercase;
-                  cursor: pointer;
-            }
-
-            button:hover {
-                  background: #e67e22;
-            }
-
-            .alta-error {
-                  min-height: 1.2em;
-                  margin: 8px 0 0;
-                  color: #c0392b;
-                  font-size: 0.9rem;
-            }
-
-            .alta-ok {
-                  display: none;
-                  margin: 0;
-                  font-size: 1.2rem;
-                  line-height: 1.4;
-            }
-
-            .alta-origen {
-                  margin: 16px 0 0;
-                  color: #5c574e;
-                  font-size: 0.95rem;
-                  text-align: center;
-            }
-      </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="apple-touch-icon" href="../assets/favicon.png">
+  <title>Alta de cliente | RENOVA</title>
+  <meta name="description" content="Formulario para darte de alta como cliente mayorista.">
+  <link rel="stylesheet" href="../hero.css">
+  <style>:root { --color-page: #111111; --color-text: #ffffff; --color-muted: #e0e0e0; --color-accent: #fcba00; --color-accent-dark: #cf9900; --color-accent-text: #1a1a1a; --color-overlay: rgba(17, 17, 17, 0.55); --font-heading: "Segoe UI", Arial, Helvetica, sans-serif; --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif }</style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-963730457"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-963730457');
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof url !== 'undefined') { window.location = url; }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-963730457/zkajCPemyvMCEJm4xcsD',
+      'event_callback': callback
+    });
+    return false;
+  }
+</script>
 </head>
 <body>
-      <div class="alta-wrap">
-      <main class="alta-card">
-            <form id="alta-form">
-                  <h1>Alta de cliente</h1>
-                  <p class="alta-intro">Dejanos tus datos y te damos de alta.</p>
+<main class="alta"><header class="alta__bar"><img src="../assets/logo-renova.png" alt="Renova"/></header><div class="alta__wrap"><h1>Alta de cliente</h1><p class="alta__lead">Completá los datos de tu empresa para darte de alta como cliente mayorista.</p><form class="alta__form" method="post" action="#alta"><input class="alta__honey" type="text" name="_honey" tabindex="-1" autoComplete="off" aria-hidden="true"/><fieldset class="alta__group"><legend>Empresa</legend><div class="alta__grid"><label class="alta__field alta__field--wide"><span>Razón social</span><input name="razon" type="text" autoComplete="organization" placeholder="Razón social" required=""/></label><label class="alta__field"><span>CUIT / CUIL</span><input name="cuit" type="text" inputMode="numeric" autoComplete="off" placeholder="20-12345678-6" aria-describedby="cuit-note" required=""/><small id="cuit-note" class="alta__cuit" data-cuit-note="true" hidden=""></small></label><label class="alta__field"><span>Condición IVA</span><select name="iva" required=""><option value="" disabled="" selected="">Elegí una opción</option><option value="Responsable inscripto">Responsable inscripto</option><option value="Monotributo">Monotributo</option><option value="Exento">Exento</option><option value="Consumidor final">Consumidor final</option></select></label></div></fieldset><fieldset class="alta__group"><legend>Contacto</legend><div class="alta__grid"><label class="alta__field"><span>Nombre</span><input name="nombre" type="text" autoComplete="name" placeholder="Tu nombre" required=""/></label><label class="alta__field"><span>Teléfono</span><input name="telefono" type="tel" autoComplete="tel" placeholder="+54 9 11 …" required=""/></label><label class="alta__field alta__field--wide"><span>Email</span><input name="email" type="text" inputMode="email" autoComplete="email" placeholder="tu@email.com" aria-describedby="email-note" required=""/><small id="email-note" class="alta__cuit" data-email-note="true" hidden=""></small></label></div></fieldset><fieldset class="alta__group"><legend>Domicilio fiscal</legend><div class="alta__grid"><label class="alta__field alta__field--wide"><span>Dirección</span><input name="direccion" type="text" autoComplete="street-address" placeholder="Calle y número" required=""/></label><label class="alta__field"><span>Localidad</span><input name="localidad" type="text" autoComplete="address-level2" placeholder="Localidad" required=""/></label><label class="alta__field"><span>Provincia</span><select name="provincia" required=""><option value="" disabled="" selected="">Elegí una opción</option><option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option><option value="Buenos Aires">Buenos Aires</option><option value="Catamarca">Catamarca</option><option value="Chaco">Chaco</option><option value="Chubut">Chubut</option><option value="Córdoba">Córdoba</option><option value="Corrientes">Corrientes</option><option value="Entre Ríos">Entre Ríos</option><option value="Formosa">Formosa</option><option value="Jujuy">Jujuy</option><option value="La Pampa">La Pampa</option><option value="La Rioja">La Rioja</option><option value="Mendoza">Mendoza</option><option value="Misiones">Misiones</option><option value="Neuquén">Neuquén</option><option value="Río Negro">Río Negro</option><option value="Salta">Salta</option><option value="San Juan">San Juan</option><option value="San Luis">San Luis</option><option value="Santa Cruz">Santa Cruz</option><option value="Santa Fe">Santa Fe</option><option value="Santiago del Estero">Santiago del Estero</option><option value="Tierra del Fuego">Tierra del Fuego</option><option value="Tucumán">Tucumán</option></select></label><label class="alta__field"><span>Código postal</span><input name="cp" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="1414"/></label></div></fieldset><fieldset class="alta__group"><legend>Dirección de entrega</legend><label class="alta__check"><input name="misma_entrega" type="checkbox" checked="" value="si"/><span>La dirección de entrega es la misma que el domicilio fiscal</span></label><div class="alta__entrega" hidden=""><div class="alta__grid"><label class="alta__field alta__field--wide"><span>Dirección</span><input name="entrega_direccion" type="text" autoComplete="section-shipping street-address" placeholder="Calle y número" disabled=""/></label><label class="alta__field"><span>Localidad</span><input name="entrega_localidad" type="text" autoComplete="section-shipping address-level2" placeholder="Localidad" disabled=""/></label><label class="alta__field"><span>Provincia</span><select name="entrega_provincia" disabled=""><option value="" disabled="" selected="">Elegí una opción</option><option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option><option value="Buenos Aires">Buenos Aires</option><option value="Catamarca">Catamarca</option><option value="Chaco">Chaco</option><option value="Chubut">Chubut</option><option value="Córdoba">Córdoba</option><option value="Corrientes">Corrientes</option><option value="Entre Ríos">Entre Ríos</option><option value="Formosa">Formosa</option><option value="Jujuy">Jujuy</option><option value="La Pampa">La Pampa</option><option value="La Rioja">La Rioja</option><option value="Mendoza">Mendoza</option><option value="Misiones">Misiones</option><option value="Neuquén">Neuquén</option><option value="Río Negro">Río Negro</option><option value="Salta">Salta</option><option value="San Juan">San Juan</option><option value="San Luis">San Luis</option><option value="Santa Cruz">Santa Cruz</option><option value="Santa Fe">Santa Fe</option><option value="Santiago del Estero">Santiago del Estero</option><option value="Tierra del Fuego">Tierra del Fuego</option><option value="Tucumán">Tucumán</option></select></label><label class="alta__field"><span>Código postal</span><input name="entrega_cp" type="text" inputMode="numeric" autoComplete="section-shipping postal-code" placeholder="1414" disabled=""/></label></div></div></fieldset><label class="alta__field alta__field--wide alta__comment"><span>Comentario</span><textarea name="comentario" rows="3" placeholder="Algo que tengamos que saber para el alta"></textarea></label><button class="alta__submit" type="submit">Solicitar alta</button><p class="alta__error" role="alert"></p><p class="alta__fine">Usamos estos datos solo para darte de alta y contactarte. Podés pedir acceso o baja en renovafiltros@gmail.com.</p></form><p class="alta__ok" hidden="">Listo. Recibimos tu solicitud de alta.</p><p class="alta__origen" hidden=""></p><noscript><p class="alta__error">Para enviar el alta, activá JavaScript en el navegador.</p></noscript></div><script>(function () {
+  function validCuit(value) {
+  var digits = String(value || "").replace(/\D/g, "");
+  if (!/^\d{11}$/.test(digits)) return false;
+  var weights = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
+  var sum = 0;
+  for (var i = 0; i < 10; i++) sum += weights[i] * Number(digits.charAt(i));
+  var mod = sum % 11;
+  var check = mod === 0 ? 0 : mod === 1 ? 9 : 11 - mod;
+  return check === Number(digits.charAt(10));
+}
+  function formatCuit(value) {
+  var digits = String(value || "").replace(/\D/g, "");
+  if (digits.length !== 11) return String(value || "").trim();
+  return digits.slice(0, 2) + "-" + digits.slice(2, 10) + "-" + digits.slice(10);
+}
+  function cuitCheck(value) {
+  var digits = String(value || "").replace(/\D/g, "");
+  if (!digits) return { state: "empty", text: "" };
+  if (digits.length !== 11) return { state: "incomplete", text: "Tiene que tener 11 números, como 20-12345678-6." };
+  if (!validCuit(digits)) return { state: "bad", text: "El dígito verificador no cierra. El CUIT/CUIL no está bien armado." };
+  return { state: "ok", text: "CUIT/CUIL bien armado." };
+}
+  function emailCheck(value) {
+  var text = String(value || "").trim();
+  if (!text) return { state: "empty", text: "" };
+  var parts = text.split("@");
+  var message = "El email no está bien armado. Tiene que ser como tu@email.com.";
+  if (parts.length !== 2 || !parts[0] || !parts[1]) return { state: "incomplete", text: message };
+  var labels = parts[1].split(".");
+  var localOk = parts[0].length <= 64 && !/^\.|\.$|\.\./.test(parts[0]) && !/\s/.test(parts[0]);
+  var domainOk = labels.length >= 2 && labels.every(function (label) {
+    return /^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$/.test(label);
+  }) && /^[a-zA-Z]{2,}$/.test(labels[labels.length - 1]);
+  if (localOk && domainOk) return { state: "ok", text: "Email bien armado." };
+  if (parts[1].indexOf(".") === -1) return { state: "incomplete", text: message };
+  return { state: "bad", text: message };
+}
+  var LABELS = {"flotas":"Vengo de la landing de Flotas","flota-autos":"Vengo de la landing de Flota de autos","flota-de-autos":"Vengo de la landing de Flota de autos","flota-camiones":"Vengo de la landing de Flota de camiones","flota-de-camiones":"Vengo de la landing de Flota de camiones","agro":"Vengo de la landing de Agro","industria":"Vengo de la landing de Industria","lubricentro":"Vengo de la landing de Lubricentro","talleres":"Vengo de la landing de Talleres","qaul":"Vengo de la landing de QAUL","estaciones":"Vengo de la landing de Estaciones","revendedores":"Vengo de la landing de Revendedores"};
+  var PHONE = "5491140565047";
+  var forms = document.querySelectorAll("form.alta__form");
+  for (var i = 0; i < forms.length; i++) bind(forms[i]);
 
-                  <label>Nombre
-                        <input id="nombre" name="nombre" type="text" autocomplete="name" required>
-                  </label>
-                  <label>Empresa
-                        <input id="empresa" name="empresa" type="text" autocomplete="organization" required>
-                  </label>
-                  <label>Teléfono
-                        <input id="telefono" name="telefono" type="tel" autocomplete="tel" required>
-                  </label>
-                  <label>Email
-                        <input id="email" name="email" type="email" autocomplete="email" required>
-                  </label>
+  function bind(form) {
+    if (form.getAttribute("data-bound") === "1") return;
+    form.setAttribute("data-bound", "1");
+    var root = form.closest(".alta") || document.body;
+    var origen = root.querySelector(".alta__origen");
+    var landing = "";
+    try { landing = sessionStorage.getItem("renova_landing") || ""; } catch (error) { landing = ""; }
+    if (origen && LABELS[landing]) {
+      origen.textContent = LABELS[landing];
+      origen.hidden = false;
+    }
 
-                  <button type="submit">Darme de alta</button>
-                  <p id="alta-error" class="alta-error" role="alert"></p>
-            </form>
-            <p id="alta-ok" class="alta-ok">Listo. Recibimos tu solicitud de alta.</p>
-      </main>
-      <p id="alta-origen" class="alta-origen" hidden></p>
-      </div>
+    var misma = form.querySelector("[name=misma_entrega]");
+    var entrega = form.querySelector(".alta__entrega");
+    function syncEntrega() {
+      var same = !misma || misma.checked;
+      if (entrega) entrega.hidden = same;
+      var fields = entrega ? entrega.querySelectorAll("input, select, textarea") : [];
+      for (var n = 0; n < fields.length; n++) {
+        var field = fields[n];
+        field.disabled = same;
+        if (field.name === "entrega_cp") continue;
+        if (same) field.removeAttribute("required");
+        else field.setAttribute("required", "");
+      }
+    }
+    if (misma) misma.addEventListener("change", syncEntrega);
+    syncEntrega();
 
-      <script src="../views/js/whatsapp-routing.js"></script>
-      <script src="../views/js/admin-bar.js"></script>
-      <script>
-            var landingLabels = {
-                  flotas: "Vengo de la landing de Flotas",
-                  "flota-autos": "Vengo de la landing de Flota de autos",
-                  "flota-camiones": "Vengo de la landing de Flota de camiones",
-                  agro: "Vengo de la landing de Agro",
-                  industria: "Vengo de la landing de Industria",
-                  lubricentro: "Vengo de la landing de Lubricentro",
-                  talleres: "Vengo de la landing de Talleres",
-                  qaul: "Vengo de la landing de QAUL",
-                  estaciones: "Vengo de la landing de Estaciones",
-                  revendedores: "Vengo de la landing de Revendedores"
-            };
-            var landing = sessionStorage.getItem("renova_landing");
-            var origen = document.getElementById("alta-origen");
+    var cuitInput = form.querySelector("[name=cuit]");
+    var cuitNote = form.querySelector("[data-cuit-note]");
+    function paintCuit(finished) {
+      if (!cuitInput) return false;
+      var check = cuitCheck(cuitInput.value);
+      if (check.state === "ok") cuitInput.value = formatCuit(cuitInput.value);
+      var showNote = check.state === "ok" || check.state === "bad" || (finished && check.state === "incomplete");
+      if (cuitNote) {
+        cuitNote.hidden = !showNote;
+        cuitNote.textContent = showNote ? check.text : "";
+        cuitNote.className = check.state === "ok" ? "alta__cuit alta__cuit--ok" : "alta__cuit alta__cuit--bad";
+      }
+      if (check.state === "bad" || (finished && check.state === "incomplete")) cuitInput.setAttribute("aria-invalid", "true");
+      else cuitInput.removeAttribute("aria-invalid");
+      return check.state === "ok";
+    }
+    if (cuitInput) {
+      cuitInput.addEventListener("input", function () { paintCuit(false); });
+      cuitInput.addEventListener("blur", function () { paintCuit(true); });
+    }
 
-            if (landingLabels[landing]) {
-                  origen.textContent = landingLabels[landing];
-                  origen.hidden = false;
-            }
-      </script>
-      <script>
-            document.getElementById('alta-form').addEventListener('submit', function (event) {
-                  event.preventDefault();
+    var emailInput = form.querySelector("[name=email]");
+    var emailNote = form.querySelector("[data-email-note]");
+    function paintEmail(finished) {
+      if (!emailInput) return false;
+      var check = emailCheck(emailInput.value);
+      if (check.state === "ok") emailInput.value = String(emailInput.value || "").trim();
+      var showNote = check.state === "ok" || check.state === "bad" || (finished && check.state === "incomplete");
+      if (emailNote) {
+        emailNote.hidden = !showNote;
+        emailNote.textContent = showNote ? check.text : "";
+        emailNote.className = check.state === "ok" ? "alta__cuit alta__cuit--ok" : "alta__cuit alta__cuit--bad";
+      }
+      if (check.state === "bad" || (finished && check.state === "incomplete")) emailInput.setAttribute("aria-invalid", "true");
+      else emailInput.removeAttribute("aria-invalid");
+      return check.state === "ok";
+    }
+    if (emailInput) {
+      emailInput.addEventListener("input", function () { paintEmail(false); });
+      emailInput.addEventListener("blur", function () { paintEmail(true); });
+    }
 
-                  var nombre = document.getElementById('nombre').value.trim();
-                  var empresa = document.getElementById('empresa').value.trim();
-                  var telefono = document.getElementById('telefono').value.trim();
-                  var email = document.getElementById('email').value.trim();
-                  var error = document.getElementById('alta-error');
-
-                  if (!nombre || !empresa || !telefono || !email) {
-                        error.textContent = 'Completá nombre, empresa, teléfono y email.';
-                        return;
-                  }
-
-                  error.textContent = '';
-                  gtag_report_conversion();
-
-                  var mensaje = 'Hola, quiero darme de alta.\n'
-                        + 'Nombre: ' + nombre + '\n'
-                        + 'Empresa: ' + empresa + '\n'
-                        + 'Teléfono: ' + telefono + '\n'
-                        + 'Email: ' + email;
-
-                  if (window.RenovaWhatsApp) {
-                        window.RenovaWhatsApp.open(mensaje);
-                  }
-
-                  document.getElementById('alta-form').style.display = 'none';
-                  document.getElementById('alta-ok').style.display = 'block';
-            });
-      </script>
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var button = form.querySelector(".alta__submit");
+      var error = form.querySelector(".alta__error");
+      var ok = root.querySelector(".alta__ok");
+      if (!button || button.disabled) return;
+      function show(text) {
+        if (!error) return;
+        error.textContent = text || "";
+      }
+      var data = new FormData(form);
+      if (String(data.get("_honey") || "").trim()) {
+        form.hidden = true;
+        if (ok) ok.hidden = false;
+        return;
+      }
+      var cuitOk = paintCuit(true);
+      var emailOk = paintEmail(true);
+      if (!form.reportValidity()) return;
+      if (!cuitOk) {
+        show("");
+        if (cuitInput) cuitInput.focus();
+        return;
+      }
+      if (!emailOk) {
+        show("");
+        if (emailInput) emailInput.focus();
+        return;
+      }
+      var cuit = String(data.get("cuit") || "");
+      var telefono = String(data.get("telefono") || "").replace(/\D/g, "");
+      if (telefono.length < 8) {
+        show("El teléfono tiene que incluir el código de área.");
+        return;
+      }
+      show("");
+      button.disabled = true;
+      button.textContent = "Enviando…";
+      if (typeof gtag_report_conversion === "function") gtag_report_conversion();
+      function read(name) { return String(data.get(name) || "").trim(); }
+      var lines = [
+        "Hola, quiero darme de alta.",
+        "Razón social: " + read("razon"),
+        "CUIT/CUIL: " + formatCuit(cuit),
+        "Condición IVA: " + read("iva"),
+        "Nombre: " + read("nombre"),
+        "Teléfono: " + read("telefono"),
+        "Email: " + read("email"),
+        "Domicilio fiscal: " + read("direccion"),
+        "Localidad: " + read("localidad"),
+        "Provincia: " + read("provincia")
+      ];
+      if (read("cp")) lines.push("Código postal: " + read("cp"));
+      if (misma && misma.checked) {
+        lines.push("Dirección de entrega: la misma que el domicilio fiscal");
+      } else {
+        lines.push("Dirección de entrega: " + read("entrega_direccion"));
+        lines.push("Localidad de entrega: " + read("entrega_localidad"));
+        lines.push("Provincia de entrega: " + read("entrega_provincia"));
+        if (read("entrega_cp")) lines.push("Código postal de entrega: " + read("entrega_cp"));
+      }
+      if (read("comentario")) lines.push("Comentario: " + read("comentario"));
+      if (LABELS[landing]) lines.push(LABELS[landing]);
+      var mensaje = lines.join("\n");
+      if (window.RenovaWhatsApp) window.RenovaWhatsApp.open(mensaje);
+      else window.open("https://wa.me/" + PHONE + "?text=" + encodeURIComponent(mensaje), "_blank");
+      form.hidden = true;
+      if (ok) ok.hidden = false;
+    });
+  }
+})();</script></main>
+<script src="../views/js/whatsapp-routing.js"></script>
+<script src="../views/js/admin-bar.js"></script>
 </body>
 </html>
