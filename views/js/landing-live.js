@@ -273,8 +273,73 @@
 		}
 	}
 
+	var STATS_COLLECTION = "landings_statistics_dev";
+
+	function markStat(key) {
+		try {
+			if (localStorage.getItem(key)) return false;
+			localStorage.setItem(key, "1");
+			return true;
+		} catch (e) {
+			return false;
+		}
+	}
+
+	function unmarkStat(key) {
+		try {
+			localStorage.removeItem(key);
+		} catch (e) {}
+	}
+
+	function incrementStat(slug, field) {
+		var key = "renova:" + slug + ":" + (field === "visits" ? "visit" : "wpp");
+		if (!markStat(key)) return;
+		var docName = "projects/" + config.projectId
+			+ "/databases/(default)/documents/" + STATS_COLLECTION + "/" + slug;
+		var url = "https://firestore.googleapis.com/v1/projects/" + config.projectId
+			+ "/databases/(default)/documents:commit?key=" + encodeURIComponent(config.apiKey);
+		fetch(url, {
+			method: "POST",
+			headers: { "content-type": "application/json" },
+			keepalive: true,
+			body: JSON.stringify({
+				writes: [{
+					transform: {
+						document: docName,
+						fieldTransforms: [{
+							fieldPath: field,
+							increment: { integerValue: "1" }
+						}]
+					}
+				}]
+			})
+		}).then(function (response) {
+			if (!response.ok) throw new Error("stats");
+		}).catch(function () {
+			unmarkStat(key);
+		});
+	}
+
+	function isWhatsappLink(node) {
+		if (node && node.nodeType !== 1) node = node.parentElement;
+		var link = node && node.closest ? node.closest("a") : null;
+		if (!link) return false;
+		var href = link.getAttribute("href") || "";
+		return /wa\.me|api\.whatsapp\.com/i.test(href);
+	}
+
+	function trackLanding(slug) {
+		if (window.location.pathname.indexOf("/preview/") !== -1) return;
+		incrementStat(slug, "visits");
+		document.addEventListener("click", function (event) {
+			if (!isWhatsappLink(event.target)) return;
+			incrementStat(slug, "wppClicks");
+		}, true);
+	}
+
 	var slug = pageSlug();
 	if (!slug) return;
+	trackLanding(slug);
 
 	Promise.all([
 		loadDoc("landings/" + slug).catch(function () { return null; }),

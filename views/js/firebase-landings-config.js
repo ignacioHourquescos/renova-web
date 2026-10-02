@@ -1,6 +1,7 @@
 /**
  * Config pública del proyecto renova-landing.
- * La clave del navegador solo puede leer las landings: las reglas no dejan escribir.
+ * La clave del navegador lee las landings. En landings_statistics_dev solo puede
+ * sumar 1 a visits o a wppClicks, después de publicar firestore.landings.rules.
  */
 (function () {
 	window.__LANDING_FIREBASE_CONFIG__ = {
