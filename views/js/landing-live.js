@@ -364,8 +364,131 @@
 		}, true);
 	}
 
+	var PROVINCES = [
+		"Ciudad Autónoma de Buenos Aires",
+		"Buenos Aires",
+		"Catamarca",
+		"Chaco",
+		"Chubut",
+		"Córdoba",
+		"Corrientes",
+		"Entre Ríos",
+		"Formosa",
+		"Jujuy",
+		"La Pampa",
+		"La Rioja",
+		"Mendoza",
+		"Misiones",
+		"Neuquén",
+		"Río Negro",
+		"Salta",
+		"San Juan",
+		"San Luis",
+		"Santa Cruz",
+		"Santa Fe",
+		"Santiago del Estero",
+		"Tierra del Fuego",
+		"Tucumán"
+	];
+
+	function locationWhatsappHref(href, place) {
+		var text = "hola! les escribo desde la web, desde " + String(place || "").trim();
+		var url;
+		try { url = new URL(href, window.location.href); } catch (error) { return ""; }
+		var host = url.hostname.replace(/^www\./, "");
+		if (host !== "wa.me" && host !== "api.whatsapp.com" && host !== "web.whatsapp.com") return "";
+		url.searchParams.set("text", text);
+		return url.toString();
+	}
+
+	function openLocationModal(href) {
+		var current = document.getElementById("wa-location");
+		if (current) current.remove();
+		var root = document.createElement("div");
+		root.id = "wa-location";
+		root.className = "wa-location";
+		var options = PROVINCES.map(function (name) {
+			return "<option value=\"" + name.replace(/"/g, "") + "\">" + name + "</option>";
+		}).join("");
+		root.innerHTML = ""
+			+ "<form class=\"wa-location__dialog\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"wa-location-title\">"
+			+ "<h2 id=\"wa-location-title\">Seleccioná ubicación</h2>"
+			+ "<p>Elegí la provincia desde donde nos escribís.</p>"
+			+ "<label for=\"wa-location-province\">Provincia</label>"
+			+ "<select id=\"wa-location-province\" required>"
+			+ "<option value=\"\">Seleccioná una provincia</option>"
+			+ options
+			+ "</select>"
+			+ "<div class=\"wa-location__actions\">"
+			+ "<button class=\"wa-location__cancel\" type=\"button\">Cancelar</button>"
+			+ "<button class=\"wa-location__go\" type=\"submit\" disabled>Escribir por WhatsApp</button>"
+			+ "</div></form>";
+		document.body.appendChild(root);
+		var form = root.querySelector("form");
+		var select = root.querySelector("select");
+		var go = root.querySelector(".wa-location__go");
+		function close() {
+			document.removeEventListener("keydown", onKey);
+			root.remove();
+		}
+		function onKey(event) {
+			if (event.key === "Escape") close();
+		}
+		document.addEventListener("keydown", onKey);
+		root.addEventListener("click", function (event) {
+			if (event.target === root) close();
+		});
+		select.addEventListener("change", function () {
+			go.disabled = !select.value;
+		});
+		form.addEventListener("submit", function (event) {
+			event.preventDefault();
+			var next = locationWhatsappHref(href, select.value);
+			if (!next) return;
+			if (typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
+			incrementStat(slug, "wppClicks");
+			close();
+			window.open(next, "_blank", "noopener");
+		});
+		root.querySelector(".wa-location__cancel").addEventListener("click", close);
+		select.focus();
+	}
+
+	function bindWhatsappLocation() {
+		if (document.documentElement.getAttribute("data-wa-location") === "1") return;
+		document.documentElement.setAttribute("data-wa-location", "1");
+		document.addEventListener("click", function (event) {
+			var node = event.target;
+			var link = node && node.closest ? node.closest("a.wa-float") : null;
+			if (!link) return;
+			event.preventDefault();
+			event.stopImmediatePropagation();
+			openLocationModal(link.getAttribute("href") || "");
+		}, true);
+	}
+
+	function ensureWhatsappFloat() {
+		document.querySelectorAll(".quick-access__wa").forEach(function (node) {
+			node.remove();
+		});
+		if (document.querySelector(".wa-float")) return;
+		var source = document.querySelector('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="web.whatsapp.com"]');
+		var href = safeHref(source && source.getAttribute("href"));
+		if (!href) return;
+		var link = document.createElement("a");
+		link.className = "wa-float";
+		link.setAttribute("href", href);
+		link.setAttribute("target", "_blank");
+		link.setAttribute("rel", "noopener noreferrer");
+		link.setAttribute("aria-label", "Escribir por WhatsApp");
+		link.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.44 1.72 6.36L3.2 28.8l6.6-1.73a12.75 12.75 0 0 0 6.24 1.6h.01c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.67-12.81-12.67zm0 23.42h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.02 1.06 1.07-3.9-.25-.4a10.6 10.6 0 0 1-1.63-5.67c0-5.86 4.77-10.62 10.64-10.62 2.84 0 5.51 1.11 7.52 3.12a10.55 10.55 0 0 1 3.11 7.51c0 5.86-4.77 10.61-10.64 10.61zm5.83-7.95c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.38.24-.7.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.87-1.76-2.19-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.56.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.53-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.67 0 1.57 1.15 3.08 1.31 3.3.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.67.77.24 1.46.21 2.02.13.62-.09 1.89-.77 2.16-1.51.27-.75.27-1.38.19-1.51-.08-.14-.29-.21-.61-.37z"/></svg>';
+		document.body.appendChild(link);
+	}
+
 	var slug = pageSlug();
 	if (!slug) return;
+	bindWhatsappLocation();
+	ensureWhatsappFloat();
 	trackLanding(slug);
 
 	Promise.all([
