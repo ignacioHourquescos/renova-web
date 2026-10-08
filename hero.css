@@ -1106,16 +1106,18 @@ a.hero__cta:focus-visible {
   text-transform: uppercase;
 }
 
-.section-title__muted {
-  color: #c5c5c5;
+.section-title__sub {
+  margin: 12px 0 0;
+  color: #1b1b1b;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.35;
 }
 
-.section-title--on-dark h2 {
+.section-title--on-dark h2,
+.section-title--on-dark .section-title__sub {
   color: #fff;
-}
-
-.section-title--on-dark .section-title__muted {
-  color: #a3a3a3;
 }
 
 .section-title--on-dark .section-title__eyebrow {
