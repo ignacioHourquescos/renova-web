@@ -64,6 +64,7 @@ body {
   background-color: transparent;
   transition: background-color 0.2s ease;
   font-family: var(--font-heading);
+  text-align: left;
 }
 
 .site-nav.is-solid {
