@@ -1,0 +1,500 @@
+{
+  "landings": [
+    {
+      "slug": "agro",
+      "brief": "Para ciudades del interior de Buenos Aires",
+      "whatsapp": "5491141674140",
+      "adsConversion": "AW-963730457/IHweCOa9gPQCEJm4xcsD",
+      "hero": {
+        "eyebrow": "Distribuidora mayorista · Más de 40 años en el mercado",
+        "heading": "Filtros y Lubricantes por Mayor para el Agro",
+        "subhead": "Reponé tractores, cosechadoras y maquinaria agrícola con precio mayorista, stock permanente y entrega en todo el país. Sin monto mínimo obligatorio.",
+        "ctaLabel": "Contactarme",
+        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C%20quiero%20cotizar%20filtros%20y%20lubricantes%20para%20maquinaria%20agr%C3%ADcola.",
+        "backgroundImage": "images/agro.png"
+      },
+      "destacados": [
+        {
+          "source": "custom",
+          "id": "c-wn95hqmj",
+          "title": "Lubricantes para Motor",
+          "brand": "VALVOLINE",
+          "image": "images/destacados/agro/c-wn95hqmj.jpg"
+        },
+        {
+          "source": "custom",
+          "id": "c-v74zt8gj",
+          "title": "Grasas multipropósito TOTAL",
+          "brand": "GRASAS",
+          "image": "images/destacados/agro/c-v74zt8gj.png"
+        },
+        {
+          "source": "custom",
+          "id": "c-onunwnmq",
+          "title": "Amplio surtido de filtros de primeras marcas",
+          "brand": "FILTROS",
+          "image": "images/destacados/agro/c-onunwnmq.png"
+        },
+        {
+          "source": "custom",
+          "id": "c-wi3uoukl",
+          "title": "Productos varios para el mantenimiento de motores",
+          "brand": "VARIOS",
+          "image": "images/destacados/agro/c-wi3uoukl.png"
+        }
+      ],
+      "faq": [
+        {
+          "question": "¿Hacen envíos a todo el país?",
+          "answer": "Sí, realizamos envíos a todo el país mediante transporte o correo."
+        },
+        {
+          "question": "¿Qué productos puedo comprar?",
+          "answer": "Filtros, lubricantes y productos de mantenimiento. Vendemos por mayor."
+        },
+        {
+          "question": "¿Puedo cotizar con un código o una marca?",
+          "answer": "Sí, pasanos el código, la marca o una referencia del producto y lo buscamos."
+        },
+        {
+          "question": "¿Pueden conseguir productos que no tienen publicados?",
+          "answer": "Sí, buscamos alternativas y equivalencias según lo que necesites."
+        },
+        {
+          "question": "¿Tienen stock para pedidos grandes?",
+          "answer": "Sí, contamos con stock y podemos preparar pedidos según tu volumen de compra."
+        },
+        {
+          "question": "¿Puedo incluir varios productos en un mismo pedido?",
+          "answer": "Sí, enviános tu listado completo y cotizamos todo junto."
+        },
+        {
+          "question": "¿Hay un monto mínimo de compra?",
+          "answer": "No hay un monto mínimo obligatorio. Cotizamos según lo que necesites."
+        },
+        {
+          "question": "¿Cómo calculo el costo de envío?",
+          "answer": "Lo coordinamos según el destino, el volumen y el transporte elegido."
+        },
+        {
+          "question": "¿Puedo comprar sin ir hasta el local?",
+          "answer": "Sí, podés hacer todo el pedido de forma remota y coordinamos el envío."
+        },
+        {
+          "question": "¿Cómo solicito una cotización?",
+          "answer": "Enviános tu listado, códigos o consulta y te preparamos una cotización."
+        }
+      ],
+      "libre": {
+        "heading": "",
+        "text": ""
+      },
+      "cotizar": {
+        "heading": "Cotizaciones",
+        "lead": "",
+        "steps": [
+          {
+            "title": "Envíanos un listado con códigos y cantidades",
+            "text": "Excel o listado a mano. Con códigos y cantidades"
+          },
+          {
+            "title": "Precotizamos en el instante",
+            "text": "Te pasamos el precio de lo que tenemos entrega inmediata."
+          },
+          {
+            "title": "Cotización completa",
+            "text": "En caso de avanzar vemos de encontrar los codigos faltantes"
+          }
+        ]
+      },
+      "carousel": {
+        "eyebrow": "Kit de filtros",
+        "line1": "Kits para tractores y maquinaria agrícola",
+        "line1Muted": "Filtros de aceite, aire, hidráulicos y separadores de agua",
+        "slides": [
+          {
+            "id": "s-8oqkp8dr",
+            "label": "Tractor PAUNY",
+            "text": "Filtros asociados: P617643 - P617644 - P558615 - P553004 - P551864 - P565245 - VIS4747",
+            "href": "",
+            "image": "images/carousel/agro/s-8oqkp8dr.jpg"
+          },
+          {
+            "id": "s-481colrr",
+            "label": "Cosechadora CR90",
+            "text": "Filtros asociados: P548900 - P548901 - FAC8034 - P550472 - P550904 - P164378",
+            "href": "",
+            "image": "images/carousel/agro/s-481colrr.jpg"
+          },
+          {
+            "id": "s-k33kvurh",
+            "label": "John Deere 3520 EC01",
+            "text": "Filtros asociados: P548900 - P548901 - FAC8034 - P550472 - P550904 - P164378",
+            "href": "",
+            "image": "images/carousel/agro/s-k33kvurh.webp"
+          },
+          {
+            "id": "s-oh3plir1",
+            "label": "COSECHADORA S660",
+            "text": "Filtros asociados: P548900 - P548901 - FAC8034 - P550472 - P550904 - P164378",
+            "href": "",
+            "image": "images/carousel/agro/s-oh3plir1.jpg"
+          }
+        ]
+      },
+      "clients": [
+        {
+          "id": "c-pq5atxhm",
+          "alt": "LOGO AGRO3",
+          "file": "images/clients/agro/c-pq5atxhm.png"
+        },
+        {
+          "id": "c-cdt42a0c",
+          "alt": "logo agro 2",
+          "file": "images/clients/agro/c-cdt42a0c.png"
+        },
+        {
+          "id": "c-29hghcsf",
+          "alt": "logo agro",
+          "file": "images/clients/agro/c-29hghcsf.png"
+        },
+        {
+          "id": "c-utf6kosy",
+          "alt": "agro4",
+          "file": "images/clients/agro/c-utf6kosy.png"
+        }
+      ],
+      "sections": {
+        "order": [
+          "hero",
+          "marcas",
+          "diferencial",
+          "destacados",
+          "cotizar",
+          "carousel",
+          "libre",
+          "clients",
+          "formulario",
+          "map",
+          "faq",
+          "buscabas",
+          "footer"
+        ],
+        "hero": true,
+        "marcas": true,
+        "diferencial": true,
+        "cotizar": true,
+        "destacados": true,
+        "carousel": true,
+        "libre": false,
+        "clients": true,
+        "formulario": true,
+        "map": true,
+        "faq": true,
+        "buscabas": true,
+        "footer": true
+      }
+    },
+    {
+      "slug": "flota-de-camiones",
+      "brief": "",
+      "whatsapp": "",
+      "adsConversion": "",
+      "hero": {
+        "eyebrow": "linea pesada",
+        "heading": "Filtros y lubricantes para flotas de camiones",
+        "subhead": "Filtro de aceite,aire, combustible, hiraulicos, trampa de agua y lubricantes para flotas",
+        "ctaLabel": "Quiero que me cotizen",
+        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C%20quiero%20cotizar%20filtros%20y%20lubricantes%20para%20maquinaria%20agr%C3%ADcola.",
+        "backgroundImage": "images/flota-de-camiones.webp"
+      },
+      "faq": [
+        {
+          "question": "¿Hacen envíos a todo el país?",
+          "answer": "Sí, realizamos envíos a todo el país mediante transporte o correo."
+        },
+        {
+          "question": "¿Qué productos puedo comprar?",
+          "answer": "Filtros, lubricantes y productos de mantenimiento. Vendemos por mayor."
+        },
+        {
+          "question": "¿Puedo cotizar con un código o una marca?",
+          "answer": "Sí, pasanos el código, la marca o una referencia del producto y lo buscamos."
+        },
+        {
+          "question": "¿Pueden conseguir productos que no tienen publicados?",
+          "answer": "Sí, buscamos alternativas y equivalencias según lo que necesites."
+        },
+        {
+          "question": "¿Tienen stock para pedidos grandes?",
+          "answer": "Sí, contamos con stock y podemos preparar pedidos según tu volumen de compra."
+        },
+        {
+          "question": "¿Puedo incluir varios productos en un mismo pedido?",
+          "answer": "Sí, enviános tu listado completo y cotizamos todo junto."
+        },
+        {
+          "question": "¿Hay un monto mínimo de compra?",
+          "answer": "No hay un monto mínimo obligatorio. Cotizamos según lo que necesites."
+        },
+        {
+          "question": "¿Cómo calculo el costo de envío?",
+          "answer": "Lo coordinamos según el destino, el volumen y el transporte elegido."
+        },
+        {
+          "question": "¿Puedo comprar sin ir hasta el local?",
+          "answer": "Sí, podés hacer todo el pedido de forma remota y coordinamos el envío."
+        },
+        {
+          "question": "¿Cómo solicito una cotización?",
+          "answer": "Enviános tu listado, códigos o consulta y te preparamos una cotización."
+        }
+      ],
+      "libre": {
+        "heading": "",
+        "text": ""
+      },
+      "cotizar": {
+        "heading": "Cómo cotizar",
+        "lead": "En tres pasos, por WhatsApp. No hace falta un listado perfecto.",
+        "steps": [
+          {
+            "title": "Mandás marca, código o patente",
+            "text": "Si no tenés el código, con la patente o el modelo alcanza."
+          },
+          {
+            "title": "Te respondemos la cotización por WhatsApp",
+            "text": "Te pasamos el precio mayorista por el mismo chat."
+          },
+          {
+            "title": "Coordinamos la entrega",
+            "text": "A tu depósito, taller o campo."
+          }
+        ]
+      },
+      "carousel": {
+        "eyebrow": "",
+        "line1": "",
+        "line1Muted": "",
+        "slides": []
+      },
+      "sections": {
+        "order": [
+          "hero",
+          "marcas",
+          "diferencial",
+          "cotizar",
+          "destacados",
+          "carousel",
+          "libre",
+          "clients",
+          "formulario",
+          "map",
+          "faq",
+          "buscabas",
+          "footer"
+        ],
+        "hero": true,
+        "marcas": true,
+        "diferencial": true,
+        "cotizar": true,
+        "destacados": true,
+        "carousel": true,
+        "libre": true,
+        "clients": true,
+        "formulario": true,
+        "map": true,
+        "faq": true,
+        "buscabas": true,
+        "footer": true
+      }
+    },
+    {
+      "slug": "industria",
+      "brief": "Industria en AMBA.",
+      "whatsapp": "5491141674140",
+      "adsConversion": "AW-963730457/IHweCOa9gPQCEJm4xcsD",
+      "hero": {
+        "eyebrow": "",
+        "heading": "Filtros y lubricantes para industria",
+        "subhead": "Soluciones para mantener tu operación en movimiento y optimizar costos.",
+        "ctaLabel": "Contactanos",
+        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C%20quiero%20cotizar%20filtros%20y%20lubricantes%20para%20maquinaria%20agr%C3%ADcola.",
+        "backgroundImage": "images/industria.jpg"
+      },
+      "destacados": [
+        {
+          "source": "custom",
+          "id": "c-k39ftxg8",
+          "title": "FRAM y primeras marcas",
+          "brand": "FITLROS",
+          "image": "images/destacados/industria/c-k39ftxg8.jpg"
+        },
+        {
+          "source": "custom",
+          "id": "c-kgnuc0pv",
+          "title": "Motor, hidraulicos, grasas",
+          "brand": "LUBRICANTES",
+          "image": "images/destacados/industria/c-kgnuc0pv.webp"
+        },
+        {
+          "source": "custom",
+          "id": "c-1emyyle1",
+          "title": "Liquidos de refrigeracion de maquinaria",
+          "brand": "REFRIGERANTES",
+          "image": "images/destacados/industria/c-1emyyle1.webp"
+        },
+        {
+          "source": "custom",
+          "id": "c-vowylp7a",
+          "title": "Filtros especiales",
+          "brand": "FILTROS ESPECIALES",
+          "image": "images/destacados/industria/c-vowylp7a.jpg"
+        }
+      ],
+      "faq": [
+        {
+          "question": "¿Hacen envíos a todo el país?",
+          "answer": "Sí, realizamos envíos a todo el país mediante transporte o correo."
+        },
+        {
+          "question": "¿Qué productos puedo comprar?",
+          "answer": "Filtros, lubricantes y productos de mantenimiento. Vendemos por mayor."
+        },
+        {
+          "question": "¿Puedo cotizar con un código o una marca?",
+          "answer": "Sí, pasanos el código, la marca o una referencia del producto y lo buscamos."
+        },
+        {
+          "question": "¿Pueden conseguir productos que no tienen publicados?",
+          "answer": "Sí, buscamos alternativas y equivalencias según lo que necesites."
+        },
+        {
+          "question": "¿Tienen stock para pedidos grandes?",
+          "answer": "Sí, contamos con stock y podemos preparar pedidos según tu volumen de compra."
+        },
+        {
+          "question": "¿Puedo incluir varios productos en un mismo pedido?",
+          "answer": "Sí, enviános tu listado completo y cotizamos todo junto."
+        },
+        {
+          "question": "¿Hay un monto mínimo de compra?",
+          "answer": "No hay un monto mínimo obligatorio. Cotizamos según lo que necesites."
+        },
+        {
+          "question": "¿Cómo calculo el costo de envío?",
+          "answer": "Lo coordinamos según el destino, el volumen y el transporte elegido."
+        },
+        {
+          "question": "¿Puedo comprar sin ir hasta el local?",
+          "answer": "Sí, podés hacer todo el pedido de forma remota y coordinamos el envío."
+        },
+        {
+          "question": "¿Cómo solicito una cotización?",
+          "answer": "Enviános tu listado, códigos o consulta y te preparamos una cotización."
+        }
+      ],
+      "libre": {
+        "heading": "",
+        "text": ""
+      },
+      "cotizar": {
+        "heading": "Cotizaciones",
+        "lead": "",
+        "steps": [
+          {
+            "title": "Envianos listado de codigo cantidad",
+            "text": "Excel o listado a mano. Con codigos y cantidades"
+          },
+          {
+            "title": "Precotizamos en el instante",
+            "text": "Te pasamos el precio de lo que tenemos entrega inmediata."
+          },
+          {
+            "title": "Cotizacion completa",
+            "text": "En caso de avanzar vemos de encontrar los codigos faltantes"
+          }
+        ]
+      },
+      "carousel": {
+        "eyebrow": "fitlros y lubricantes",
+        "line1": "filtros y lurbicantes para la industria",
+        "line1Muted": "",
+        "slides": [
+          {
+            "id": "s-1awf0ye1",
+            "label": "Compresores a tornillo",
+            "text": "filtros adaptados",
+            "href": "",
+            "image": "images/carousel/industria/s-1awf0ye1.jpg"
+          },
+          {
+            "id": "s-cpknzdft",
+            "label": "Prensas hidraulica",
+            "text": "Filtros hidraulicos",
+            "href": "",
+            "image": "images/carousel/industria/s-cpknzdft.jpg"
+          },
+          {
+            "id": "s-lwotknmj",
+            "label": "ALIMENTOS",
+            "text": "lubricantes especiales para ind de alimentos",
+            "href": "",
+            "image": "images/carousel/industria/s-lwotknmj.jpg"
+          },
+          {
+            "id": "s-ju9w63zr",
+            "label": "Corte CNC",
+            "text": "lubricantes diseñados para cortes",
+            "href": "",
+            "image": "images/carousel/industria/s-ju9w63zr.jpg"
+          },
+          {
+            "id": "s-bokhk5ax",
+            "label": "procesos industriales",
+            "text": "",
+            "href": "",
+            "image": "images/carousel/industria/s-bokhk5ax.jpg"
+          }
+        ]
+      },
+      "clients": [
+        {
+          "id": "c-ksthurbu",
+          "alt": "industrial1",
+          "file": "images/clients/industria/c-ksthurbu.png"
+        }
+      ],
+      "sections": {
+        "order": [
+          "hero",
+          "marcas",
+          "diferencial",
+          "destacados",
+          "cotizar",
+          "carousel",
+          "libre",
+          "clients",
+          "formulario",
+          "map",
+          "faq",
+          "buscabas",
+          "footer"
+        ],
+        "hero": true,
+        "marcas": true,
+        "diferencial": true,
+        "cotizar": true,
+        "destacados": true,
+        "carousel": true,
+        "libre": true,
+        "clients": true,
+        "formulario": true,
+        "map": true,
+        "faq": true,
+        "buscabas": true,
+        "footer": true
+      }
+    }
+  ]
+}
