@@ -364,109 +364,6 @@
 		}, true);
 	}
 
-	var PROVINCES = [
-		"Ciudad Autónoma de Buenos Aires",
-		"Buenos Aires",
-		"Catamarca",
-		"Chaco",
-		"Chubut",
-		"Córdoba",
-		"Corrientes",
-		"Entre Ríos",
-		"Formosa",
-		"Jujuy",
-		"La Pampa",
-		"La Rioja",
-		"Mendoza",
-		"Misiones",
-		"Neuquén",
-		"Río Negro",
-		"Salta",
-		"San Juan",
-		"San Luis",
-		"Santa Cruz",
-		"Santa Fe",
-		"Santiago del Estero",
-		"Tierra del Fuego",
-		"Tucumán"
-	];
-
-	function locationWhatsappHref(href, place) {
-		var text = "hola! les escribo desde la web, desde " + String(place || "").trim();
-		var url;
-		try { url = new URL(href, window.location.href); } catch (error) { return ""; }
-		var host = url.hostname.replace(/^www\./, "");
-		if (host !== "wa.me" && host !== "api.whatsapp.com" && host !== "web.whatsapp.com") return "";
-		url.searchParams.set("text", text);
-		return url.toString();
-	}
-
-	function openLocationModal(href) {
-		var current = document.getElementById("wa-location");
-		if (current) current.remove();
-		var root = document.createElement("div");
-		root.id = "wa-location";
-		root.className = "wa-location";
-		var options = PROVINCES.map(function (name) {
-			return "<option value=\"" + name.replace(/"/g, "") + "\">" + name + "</option>";
-		}).join("");
-		root.innerHTML = ""
-			+ "<form class=\"wa-location__dialog\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"wa-location-title\">"
-			+ "<h2 id=\"wa-location-title\">Seleccioná ubicación</h2>"
-			+ "<p>Elegí la provincia desde donde nos escribís.</p>"
-			+ "<label for=\"wa-location-province\">Provincia</label>"
-			+ "<select id=\"wa-location-province\" required>"
-			+ "<option value=\"\">Seleccioná una provincia</option>"
-			+ options
-			+ "</select>"
-			+ "<div class=\"wa-location__actions\">"
-			+ "<button class=\"wa-location__cancel\" type=\"button\">Cancelar</button>"
-			+ "<button class=\"wa-location__go\" type=\"submit\" disabled>Escribir por WhatsApp</button>"
-			+ "</div></form>";
-		document.body.appendChild(root);
-		var form = root.querySelector("form");
-		var select = root.querySelector("select");
-		var go = root.querySelector(".wa-location__go");
-		function close() {
-			document.removeEventListener("keydown", onKey);
-			root.remove();
-		}
-		function onKey(event) {
-			if (event.key === "Escape") close();
-		}
-		document.addEventListener("keydown", onKey);
-		root.addEventListener("click", function (event) {
-			if (event.target === root) close();
-		});
-		select.addEventListener("change", function () {
-			go.disabled = !select.value;
-		});
-		form.addEventListener("submit", function (event) {
-			event.preventDefault();
-			var next = locationWhatsappHref(href, select.value);
-			if (!next) return;
-			if (typeof window.gtag_report_conversion === "function") window.gtag_report_conversion();
-			incrementStat(slug, "wppClicks");
-			close();
-			window.open(next, "_blank", "noopener");
-		});
-		root.querySelector(".wa-location__cancel").addEventListener("click", close);
-		select.focus();
-	}
-
-	function bindWhatsappLocation() {
-		if (document.documentElement.getAttribute("data-wa-location") === "1") return;
-		document.documentElement.setAttribute("data-wa-location", "1");
-		document.addEventListener("click", function (event) {
-			var node = event.target;
-			var link = node && node.closest ? node.closest("a.wa-float") : null;
-			if (!link) return;
-			event.preventDefault();
-			event.stopImmediatePropagation();
-			openLocationModal(link.getAttribute("href") || "");
-		}, true);
-	}
-
 	function ensureWhatsappFloat() {
 		document.querySelectorAll(".quick-access__wa").forEach(function (node) {
 			node.remove();
@@ -487,7 +384,6 @@
 
 	var slug = pageSlug();
 	if (!slug) return;
-	bindWhatsappLocation();
 	ensureWhatsappFloat();
 	trackLanding(slug);
 
