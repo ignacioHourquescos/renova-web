@@ -26,6 +26,7 @@
     return false;
   }
 </script>
+  <script src="../views/js/firebase-landings-config.js"></script>
 </head>
 <body>
 <main class="alta"><header class="alta__bar"><img src="../assets/logo-renova.png" alt="Renova"/></header><div class="alta__wrap"><h1>Alta de cliente</h1><p class="alta__lead">Completá los datos de tu empresa para darte de alta como cliente mayorista.</p><form class="alta__form" method="post" action="#alta"><input class="alta__honey" type="text" name="_honey" tabindex="-1" autoComplete="off" aria-hidden="true"/><fieldset class="alta__group"><legend>Empresa</legend><div class="alta__grid"><label class="alta__field alta__field--wide"><span>Razón social</span><input name="razon" type="text" autoComplete="organization" placeholder="Razón social" required=""/></label><label class="alta__field"><span>CUIT / CUIL</span><input name="cuit" type="text" inputMode="numeric" autoComplete="off" placeholder="20-12345678-6" aria-describedby="cuit-note" required=""/><small id="cuit-note" class="alta__cuit" data-cuit-note="true" hidden=""></small></label><label class="alta__field"><span>Condición IVA</span><select name="iva" required=""><option value="" disabled="" selected="">Elegí una opción</option><option value="Responsable inscripto">Responsable inscripto</option><option value="Monotributo">Monotributo</option><option value="Exento">Exento</option><option value="Consumidor final">Consumidor final</option></select></label></div></fieldset><fieldset class="alta__group"><legend>Contacto</legend><div class="alta__grid"><label class="alta__field"><span>Nombre</span><input name="nombre" type="text" autoComplete="name" placeholder="Tu nombre" required=""/></label><label class="alta__field"><span>Teléfono</span><input name="telefono" type="tel" autoComplete="tel" placeholder="+54 9 11 …" required=""/></label><label class="alta__field alta__field--wide"><span>Email</span><input name="email" type="text" inputMode="email" autoComplete="email" placeholder="tu@email.com" aria-describedby="email-note" required=""/><small id="email-note" class="alta__cuit" data-email-note="true" hidden=""></small></label></div></fieldset><fieldset class="alta__group"><legend>Domicilio fiscal</legend><div class="alta__grid"><label class="alta__field alta__field--wide"><span>Dirección</span><input name="direccion" type="text" autoComplete="street-address" placeholder="Calle y número" required=""/></label><label class="alta__field"><span>Localidad</span><input name="localidad" type="text" autoComplete="address-level2" placeholder="Localidad" required=""/></label><label class="alta__field"><span>Provincia</span><select name="provincia" required=""><option value="" disabled="" selected="">Elegí una opción</option><option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option><option value="Buenos Aires">Buenos Aires</option><option value="Catamarca">Catamarca</option><option value="Chaco">Chaco</option><option value="Chubut">Chubut</option><option value="Córdoba">Córdoba</option><option value="Corrientes">Corrientes</option><option value="Entre Ríos">Entre Ríos</option><option value="Formosa">Formosa</option><option value="Jujuy">Jujuy</option><option value="La Pampa">La Pampa</option><option value="La Rioja">La Rioja</option><option value="Mendoza">Mendoza</option><option value="Misiones">Misiones</option><option value="Neuquén">Neuquén</option><option value="Río Negro">Río Negro</option><option value="Salta">Salta</option><option value="San Juan">San Juan</option><option value="San Luis">San Luis</option><option value="Santa Cruz">Santa Cruz</option><option value="Santa Fe">Santa Fe</option><option value="Santiago del Estero">Santiago del Estero</option><option value="Tierra del Fuego">Tierra del Fuego</option><option value="Tucumán">Tucumán</option></select></label><label class="alta__field"><span>Código postal</span><input name="cp" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="1414"/></label></div></fieldset><fieldset class="alta__group"><legend>Dirección de entrega</legend><label class="alta__check"><input name="misma_entrega" type="checkbox" checked="" value="si"/><span>La dirección de entrega es la misma que el domicilio fiscal</span></label><div class="alta__entrega" hidden=""><div class="alta__grid"><label class="alta__field alta__field--wide"><span>Dirección</span><input name="entrega_direccion" type="text" autoComplete="section-shipping street-address" placeholder="Calle y número" disabled=""/></label><label class="alta__field"><span>Localidad</span><input name="entrega_localidad" type="text" autoComplete="section-shipping address-level2" placeholder="Localidad" disabled=""/></label><label class="alta__field"><span>Provincia</span><select name="entrega_provincia" disabled=""><option value="" disabled="" selected="">Elegí una opción</option><option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option><option value="Buenos Aires">Buenos Aires</option><option value="Catamarca">Catamarca</option><option value="Chaco">Chaco</option><option value="Chubut">Chubut</option><option value="Córdoba">Córdoba</option><option value="Corrientes">Corrientes</option><option value="Entre Ríos">Entre Ríos</option><option value="Formosa">Formosa</option><option value="Jujuy">Jujuy</option><option value="La Pampa">La Pampa</option><option value="La Rioja">La Rioja</option><option value="Mendoza">Mendoza</option><option value="Misiones">Misiones</option><option value="Neuquén">Neuquén</option><option value="Río Negro">Río Negro</option><option value="Salta">Salta</option><option value="San Juan">San Juan</option><option value="San Luis">San Luis</option><option value="Santa Cruz">Santa Cruz</option><option value="Santa Fe">Santa Fe</option><option value="Santiago del Estero">Santiago del Estero</option><option value="Tierra del Fuego">Tierra del Fuego</option><option value="Tucumán">Tucumán</option></select></label><label class="alta__field"><span>Código postal</span><input name="entrega_cp" type="text" inputMode="numeric" autoComplete="section-shipping postal-code" placeholder="1414" disabled=""/></label></div></div></fieldset><label class="alta__field alta__field--wide alta__comment"><span>Comentario</span><textarea name="comentario" rows="3" placeholder="Algo que tengamos que saber para el alta"></textarea></label><button class="alta__submit" type="submit">Solicitar alta</button><p class="alta__error" role="alert"></p><p class="alta__fine">Usamos estos datos solo para darte de alta y contactarte. Podés pedir acceso o baja en renovafiltros@gmail.com.</p></form><p class="alta__ok" hidden="">Listo. Recibimos tu solicitud de alta.</p><p class="alta__origen" hidden=""></p><noscript><p class="alta__error">Para enviar el alta, activá JavaScript en el navegador.</p></noscript></div><script>(function () {
@@ -70,6 +71,37 @@
   var PHONE = "5491141674140";
   var forms = document.querySelectorAll("form.alta__form");
   for (var i = 0; i < forms.length; i++) bind(forms[i]);
+
+  function countAltaClick() {
+    var config = window.__LANDING_FIREBASE_CONFIG__;
+    if (!config || !config.apiKey || !config.projectId) return;
+    var key = "renova:alta:wpp";
+    try {
+      if (localStorage.getItem(key)) return;
+      localStorage.setItem(key, "1");
+    } catch (error) {
+      return;
+    }
+    var docName = "projects/" + config.projectId + "/databases/(default)/documents/landings_statistics_dev/alta";
+    var url = "https://firestore.googleapis.com/v1/projects/" + config.projectId + "/databases/(default)/documents:commit?key=" + encodeURIComponent(config.apiKey);
+    fetch(url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      keepalive: true,
+      body: JSON.stringify({
+        writes: [{
+          transform: {
+            document: docName,
+            fieldTransforms: [{ fieldPath: "wppClicks", increment: { integerValue: "1" } }]
+          }
+        }]
+      })
+    }).then(function (response) {
+      if (!response.ok) throw new Error("stats");
+    }).catch(function () {
+      try { localStorage.removeItem(key); } catch (error) {}
+    });
+  }
 
   function bind(form) {
     if (form.getAttribute("data-bound") === "1") return;
@@ -181,6 +213,7 @@
       button.disabled = true;
       button.textContent = "Enviando…";
       if (typeof gtag_report_conversion === "function") gtag_report_conversion();
+      countAltaClick();
       function read(name) { return String(data.get(name) || "").trim(); }
       var lines = [
         "Hola, quiero darme de alta.",

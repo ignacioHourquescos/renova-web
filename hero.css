@@ -1394,6 +1394,36 @@ a.hero__cta:focus-visible {
   white-space: pre-wrap;
 }
 
+.libre__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.libre__text + .libre__tags {
+  margin-top: 22px;
+}
+
+.libre__tags li {
+  margin: 0;
+  padding: 8px 16px;
+  border: 1px solid #e3dccb;
+  border-radius: 999px;
+  background: #fff;
+  color: #2b2822;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.libre__tags li:nth-child(3n + 1) {
+  border-color: #fcba00;
+  background: #fff6d6;
+}
+
 .libre__empty {
   margin: 0;
   color: #6d665c;
