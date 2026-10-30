@@ -141,6 +141,7 @@
 		var href = safeHref(hero.ctaHref);
 		if (typeof hero.ctaLabel === "string" || href) {
 			document.querySelectorAll(".hero__cta").forEach(function (node) {
+				if (node.closest && node.closest(".faq-link")) return;
 				if (typeof hero.ctaLabel === "string") node.textContent = hero.ctaLabel;
 				if (node.tagName === "A" && href) node.setAttribute("href", href);
 			});
@@ -233,12 +234,35 @@
 		return "";
 	}
 
+	function withPageMessage(href, message) {
+		var url;
+		try { url = new URL(String(href || "")); } catch (error) { return ""; }
+		var host = url.hostname.replace(/^www\./, "");
+		if (host !== "wa.me" && host !== "api.whatsapp.com" && host !== "web.whatsapp.com") return "";
+		var text = String(message || "").trim();
+		if (text) url.searchParams.set("text", text);
+		else url.searchParams.delete("text");
+		return url.toString();
+	}
+
 	function applyPageWhatsapp(landing) {
-		var digits = String(landing && landing.whatsapp || "").replace(/\D/g, "");
-		if (digits.length < 8) return;
+		if (!landing) return;
+		var digits = String(landing.whatsapp || "").replace(/\D/g, "");
+		var hasMessage = Object.prototype.hasOwnProperty.call(landing, "whatsappMessage");
+		var message = String(landing.whatsappMessage || "");
+		if (digits.length < 8 && !hasMessage) return;
 		document.querySelectorAll("a[href]").forEach(function (node) {
-			var next = withPagePhone(node.getAttribute("href"), digits);
-			if (next) node.setAttribute("href", next);
+			var href = node.getAttribute("href");
+			var next = href;
+			if (digits.length >= 8) {
+				var phoned = withPagePhone(href, digits);
+				if (phoned) next = phoned;
+			}
+			if (hasMessage) {
+				var messaged = withPageMessage(next, message);
+				if (messaged) next = messaged;
+			}
+			if (next && next !== href) node.setAttribute("href", next);
 		});
 	}
 
@@ -351,6 +375,7 @@
 		if (node && node.nodeType !== 1) node = node.parentElement;
 		var link = node && node.closest ? node.closest("a") : null;
 		if (!link) return false;
+		if (link.closest && link.closest(".carousel")) return false;
 		var href = link.getAttribute("href") || "";
 		return /wa\.me|api\.whatsapp\.com/i.test(href);
 	}
@@ -381,6 +406,11 @@
 		link.innerHTML = '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16.04 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.44 1.72 6.36L3.2 28.8l6.6-1.73a12.75 12.75 0 0 0 6.24 1.6h.01c7.07 0 12.8-5.73 12.8-12.8s-5.73-12.67-12.81-12.67zm0 23.42h-.01a10.6 10.6 0 0 1-5.4-1.48l-.39-.23-4.02 1.06 1.07-3.9-.25-.4a10.6 10.6 0 0 1-1.63-5.67c0-5.86 4.77-10.62 10.64-10.62 2.84 0 5.51 1.11 7.52 3.12a10.55 10.55 0 0 1 3.11 7.51c0 5.86-4.77 10.61-10.64 10.61zm5.83-7.95c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.51-.16-.72.16-.21.32-.83 1.04-1.02 1.25-.19.21-.38.24-.7.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.87-1.76-2.19-.19-.32-.02-.49.14-.65.14-.14.32-.38.48-.56.16-.19.21-.32.32-.54.11-.21.05-.4-.03-.56-.08-.16-.72-1.73-.98-2.37-.26-.62-.53-.54-.72-.55h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.67 0 1.57 1.15 3.08 1.31 3.3.16.21 2.26 3.45 5.47 4.84.76.33 1.36.53 1.82.67.77.24 1.46.21 2.02.13.62-.09 1.89-.77 2.16-1.51.27-.75.27-1.38.19-1.51-.08-.14-.29-.21-.61-.37z"/></svg>';
 		document.body.appendChild(link);
 	}
+
+	document.querySelectorAll(".faq-link .hero__cta").forEach(function (node) {
+		if (!node.parentNode) return;
+		node.parentNode.replaceChild(node.cloneNode(true), node);
+	});
 
 	var slug = pageSlug();
 	if (!slug) return;

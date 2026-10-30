@@ -57,6 +57,12 @@ export function normalizeWhatsapp(value) {
   return digits;
 }
 
+export function normalizeWhatsappMessage(value) {
+  const text = String(value ?? "").replace(/\s+/g, " ").trim();
+  if (text.length > 160) fail(400, "El mensaje de WhatsApp es demasiado largo");
+  return text;
+}
+
 export function normalizeAdsConversion(value) {
   const parsed = adsConversionOrNull(value);
   if (parsed === null) {
@@ -146,7 +152,6 @@ export const SECTION_IDS = [
   "formulario",
   "map",
   "faq",
-  "buscabas",
   "footer",
 ];
 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getDestacados, getSite, mediaUrl, saveLanding, saveSiteFooter } from "../api.js";
 import { defaultCarousel, defaultClients, defaultCotizar, defaultFooter, isSafeHref, landingClients, moveSection, normalizeSections, sectionOrder, sectionVisible } from "../../shared/content.js";
-import { withWhatsappPhone } from "../../shared/tracking.js";
+import { applyWhatsappLink, whatsappDigits } from "../../shared/tracking.js";
 import { DESTACADOS_COUNT, resolveDestacados } from "../../shared/destacados.js";
 import { Clients } from "../components/Clients.jsx";
 import { ClientsEditor } from "../components/ClientsEditor.jsx";
@@ -12,7 +12,6 @@ import { Formulario } from "../components/Formulario.jsx";
 import { Destacados } from "../components/Destacados.jsx";
 import { Diferencial } from "../components/Diferencial.jsx";
 import { DevicePreview } from "../components/DevicePreview.jsx";
-import { Buscabas } from "../components/Buscabas.jsx";
 import { Footer, WhatsAppFloat } from "../components/Footer.jsx";
 import { Hero } from "../components/Hero.jsx";
 import { FaqLink } from "../components/Faq.jsx";
@@ -164,7 +163,6 @@ const SECTION_NAV = [
   { id: "formulario", label: "Formulario" },
   { id: "map", label: "Mapa" },
   { id: "faq", label: "Preguntas" },
-  { id: "buscabas", label: "No es lo que buscabas" },
   { id: "footer", label: "Footer" },
 ];
 
@@ -261,6 +259,7 @@ export function LandingEditor() {
   const [sections, setSections] = useState(() => normalizeSections());
   const [saveState, setSaveState] = useState("idle");
   const [pagePhone, setPagePhone] = useState("");
+  const [pageMessage, setPageMessage] = useState("");
   const draftRef = useRef(draft);
   const footerRef = useRef(footer);
   const pendingRef = useRef("");
@@ -292,7 +291,6 @@ export function LandingEditor() {
   const carouselPaneRef = useRef(null);
   const clientsPaneRef = useRef(null);
   const marcasPaneRef = useRef(null);
-  const buscabasPaneRef = useRef(null);
   const footerPaneRef = useRef(null);
   const readyRef = useRef(false);
   const slugRef = useRef(slug);
@@ -534,6 +532,7 @@ export function LandingEditor() {
         loadedSlugRef.current = slug;
         setSite(data.site);
         setPagePhone(landing.whatsapp || "");
+        setPageMessage(landing.whatsappMessage || "");
         setDraft(landing.hero);
         setFooter(nextFooter);
         setSelectedIds(savedIds);
@@ -823,7 +822,6 @@ export function LandingEditor() {
       carousel: carouselPaneRef,
       clients: clientsPaneRef,
       marcas: marcasPaneRef,
-      buscabas: buscabasPaneRef,
       footer: footerPaneRef,
     };
     const node = panes[next]?.current;
@@ -896,12 +894,14 @@ export function LandingEditor() {
         ? "status status--ok"
         : "status";
 
-  const previewHero = pagePhone
-    ? { ...draft, ctaHref: withWhatsappPhone(draft.ctaHref, pagePhone) }
-    : draft;
-  const previewFooter = pagePhone
-    ? { ...footer, whatsappHref: withWhatsappPhone(footer.whatsappHref, pagePhone) }
-    : footer;
+  const previewHero = {
+    ...draft,
+    ctaHref: applyWhatsappLink(draft.ctaHref, pagePhone, pageMessage),
+  };
+  const previewFooter = {
+    ...footer,
+    whatsappHref: applyWhatsappLink(footer.whatsappHref, pagePhone, pageMessage),
+  };
 
   function previewBlock(id) {
     if (!sectionVisible(sections, id)) return null;
@@ -956,6 +956,7 @@ export function LandingEditor() {
               ...carousel,
               slides: carousel.slides.map((slide) => ({
                 ...slide,
+                href: whatsappDigits(slide.href) ? applyWhatsappLink(slide.href, pagePhone, pageMessage) : slide.href,
                 src: slide.imageDataUrl || (slide.image ? mediaUrl(slide.image, version) : ""),
               })),
             }}
@@ -1000,13 +1001,6 @@ export function LandingEditor() {
       return (
         <div key={id} ref={faqPaneRef}>
           <FaqLink href={`/landings/${slug}/preguntas`} target="_top" />
-        </div>
-      );
-    }
-    if (id === "buscabas") {
-      return (
-        <div key={id} ref={buscabasPaneRef}>
-          <Buscabas />
         </div>
       );
     }
@@ -1095,8 +1089,8 @@ export function LandingEditor() {
         <p className="hint">
           HTML exportado: <a href={`/export/${slug}/`} target="_blank" rel="noreferrer">/{slug}/</a>
         </p>
-        {drawerSection === "hero" ? <p className="hint">El número de WhatsApp se define en Páginas. En el link podés cambiar el mensaje.</p> : null}
-        {drawerSection === "footer" ? <p className="hint">Este pie es el mismo en todas las landings. El número de WhatsApp de cada página se define en Páginas; este enlace aporta el mensaje del botón flotante.</p> : null}
+        {drawerSection === "hero" ? <p className="hint">El número y el mensaje de WhatsApp se definen en Páginas. Este link usa ese mensaje.</p> : null}
+        {drawerSection === "footer" ? <p className="hint">Este pie es el mismo en todas las landings. El número y el mensaje de WhatsApp de cada página se definen en Páginas.</p> : null}
         {drawerSection === "map" ? <p className="hint">El mapa usa la dirección del pie y es el mismo en todas las landings.</p> : null}
         {drawerSection === "faq" ? (
           <p className="hint">
@@ -1111,7 +1105,6 @@ export function LandingEditor() {
         {drawerSection === "diferencial" ? <p className="hint">Estos cuatro bloques son los mismos en todas las landings.</p> : null}
         {drawerSection === "cotizar" ? <p className="hint">Estos textos son solo de esta landing.</p> : null}
         {drawerSection === "formulario" ? <p className="hint">Este formulario es el mismo en todas las landings. El mail llega a renovafiltros@gmail.com e indica de qué landing salió. Los archivos no pueden pasar de 10 MB en total.</p> : null}
-        {drawerSection === "buscabas" ? <p className="hint">Este bloque es el mismo en todas las landings. Sirve si alguien llegó a una página muy específica y busca el catálogo general. El botón abre el inicio de Renova.</p> : null}
         {drawerSection === "destacados" ? <p className="hint">Los destacados de esta landing no se comparten con las otras.</p> : null}
         <p className={statusClass} role="status" aria-live="polite">
           {saveState === "saving" && !error ? <Spinner /> : null}
@@ -1166,7 +1159,7 @@ export function LandingEditor() {
           </>
         ) : drawerSection === "clients" ? (
           <ClientsEditor logos={clients} version={version} onChange={commitClients} onError={rejectClients} />
-        ) : drawerSection === "map" || drawerSection === "marcas" || drawerSection === "diferencial" || drawerSection === "formulario" || drawerSection === "buscabas" ? null : (
+        ) : drawerSection === "map" || drawerSection === "marcas" || drawerSection === "diferencial" || drawerSection === "formulario" ? null : (
           <>
             <TextField label="Razón social" value={footer.legalName} onChange={(event) => updateFooter("legalName", event.target.value)} />
             <TextField label="CUIT" value={footer.taxId} onChange={(event) => updateFooter("taxId", event.target.value)} />
@@ -1199,17 +1192,7 @@ export function LandingEditor() {
           </button>
         </div>
         <DevicePreview viewport={viewport} site={site}>
-          {sectionOrder(sections).flatMap((id, index, order) => {
-            const beforeFooter = id === "buscabas" && order[index + 1] === "footer";
-            if (beforeFooter) return [];
-            const block = previewBlock(id);
-            if (id !== "footer") return block ? [block] : [];
-            const buscabas = order[index - 1] === "buscabas" ? previewBlock("buscabas") : null;
-            return [
-              ...(buscabas ? [buscabas] : []),
-              ...(block ? [block] : []),
-            ];
-          })}
+          {sectionOrder(sections).map((id) => previewBlock(id))}
           <WhatsAppFloat footer={previewFooter} />
         </DevicePreview>
       </section>

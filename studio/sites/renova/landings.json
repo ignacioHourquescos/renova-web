@@ -4,13 +4,14 @@
       "slug": "agro",
       "brief": "Para ciudades del interior de Buenos Aires",
       "whatsapp": "5491141674140",
+      "whatsappMessage": "Hola, te escribo desde la web🚜",
       "adsConversion": "AW-963730457/IHweCOa9gPQCEJm4xcsD",
       "hero": {
         "eyebrow": "Distribuidora mayorista · Más de 40 años en el mercado",
         "heading": "Filtros y Lubricantes por Mayor para el Agro",
         "subhead": "Reponé tractores, cosechadoras y maquinaria agrícola con precio mayorista, stock permanente y entrega en todo el país. Sin monto mínimo obligatorio.",
         "ctaLabel": "Contactarme",
-        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C%20quiero%20cotizar%20filtros%20y%20lubricantes%20para%20maquinaria%20agr%C3%ADcola.",
+        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C+te+escribo+desde+la+web%F0%9F%9A%9C",
         "backgroundImage": "images/agro.png"
       },
       "destacados": [
@@ -177,7 +178,6 @@
           "formulario",
           "map",
           "faq",
-          "buscabas",
           "footer"
         ],
         "hero": true,
@@ -191,23 +191,27 @@
         "formulario": true,
         "map": true,
         "faq": true,
-        "buscabas": true,
         "footer": true
       }
     },
     {
       "slug": "flota-de-camiones",
-      "brief": "",
-      "whatsapp": "",
+      "brief": "flota de camiones",
+      "whatsapp": "5491141674140",
+      "whatsappMessage": "Hola, te escribo desde la web 🚚",
       "adsConversion": "",
       "hero": {
         "eyebrow": "linea pesada",
-        "heading": "Filtros y lubricantes para flotas de camiones",
-        "subhead": "Filtro de aceite,aire, combustible, hiraulicos, trampa de agua y lubricantes para flotas",
+        "heading": "Filtros y lubricantes para flotas PESADAS",
+        "subhead": "TODOS LOS FITLROS PARA FLOTA DE CAMIONES Y UTILITARIOS",
         "ctaLabel": "Quiero que me cotizen",
-        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C%20quiero%20cotizar%20filtros%20y%20lubricantes%20para%20maquinaria%20agr%C3%ADcola.",
+        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C+te+escribo+desde+la+web+%F0%9F%9A%9A",
         "backgroundImage": "images/flota-de-camiones.webp"
       },
+      "destacados": [
+        "GF/15W40/1",
+        "ac/10w40/4"
+      ],
       "faq": [
         {
           "question": "¿Hacen envíos a todo el país?",
@@ -255,20 +259,20 @@
         "text": ""
       },
       "cotizar": {
-        "heading": "Cómo cotizar",
-        "lead": "En tres pasos, por WhatsApp. No hace falta un listado perfecto.",
+        "heading": "Cotizaciones",
+        "lead": "",
         "steps": [
           {
-            "title": "Mandás marca, código o patente",
-            "text": "Si no tenés el código, con la patente o el modelo alcanza."
+            "title": "Envianos listado de codigo x cantidad",
+            "text": "Excel o listado a mano. Con codigos y cantidades"
           },
           {
-            "title": "Te respondemos la cotización por WhatsApp",
-            "text": "Te pasamos el precio mayorista por el mismo chat."
+            "title": "Precotizamos en el instante",
+            "text": "Te pasamos el precio de lo que tenemos entrega inmediata."
           },
           {
-            "title": "Coordinamos la entrega",
-            "text": "A tu depósito, taller o campo."
+            "title": "Cotizacion completa",
+            "text": "En caso de avanzar vemos de encontrar los codigos faltantes."
           }
         ]
       },
@@ -276,7 +280,36 @@
         "eyebrow": "",
         "line1": "",
         "line1Muted": "",
-        "slides": []
+        "slides": [
+          {
+            "id": "s-6cinzi5f",
+            "label": "camion mercedes",
+            "text": "Accelo, atego, Axor · Propio",
+            "href": "",
+            "image": "images/carousel/flota-de-camiones/s-6cinzi5f.jpg"
+          },
+          {
+            "id": "s-f5zi4jrh",
+            "label": "IVECO DAILY",
+            "text": "Daily, tector, stralis",
+            "href": "",
+            "image": "images/carousel/flota-de-camiones/s-f5zi4jrh.jpg"
+          },
+          {
+            "id": "s-fxip3jc7",
+            "label": "volvo",
+            "text": "Serie P, Serie R, Serie S",
+            "href": "",
+            "image": "images/carousel/flota-de-camiones/s-fxip3jc7.jpg"
+          },
+          {
+            "id": "s-uxsog8fp",
+            "label": "renault",
+            "text": "TRUCKS",
+            "href": "",
+            "image": "images/carousel/flota-de-camiones/s-uxsog8fp.jpg"
+          }
+        ]
       },
       "sections": {
         "order": [
@@ -291,21 +324,19 @@
           "formulario",
           "map",
           "faq",
-          "buscabas",
           "footer"
         ],
         "hero": true,
         "marcas": true,
         "diferencial": true,
         "cotizar": true,
-        "destacados": true,
+        "destacados": false,
         "carousel": true,
         "libre": true,
         "clients": true,
         "formulario": true,
         "map": true,
         "faq": true,
-        "buscabas": true,
         "footer": true
       }
     },
@@ -313,13 +344,14 @@
       "slug": "industria",
       "brief": "Industria en AMBA.",
       "whatsapp": "5491141674140",
+      "whatsappMessage": "Hola! te escribo desde la web 🏭",
       "adsConversion": "AW-963730457/IHweCOa9gPQCEJm4xcsD",
       "hero": {
         "eyebrow": "",
         "heading": "Filtros y lubricantes para industria",
         "subhead": "Soluciones para mantener tu operación en movimiento y optimizar costos.",
         "ctaLabel": "Contactanos",
-        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C%20quiero%20cotizar%20filtros%20y%20lubricantes%20para%20maquinaria%20agr%C3%ADcola.",
+        "ctaHref": "https://wa.me/5491141674140?text=Hola%21+te+escribo+desde+la+web+%F0%9F%8F%AD",
         "backgroundImage": "images/industria.jpg"
       },
       "destacados": [
@@ -478,7 +510,6 @@
           "formulario",
           "map",
           "faq",
-          "buscabas",
           "footer"
         ],
         "hero": true,
@@ -492,7 +523,6 @@
         "formulario": true,
         "map": true,
         "faq": true,
-        "buscabas": true,
         "footer": true
       }
     }
