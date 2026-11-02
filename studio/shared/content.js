@@ -397,18 +397,61 @@ export function normalizeCotizar(input) {
   };
 }
 
+export const LIBRE_CARD_COUNT = 9;
+export const LIBRE_CARD_TITLE_MAX = 60;
+export const LIBRE_CARD_TEXT_MAX = 200;
+
+function cleanCardText(value) {
+  return String(value ?? "").replace(/[<>]/g, "").replace(/\s+/g, " ").trim();
+}
+
+// Acepta una lista de {title, text} o un texto: tarjetas separadas por una línea
+// en blanco, con el título en la primera línea y el detalle en las siguientes.
+export function parseCards(value) {
+  let list;
+  if (Array.isArray(value)) {
+    list = value.map((item) => ({
+      title: cleanCardText(item && item.title),
+      text: cleanCardText(item && item.text),
+    }));
+  } else {
+    list = String(value ?? "")
+      .split(/\r?\n\s*\r?\n/)
+      .map((block) => {
+        const lines = block.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+        return { title: cleanCardText(lines[0]), text: cleanCardText(lines.slice(1).join(" ")) };
+      });
+  }
+  return list.filter((card) => card.title || card.text);
+}
+
+export function cardsToText(cards) {
+  return (Array.isArray(cards) ? cards : [])
+    .map((card) => [card.title, card.text].filter(Boolean).join("\n"))
+    .join("\n\n");
+}
+
 export function defaultLibre() {
   return {
     heading: "",
     text: "",
+    cards: [],
   };
 }
 
 export function normalizeLibre(input) {
   const source = input && typeof input === "object" && !Array.isArray(input) ? input : {};
+  const cards = parseCards(source.cards);
+  if (cards.length > LIBRE_CARD_COUNT) fail(400, `Podés cargar hasta ${LIBRE_CARD_COUNT} tarjetas`);
+  for (const card of cards) {
+    if (!card.title) fail(400, "Cada tarjeta necesita un título");
+    if (card.title.length > LIBRE_CARD_TITLE_MAX) fail(400, "Hay un título de tarjeta demasiado largo");
+    if (card.text.length > LIBRE_CARD_TEXT_MAX) fail(400, "Hay un texto de tarjeta demasiado largo");
+  }
   return {
     heading: clean(source.heading, 180, "título del espacio libre"),
     text: clean(source.text, 4000, "texto del espacio libre"),
+    cards,
   };
 }
 

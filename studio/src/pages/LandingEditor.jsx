@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getDestacados, getSite, mediaUrl, saveLanding, saveSiteFooter } from "../api.js";
-import { defaultCarousel, defaultClients, defaultCotizar, defaultFooter, isSafeHref, landingClients, moveSection, normalizeSections, sectionOrder, sectionVisible } from "../../shared/content.js";
+import { LIBRE_CARD_COUNT, cardsToText, parseCards, defaultCarousel, defaultClients, defaultCotizar, defaultFooter, isSafeHref, landingClients, moveSection, normalizeSections, sectionOrder, sectionVisible } from "../../shared/content.js";
 import { applyWhatsappLink, whatsappDigits } from "../../shared/tracking.js";
 import { DESTACADOS_COUNT, resolveDestacados } from "../../shared/destacados.js";
 import { Clients } from "../components/Clients.jsx";
@@ -86,6 +86,7 @@ function libreFields(libre) {
   return {
     heading: libre?.heading ?? "",
     text: libre?.text ?? "",
+    cards: Array.isArray(libre?.cards) ? cardsToText(libre.cards) : String(libre?.cards ?? ""),
   };
 }
 
@@ -393,7 +394,9 @@ export function LandingEditor() {
         }
       }
       if (libreDirty && libreKey(libreRef.current) === libreKey(libreSnapshot)) {
-        const returned = libreFields(result.landing.libre);
+        const saved = libreFields(result.landing.libre);
+        const sameCards = JSON.stringify(parseCards(libreSnapshot.cards)) === JSON.stringify(parseCards(saved.cards));
+        const returned = sameCards ? { ...saved, cards: libreSnapshot.cards } : saved;
         libreRef.current = returned;
         savedLibreKeyRef.current = libreKey(returned);
         if (aliveRef.current) setLibre(returned);
@@ -1090,6 +1093,11 @@ export function LandingEditor() {
           HTML exportado: <a href={`/export/${slug}/`} target="_blank" rel="noreferrer">/{slug}/</a>
         </p>
         {drawerSection === "hero" ? <p className="hint">El número y el mensaje de WhatsApp se definen en Páginas. Este link usa ese mensaje.</p> : null}
+        {drawerSection === "hero" || drawerSection === "libre" ? (
+          <p className="hint">
+            <Link to={`/landings/${slug}/terminos`}>Adaptar los textos a los términos de búsqueda</Link>
+          </p>
+        ) : null}
         {drawerSection === "footer" ? <p className="hint">Este pie es el mismo en todas las landings. El número y el mensaje de WhatsApp de cada página se definen en Páginas.</p> : null}
         {drawerSection === "map" ? <p className="hint">El mapa usa la dirección del pie y es el mismo en todas las landings.</p> : null}
         {drawerSection === "faq" ? (
@@ -1149,6 +1157,11 @@ export function LandingEditor() {
           <>
             <TextField label="Título" value={libre.heading} onChange={(event) => updateLibre("heading", event.target.value)} />
             <TextField label="Texto" value={libre.text} onChange={(event) => updateLibre("text", event.target.value)} multiline />
+            <TextField label="Tarjetas" value={libre.cards} onChange={(event) => updateLibre("cards", event.target.value)} multiline />
+            <p className="hint">
+              Cada tarjeta es un bloque. La primera línea es el título y las siguientes son el detalle. Dejá una línea
+              en blanco entre una tarjeta y otra. Hasta {LIBRE_CARD_COUNT} tarjetas.
+            </p>
           </>
         ) : drawerSection === "carousel" ? (
           <>

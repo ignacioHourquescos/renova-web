@@ -1,0 +1,984 @@
+{
+  "runs": [
+    {
+      "at": "2026-10-30T14:50:04.264Z",
+      "applied": [
+        "hero",
+        "libre",
+        "faq"
+      ],
+      "terms": [
+        {
+          "term": "aceite 10w40 por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite castrol por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite de caja 80w90",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite elaion",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite elaion 10w40",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite para motos por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite por 200 litros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "acme neuquen",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "agip aceites",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "agroimpulso lubricantes san miguel de tucumán",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "bardahl lubricantes argentina s a",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "como ser distribuidor de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "como ser distribuidor de aceites y lubricantes castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "d atri",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "disfil",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribucion de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor aceite motul",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor aceite motul argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor aceite petronas",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor aceite valvoline",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor castrol argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de aceite castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de aceite para autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de aceites para motos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de filtros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor gulf",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor mayorista de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor motul argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor yamalube",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora aceites lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora acme",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora beral",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora datri",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceite castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceite motul",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceite para autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de filtros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora fusion",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora fusion srl",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora kolly",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora lubrax",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora luxo lanus",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora repuestos automotor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidoras de aceites",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidoras de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidoras de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de aceite",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de aceites y lubricantes al mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de aceites y lubricantes al mayor mendoza",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de autopartes en argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de insumos para lubricentros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores lubricantes shell argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "elf lubricantes argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "empresas de repuestos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "fabrica de filtros para automotores",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "fabrica de repuestos de autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "filtros por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "importador motul argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "insumos para lubricentro",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "kolly distribuidora",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "la bruna tucuman",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "liqui moly distribuidores argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricantes gulf distribuidores",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricantes por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricantes total rosario",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricentro mayorista",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricentro por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "maxoil la plata",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de aceite para autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de aceite para motos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de aceites",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de filtros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de lubricentro",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        }
+      ]
+    },
+    {
+      "at": "2026-10-30T15:00:40.028Z",
+      "applied": [
+        "hero",
+        "libre",
+        "faq"
+      ],
+      "terms": [
+        {
+          "term": "aceite 10w40 por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite castrol por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite para motos por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "aceite por 200 litros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "acme neuquen",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "agroimpulso lubricantes san miguel de tucumán",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "bardahl lubricantes argentina s a",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "como ser distribuidor de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "como ser distribuidor de aceites y lubricantes castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "d atri",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "disfil",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribucion de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor aceite motul argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor aceite petronas",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor castrol argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de aceite castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de aceite para autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor de aceites para motos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor gulf",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor mayorista de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor motul argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidor yamalube",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora aceites lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora acme",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora beral",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora datri",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceite castrol",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceite para autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de filtros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora fusion",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora fusion srl",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora kolly",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora lubrax",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora luxo lanus",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidora repuestos automotor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidoras de aceites",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidoras de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidoras de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de aceite",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de aceites y lubricantes al mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de aceites y lubricantes al mayor mendoza",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de autopartes en argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores de insumos para lubricentros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "distribuidores lubricantes shell argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "empresas de repuestos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "fabrica de filtros para automotores",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "fabrica de repuestos de autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "filtros por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "insumos para lubricentro",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "kolly distribuidora",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "la bruna tucuman",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "liqui moly distribuidores argentina",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricantes gulf distribuidores",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricantes por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricantes total rosario",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricentro mayorista",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "lubricentro por mayor",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "maxoil la plata",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de aceite para autos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de aceite para motos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de aceites",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de filtros",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista de lubricentro",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mayorista lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "motul argentina tecsyn s a",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "mz distribuciones",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "nozieres lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "petronas distribuidores",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "proveedor de aceite para motos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "proveedor de aceites y lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "proveedor de lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "proveedor de lubricantes automotrices",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "proveedores de aceite para motos",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "proveedores lubricantes",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        },
+        {
+          "term": "tambor de aceite 200 litros 10w40",
+          "clicks": 0,
+          "impressions": 0,
+          "conversions": 0
+        }
+      ]
+    }
+  ]
+}

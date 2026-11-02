@@ -1466,3 +1466,158 @@ label.client-logo__add:has(input:disabled) {
     animation: none;
   }
 }
+
+.terms h1 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.terms h2 {
+  margin: 24px 0 8px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.terms code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: #efe9dc;
+  font-size: 0.85em;
+}
+
+.terms .status {
+  margin: 12px 0;
+}
+
+.terms__input {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 44rem;
+}
+
+.terms__file,
+.terms__paste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.terms__file span,
+.terms__paste span,
+.terms__label,
+.terms__before span,
+.terms__after span {
+  color: #8a8174;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.terms__file em {
+  color: #5c564c;
+  font-size: 0.85rem;
+  font-style: normal;
+}
+
+.terms__paste textarea {
+  padding: 12px;
+  border: 1px solid #ddd4c6;
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.terms__actions {
+  display: flex;
+  margin: 8px 0;
+}
+
+.terms__change {
+  margin: 0 0 16px;
+  padding: 16px;
+  border: 1px solid #e4e0d8;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.terms .terms__check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+  text-align: left;
+  font-weight: 800;
+}
+
+.terms .terms__check input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.terms .terms__check span {
+  color: #1c1a17;
+  font-size: 0.95rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.terms__diff {
+  margin-bottom: 12px;
+}
+
+.terms__label {
+  margin: 0 0 6px;
+}
+
+.terms__pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.terms__before,
+.terms__after {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f6f3ec;
+}
+
+.terms__after {
+  background: #eef6ef;
+}
+
+.terms__before p,
+.terms__after p {
+  margin: 4px 0 0;
+  color: #2b2822;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.terms__before ul,
+.terms__after ul,
+.terms__discarded ul,
+.terms__history ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: #2b2822;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .terms__pair {
+    grid-template-columns: 1fr;
+  }
+}

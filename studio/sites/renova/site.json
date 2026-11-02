@@ -1,0 +1,49 @@
+{
+  "brand": "RENOVA",
+  "lang": "es",
+  "colors": {
+    "page": "#111111",
+    "text": "#ffffff",
+    "muted": "#e0e0e0",
+    "accent": "#fcba00",
+    "accentDark": "#cf9900",
+    "accentText": "#1a1a1a",
+    "overlay": "rgba(17, 17, 17, 0.55)"
+  },
+  "fonts": {
+    "heading": "\"Segoe UI\", Arial, Helvetica, sans-serif",
+    "body": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif"
+  },
+  "footer": {
+    "legalName": "Renova (Grosso Fiore)",
+    "taxId": "20-93461300-8",
+    "address": "Dr. Adolfo Dickman 984, La Paternal, CABA, Argentina",
+    "privacyLabel": "Aviso de privacidad",
+    "privacyHref": "#privacidad",
+    "privacyText": "Responsable del tratamiento de tus datos: Renova (Grosso Fiore), CUIT 20-93461300-8, con domicilio en Dr. Adolfo Dickman 984, La Paternal, Ciudad Autónoma de Buenos Aires. Finalidad: usar los datos que nos enviás exclusivamente para contactarte y enviarte la cotización mayorista solicitada. Tus datos no se ceden ni comparten con terceros. Podés ejercer tus derechos de acceso, rectificación y supresión escribiendo a renovafiltros@gmail.com, conforme la Ley 25.326 de Protección de Datos Personales.",
+    "copyright": "© 2026 Renova. Todos los derechos reservados.",
+    "whatsappHref": "https://wa.me/5491140565047?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20mayorista."
+  },
+  "alta": {
+    "brief": "Formulario de alta de cliente mayorista.",
+    "whatsapp": "5491141674140",
+    "adsConversion": "AW-963730457/zkajCPemyvMCEJm4xcsD"
+  },
+  "clients": [
+    {
+      "id": "kavak",
+      "alt": "Kavak",
+      "file": "kavak.png"
+    },
+    {
+      "id": "roggio",
+      "alt": "Roggio",
+      "file": "roggio_bn.png"
+    },
+    {
+      "id": "subte",
+      "alt": "Subte",
+      "file": "subte.png"
+    }
+  ]
+}

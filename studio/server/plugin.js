@@ -5,6 +5,7 @@ import { resolveDestacados } from "../shared/destacados.js";
 import { loadDestacados } from "./destacados.js";
 import { exportSite } from "./export.js";
 import { publishExport } from "./publish.js";
+import { aiStatus, applyProposal, proposeFromTerms, readHistory } from "./keywords.js";
 import { deleteLandingDoc, ensureAllLandingStats, pushLandingDoc, pushSiteDoc, readLandingStats, syncFromCloud } from "./firestore.js";
 import {
   createLanding,
@@ -344,6 +345,28 @@ async function handle(server, req, res) {
     const published = await publishExport(result.pages || []);
     send(res, 200, published);
     return true;
+  }
+
+  const termsRoute = pathname.match(/^\/api\/landings\/([^/]+)\/terms(\/propose|\/apply)?$/);
+  if (termsRoute) {
+    const slug = decodeURIComponent(termsRoute[1]);
+    const action = termsRoute[2] || "";
+    if (method === "GET" && !action) {
+      send(res, 200, { ai: aiStatus(), history: readHistory(slug) });
+      return true;
+    }
+    if (method === "POST" && action === "/propose") {
+      const body = await readJson(req);
+      send(res, 200, await proposeFromTerms(slug, body.text));
+      return true;
+    }
+    if (method === "POST" && action === "/apply") {
+      const body = await readJson(req);
+      const result = applyProposal(slug, body, saveLanding);
+      await pushLandingDoc(result.landing);
+      send(res, 200, result);
+      return true;
+    }
   }
 
   const one = pathname.match(/^\/api\/landings\/([^/]+)$/);

@@ -145,6 +145,9 @@ function landingPayload(landing) {
   payload.libre = {
     heading: libre.heading || "",
     text: libre.text || "",
+    cards: Array.isArray(libre.cards)
+      ? libre.cards.map((card) => ({ title: card.title || "", text: card.text || "" }))
+      : [],
   };
   const cotizar = landing.cotizar && typeof landing.cotizar === "object" ? landing.cotizar : {};
   const steps = Array.isArray(cotizar.steps) ? cotizar.steps : [];

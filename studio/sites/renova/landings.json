@@ -3,15 +3,15 @@
     {
       "slug": "agro",
       "brief": "Para ciudades del interior de Buenos Aires",
-      "whatsapp": "5491141674140",
-      "whatsappMessage": "Hola, te escribo desde la web🚜",
+      "whatsapp": "54911404565047",
+      "whatsappMessage": "Hola, te escribo desde la web.",
       "adsConversion": "AW-963730457/IHweCOa9gPQCEJm4xcsD",
       "hero": {
         "eyebrow": "Distribuidora mayorista · Más de 40 años en el mercado",
         "heading": "Filtros y Lubricantes por Mayor para el Agro",
         "subhead": "Reponé tractores, cosechadoras y maquinaria agrícola con precio mayorista, stock permanente y entrega en todo el país. Sin monto mínimo obligatorio.",
         "ctaLabel": "Contactarme",
-        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C+te+escribo+desde+la+web%F0%9F%9A%9C",
+        "ctaHref": "https://wa.me/54911404565047?text=Hola%2C+te+escribo+desde+la+web.",
         "backgroundImage": "images/agro.png"
       },
       "destacados": [
@@ -88,7 +88,8 @@
       ],
       "libre": {
         "heading": "",
-        "text": ""
+        "text": "",
+        "cards": []
       },
       "cotizar": {
         "heading": "Cotizaciones",
@@ -195,17 +196,164 @@
       }
     },
     {
+      "slug": "distribuidor-de-aceites-lubricantes",
+      "brief": "",
+      "whatsapp": "54911404565047",
+      "whatsappMessage": "Hola! te escribo desde la web",
+      "adsConversion": "",
+      "hero": {
+        "eyebrow": "Más de 40 años como distribuidor mayorista en filtros y lubricantes",
+        "heading": "Distribuidor mayorista de aceites y lubricantes",
+        "subhead": "Stock real y precio directo por mayor. Enviamos a todo el país y trabajamos con marcas líderes como Castrol, Motul, Petronas, Gulf y Valvoline. Hacé tu pedido sin monto mínimo obligatorio.",
+        "ctaLabel": "Quiero que me contacten",
+        "ctaHref": "https://wa.me/54911404565047?text=Hola%21+te+escribo+desde+la+web",
+        "backgroundImage": "images/distribuidor-de-aceites-lubricantes.png"
+      },
+      "destacados": [
+        "8100/5",
+        "04VA153"
+      ],
+      "faq": [
+        {
+          "question": "¿Qué marcas de aceites y lubricantes trabajan?",
+          "answer": "En Renova podés pedir aceites Castrol, Motul, Petronas, Valvoline, Puma Lubricants, Wagner, Gulf y TotalEnergies. También tenemos filtros FRAM y MANN FILTER."
+        },
+        {
+          "question": "¿Puedo comprar aceite para motos y autos al por mayor?",
+          "answer": "Sí, podés pedir aceites para motos y autos, combinando productos y marcas en tu compra mayorista."
+        },
+        {
+          "question": "¿Cómo pedir aceite 10w40 por mayor?",
+          "answer": "Mandanos tu consulta por WhatsApp con el producto, marca o código. Te cotizamos el aceite 10w40 por mayor rápido y sin monto mínimo."
+        },
+        {
+          "question": "¿Ofrecen aceites en tambores de 200 litros?",
+          "answer": "Consultanos por aceites en presentación de 200 litros según disponibilidad de cada marca. Te asesoramos sobre las opciones y el envío."
+        },
+        {
+          "question": "¿Puedo comprar filtros por mayor?",
+          "answer": "Sí, tenemos filtros para autos y motos, en varias marcas y con diferentes alternativas."
+        },
+        {
+          "question": "¿Hay pedido mínimo?",
+          "answer": "No, no exigimos monto mínimo. Podés armar tu pedido a medida y siempre tendrás precio mayorista."
+        },
+        {
+          "question": "¿Envían aceites y filtros a todo el país?",
+          "answer": "Despachamos mercadería por transporte o correo a cualquier destino de Argentina y coordinamos según tu localidad."
+        },
+        {
+          "question": "¿Puedo cotizar con el modelo, patente o código de filtro?",
+          "answer": "Sí. Nos pasás cualquier dato y te buscamos el producto con alternativas o equivalencias si hace falta."
+        },
+        {
+          "question": "¿Tienen stock permanente?",
+          "answer": "Contamos con stock real y permanente de los productos que ofrecemos, asegurando entregas sin demoras."
+        },
+        {
+          "question": "¿Dónde se encuentra Renova?",
+          "answer": "Nuestro local mayorista está en La Paternal, Ciudad de Buenos Aires. Podés retirar tu pedido en persona si lo preferís."
+        },
+        {
+          "question": "¿Puedo incluir aceites, lubricantes y filtros en el mismo pedido?",
+          "answer": "Sí, podés combinar diferentes productos y marcas en tu compra al por mayor y te cotizamos todo junto."
+        },
+        {
+          "question": "¿Qué necesito para pedir precio mayorista?",
+          "answer": "Solo mandanos tu lista, modelo, marca, patente o código al WhatsApp y te enviamos la cotización mayorista."
+        }
+      ],
+      "libre": {
+        "heading": "Pedí aceites y filtros por mayor, con entrega garantizada",
+        "text": "Somos el distribuidor mayorista confiable para talleres, comercios y lubricentros de todo el país. Contamos con stock permanente, envíos a donde estés y atención por WhatsApp.",
+        "cards": [
+          {
+            "title": "Aceite 10w40 por mayor",
+            "text": "Pedí aceite 10w40 de primeras marcas al por mayor, con precio y entrega para tu negocio."
+          },
+          {
+            "title": "Aceite Castrol por mayor",
+            "text": "Consultá stock y cotizá aceites Castrol en distintas presentaciones para autos y motos."
+          },
+          {
+            "title": "Aceite para motos por mayor",
+            "text": "Aceites para motos de marcas reconocidas, con precio mayorista y entrega asegurada."
+          },
+          {
+            "title": "Aceite por 200 litros",
+            "text": "Solicitá presentaciones grandes como tambores de 200 litros según disponibilidad y marca."
+          },
+          {
+            "title": "Filtros por mayor",
+            "text": "Filtros para autos y motos con variedad de marcas, referencias y alternativas si lo necesitás."
+          }
+        ]
+      },
+      "cotizar": {
+        "heading": "Cómo cotizar",
+        "lead": "En tres pasos, por WhatsApp. No hace falta un listado perfecto.",
+        "steps": [
+          {
+            "title": "Mandás marca, código o patente",
+            "text": "Si no tenés el código, con la patente o el modelo alcanza."
+          },
+          {
+            "title": "Te respondemos la cotización por WhatsApp",
+            "text": "Te pasamos el precio mayorista por el mismo chat."
+          },
+          {
+            "title": "Coordinamos la entrega",
+            "text": "A tu depósito, taller o campo."
+          }
+        ]
+      },
+      "carousel": {
+        "eyebrow": "",
+        "line1": "",
+        "line1Muted": "",
+        "slides": []
+      },
+      "sections": {
+        "order": [
+          "hero",
+          "marcas",
+          "diferencial",
+          "cotizar",
+          "destacados",
+          "carousel",
+          "libre",
+          "clients",
+          "formulario",
+          "map",
+          "faq",
+          "footer"
+        ],
+        "hero": true,
+        "marcas": true,
+        "diferencial": true,
+        "cotizar": false,
+        "destacados": true,
+        "carousel": true,
+        "libre": true,
+        "clients": true,
+        "formulario": true,
+        "map": true,
+        "faq": true,
+        "footer": true
+      }
+    },
+    {
       "slug": "flota-de-camiones",
       "brief": "flota de camiones",
-      "whatsapp": "5491141674140",
-      "whatsappMessage": "Hola, te escribo desde la web 🚚",
+      "whatsapp": "54911404565047",
+      "whatsappMessage": "Hola, te escribo desde la web!",
       "adsConversion": "",
       "hero": {
         "eyebrow": "linea pesada",
         "heading": "Filtros y lubricantes para flotas PESADAS",
         "subhead": "TODOS LOS FITLROS PARA FLOTA DE CAMIONES Y UTILITARIOS",
         "ctaLabel": "Quiero que me cotizen",
-        "ctaHref": "https://wa.me/5491141674140?text=Hola%2C+te+escribo+desde+la+web+%F0%9F%9A%9A",
+        "ctaHref": "https://wa.me/54911404565047?text=Hola%2C+te+escribo+desde+la+web%21",
         "backgroundImage": "images/flota-de-camiones.webp"
       },
       "destacados": [
@@ -256,7 +404,8 @@
       ],
       "libre": {
         "heading": "",
-        "text": ""
+        "text": "",
+        "cards": []
       },
       "cotizar": {
         "heading": "Cotizaciones",
@@ -343,15 +492,15 @@
     {
       "slug": "industria",
       "brief": "Industria en AMBA.",
-      "whatsapp": "5491141674140",
-      "whatsappMessage": "Hola! te escribo desde la web 🏭",
+      "whatsapp": "54911404565047",
+      "whatsappMessage": "Hola! te escribo desde la web",
       "adsConversion": "AW-963730457/IHweCOa9gPQCEJm4xcsD",
       "hero": {
         "eyebrow": "",
         "heading": "Filtros y lubricantes para industria",
         "subhead": "Soluciones para mantener tu operación en movimiento y optimizar costos.",
         "ctaLabel": "Contactanos",
-        "ctaHref": "https://wa.me/5491141674140?text=Hola%21+te+escribo+desde+la+web+%F0%9F%8F%AD",
+        "ctaHref": "https://wa.me/54911404565047?text=Hola%21+te+escribo+desde+la+web",
         "backgroundImage": "images/industria.jpg"
       },
       "destacados": [
@@ -428,7 +577,8 @@
       ],
       "libre": {
         "heading": "",
-        "text": ""
+        "text": "",
+        "cards": []
       },
       "cotizar": {
         "heading": "Cotizaciones",
