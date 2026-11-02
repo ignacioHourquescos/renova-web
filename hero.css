@@ -216,6 +216,51 @@ a.hero__cta:focus-visible {
   display: none;
 }
 
+/* Segunda versión mobile: otra imagen y el texto centrado arriba. Solo en celular. */
+.hero__media-mobile {
+  display: none;
+}
+
+@media (max-width: 899px) {
+  .hero--mobile-alt {
+    position: relative;
+    isolation: isolate;
+    background-image: none !important;
+  }
+
+  .hero--mobile-alt .hero__media-mobile {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+  }
+
+  .hero--mobile-alt .hero__media-mobile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.78) 0%, rgba(17, 17, 17, 0.45) 45%, rgba(17, 17, 17, 0.12) 100%);
+  }
+
+  .hero--mobile-alt .hero__content {
+    position: relative;
+    z-index: 2;
+    justify-content: flex-start;
+    padding-top: 28px;
+  }
+
+  .hero--mobile-alt .hero__content > * {
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero--mobile-alt .hero__content > .hero__cta {
+    text-shadow: none;
+  }
+}
+
 /* Escritorio: texto a la izquierda, lo importante de la imagen a la derecha. */
 @media (min-width: 900px) {
   .hero {
@@ -272,16 +317,27 @@ a.hero__cta:focus-visible {
   }
 
   .hero__content > * {
-    max-width: min(100%, 38rem);
+    max-width: min(100%, 46rem);
+  }
+
+  .hero__eyebrow {
+    margin-bottom: 14px;
+    font-size: clamp(0.9rem, 1.5vw, 1.25rem);
   }
 
   .hero h1 {
-    font-size: clamp(2.2rem, 3.6vw, 4rem);
+    font-size: clamp(2.6rem, 4.3vw, 4.8rem);
   }
 
   .hero__subhead {
-    margin: 0 0 28px;
-    font-size: clamp(1.02rem, 1.3vw, 1.3rem);
+    margin: 0 0 34px;
+    font-size: clamp(1.2rem, 1.55vw, 1.55rem);
+  }
+
+  .hero__cta {
+    min-width: min(100%, 280px);
+    padding: 19px 34px;
+    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
   }
 }
 
