@@ -18,6 +18,7 @@
 		publico: ".publico",
 		cotizar: ".cotizar",
 		destacados: ".destacados",
+		atencion: ".atencion",
 		clients: ".site-clients",
 		formulario: ".formulario",
 		zonas: ".zonas",
