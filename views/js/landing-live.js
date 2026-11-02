@@ -10,12 +10,17 @@
 	var SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 	var SECTIONS = {
 		hero: ".hero",
+		libre: ".libre",
+		chips: ".pedidos",
+		tabla: ".presentaciones",
 		marcas: ".site-brands",
 		diferencial: ".diferencial",
+		publico: ".publico",
 		cotizar: ".cotizar",
 		destacados: ".destacados",
 		clients: ".site-clients",
 		formulario: ".formulario",
+		zonas: ".zonas",
 		map: ".site-map",
 		faq: ".faq",
 		footer: ".site-footer"
@@ -179,6 +184,8 @@
 			return item && String(item.question || "").trim() && String(item.answer || "").trim();
 		});
 		if (!list.length) return;
+		var limit = section ? Number(section.getAttribute("data-limit")) : 0;
+		if (limit > 0) list = list.slice(0, limit);
 		ensureStyle();
 		if (!section) {
 			section = document.createElement("section");
