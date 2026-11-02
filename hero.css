@@ -1394,34 +1394,43 @@ a.hero__cta:focus-visible {
   white-space: pre-wrap;
 }
 
-.libre__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 12px;
-  margin: 24px 0 0;
+.libre__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 28px 0 0;
   padding: 0;
   list-style: none;
 }
 
-.libre__text + .libre__tags {
-  margin-top: 22px;
+.libre__text + .libre__cards {
+  margin-top: 28px;
 }
 
-.libre__tags li {
+.libre__card {
   margin: 0;
-  padding: 8px 16px;
-  border: 1px solid #e3dccb;
-  border-radius: 999px;
+  padding: 22px 22px 24px;
+  border: 1px solid #e8e1d0;
+  border-top: 4px solid #fcba00;
+  border-radius: 14px;
   background: #fff;
-  color: #2b2822;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.2;
+  box-shadow: 0 1px 2px rgba(17, 17, 17, 0.04);
 }
 
-.libre__tags li:nth-child(3n + 1) {
-  border-color: #fcba00;
-  background: #fff6d6;
+.libre__card h3 {
+  margin: 0 0 8px;
+  color: #111;
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.libre__card p {
+  margin: 0;
+  color: #5c564c;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .libre__empty {
