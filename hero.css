@@ -1573,23 +1573,6 @@ a.hero__cta:focus-visible {
   box-shadow: 0 8px 22px rgba(17, 17, 17, 0.08);
 }
 
-.libre__icon {
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  width: 46px;
-  height: 46px;
-  margin-bottom: 14px;
-  border-radius: 12px;
-  background: rgba(249, 168, 40, 0.18);
-  color: var(--color-accent-dark);
-}
-
-.libre__icon svg {
-  width: 24px;
-  height: 24px;
-}
-
 .libre__card h3 {
   margin: 0 0 6px;
   color: #111;
@@ -1611,33 +1594,38 @@ a.hero__cta:focus-visible {
   margin-bottom: 0;
 }
 
+.libre__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
 .libre__cta {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-top: auto;
-  padding: 8px 14px;
-  border: 1.5px solid #e0d6bf;
+  gap: 10px;
+  padding: 16px 34px;
   border-radius: 999px;
-  background: transparent;
-  color: #111;
-  font-size: 0.88rem;
+  background: #161616;
+  color: #fff;
+  font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.2;
   text-decoration: none;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 .libre__cta svg {
-  width: 15px;
-  height: 15px;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
   transition: transform 0.15s ease;
 }
 
 .libre__cta:hover,
 .libre__cta:focus-visible {
-  border-color: var(--color-accent);
   background: var(--color-accent);
+  color: #111;
 }
 
 .libre__cta:hover svg,
@@ -2626,23 +2614,6 @@ a.pedidos__chip:focus-visible {
   transform: translateY(-2px);
 }
 
-.presentaciones__icon {
-  display: grid;
-  place-items: center;
-  flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
-  margin-bottom: 14px;
-  border-radius: 14px;
-  background: rgba(249, 168, 40, 0.18);
-  color: var(--color-accent-dark);
-}
-
-.presentaciones__icon svg {
-  width: 26px;
-  height: 26px;
-}
-
 .presentaciones__card h3 {
   margin: 0 0 6px;
   color: #161616;
@@ -2661,25 +2632,11 @@ a.pedidos__chip:focus-visible {
 }
 
 .presentaciones__sizes {
-  margin-top: 16px;
-}
-
-.presentaciones__sizes > span {
-  display: block;
-  margin-bottom: 8px;
-  color: #8a8070;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.presentaciones__sizes ul {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0;
-  padding: 0;
+  margin: auto 0 0;
+  padding: 16px 0 0;
   list-style: none;
 }
 
@@ -2695,20 +2652,21 @@ a.pedidos__chip:focus-visible {
   line-height: 1.2;
 }
 
-.presentaciones__card > :nth-last-child(2) {
-  margin-bottom: 20px;
+.presentaciones__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
 }
 
 .presentaciones__cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  margin-top: auto;
-  padding: 11px 18px;
+  gap: 10px;
+  padding: 16px 34px;
   border-radius: 999px;
   background: #161616;
   color: #fff;
-  font-size: 0.92rem;
+  font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.2;
   text-decoration: none;
@@ -2717,8 +2675,8 @@ a.pedidos__chip:focus-visible {
 
 .presentaciones__cta svg {
   flex: 0 0 auto;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   transition: transform 0.15s ease;
 }
 
