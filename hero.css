@@ -174,6 +174,27 @@ body {
   font-size: clamp(0.75rem, 1.25vw, 1.05rem);
 }
 
+.years-mark {
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 0.14em;
+  text-underline-offset: 0.18em;
+}
+
+.hero__eyebrow .years-mark {
+  color: #111;
+  background: #fff;
+  font-size: 1.12em;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  text-decoration: none;
+  padding: 0.04em 0.32em 0.08em;
+  border-radius: 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 .hero h1 {
   margin: 0 0 16px;
   font-family: var(--font-heading);
@@ -209,6 +230,39 @@ body {
 a.hero__cta:hover,
 a.hero__cta:focus-visible {
   background: var(--color-accent-dark);
+}
+
+/* Flecha a la derecha, adentro de cada botón que abre WhatsApp. */
+a.hero__cta[href*="wa.me"],
+a.hero__cta[href*="whatsapp.com"],
+a.atencion__cta[href*="wa.me"],
+a.atencion__cta[href*="whatsapp.com"] {
+  gap: 10px;
+}
+
+a.hero__cta[href*="wa.me"]::after,
+a.hero__cta[href*="whatsapp.com"]::after,
+a.atencion__cta[href*="wa.me"]::after,
+a.atencion__cta[href*="whatsapp.com"]::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6' fill='none' stroke='%23000' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  transition: transform 0.15s ease;
+}
+
+a.hero__cta[href*="wa.me"]:hover::after,
+a.hero__cta[href*="wa.me"]:focus-visible::after,
+a.hero__cta[href*="whatsapp.com"]:hover::after,
+a.hero__cta[href*="whatsapp.com"]:focus-visible::after,
+a.atencion__cta[href*="wa.me"]:hover::after,
+a.atencion__cta[href*="wa.me"]:focus-visible::after,
+a.atencion__cta[href*="whatsapp.com"]:hover::after,
+a.atencion__cta[href*="whatsapp.com"]:focus-visible::after {
+  transform: translateX(3px);
 }
 
 .hero__response {
@@ -288,6 +342,7 @@ a.hero__cta:focus-visible {
 /* Escritorio: texto a la izquierda, lo importante de la imagen a la derecha. */
 @media (min-width: 900px) {
   .hero {
+    --hero-frame: clamp(18px, 2.5vw, 48px);
     position: relative;
     align-items: stretch;
     min-height: 100vh;
@@ -301,21 +356,15 @@ a.hero__cta:focus-visible {
     background-image: none !important;
   }
 
-  /* Imagen a la derecha; el borde izquierdo se funde con el color de página. */
+  /* Imagen a la derecha, con un marco negro del mismo ancho en los cuatro lados. */
   .hero__media {
     position: absolute;
-    top: 0;
-    bottom: 0;
     z-index: 1;
     display: block;
-    /* Alto completo. La foto se alinea a la derecha, un poco más chica, con aire en el borde. */
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset: var(--hero-frame);
     background-repeat: no-repeat;
-    background-position: right 2.5vw center;
-    background-size: auto 96%;
+    background-position: right center;
+    background-size: cover;
     /* A la izquierda la imagen queda tenue (se adivina detrás del texto) y gana fuerza hacia la derecha. */
     -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.32) 0, rgba(0, 0, 0, 0.5) 20%, #000 42%);
     mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.32) 0, rgba(0, 0, 0, 0.5) 20%, #000 42%);
@@ -453,18 +502,18 @@ a.hero__cta:focus-visible {
   z-index: 7;
   display: grid;
   place-items: center;
-  width: 60px;
-  height: 60px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   background: #25d366;
   color: #fff;
   text-decoration: none;
-  box-shadow: 0 8px 22px rgba(18, 140, 70, 0.35);
+  box-shadow: 0 10px 26px rgba(18, 140, 70, 0.35);
 }
 
 .wa-float svg {
-  width: 34px;
-  height: 34px;
+  width: 50px;
+  height: 50px;
 }
 
 .wa-float:hover,
@@ -1175,8 +1224,80 @@ a.hero__cta:focus-visible {
   }
 }
 
+.marquee {
+  overflow: hidden;
+  padding: clamp(16px, 3vh, 26px) 0;
+  background: #f6f3ec;
+}
+
+.marquee__band {
+  overflow: hidden;
+  padding: 23px 0;
+  background: #111;
+  color: #fff;
+  font-family: var(--font-heading);
+  box-shadow: 0 10px 24px rgba(17, 17, 17, 0.18);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: clamp(28px, 4vw, 52px);
+  margin: 0;
+  padding: 0 clamp(28px, 4vw, 52px) 0 0;
+  list-style: none;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.marquee__item--accent {
+  color: var(--color-accent);
+}
+
+.marquee__star {
+  color: var(--color-accent);
+  font-size: 0.8em;
+}
+
+.marquee__item--accent .marquee__star {
+  color: #fff;
+}
+
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    animation: none;
+  }
+}
+
 .faq {
-  padding: clamp(56px, 8vh, 88px) var(--pad-end) clamp(56px, 8vh, 88px) var(--pad-start);
+  padding: clamp(28px, 4vh, 44px) var(--pad-end) clamp(56px, 8vh, 88px) var(--pad-start);
   background: #f6f3ec;
   color: #111;
   font-family: var(--font-body);
@@ -2293,13 +2414,13 @@ a.hero__cta:focus-visible {
   .wa-float {
     right: 16px;
     bottom: 16px;
-    width: 56px;
-    height: 56px;
+    width: 76px;
+    height: 76px;
   }
 
   .wa-float svg {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
   }
 
   .destacados__grid {
@@ -2664,8 +2785,8 @@ a.hero__cta:focus-visible {
 }
 
 .pedidos {
-  padding-top: clamp(28px, 4vh, 40px);
-  padding-bottom: clamp(28px, 4vh, 40px);
+  padding-top: clamp(56px, 8vh, 96px);
+  padding-bottom: clamp(56px, 8vh, 96px);
 }
 
 .pedidos__list {
@@ -2722,10 +2843,15 @@ a.pedidos__chip:focus-visible {
 }
 
 @media (max-width: 720px) {
+  .pedidos {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
   .pedidos__list {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    gap: 6px;
   }
 
   .pedidos__list li {
@@ -2745,18 +2871,33 @@ a.pedidos__chip:focus-visible {
 
   .pedidos__chip {
     width: 100%;
+    min-width: 0;
     justify-content: center;
-    gap: 5px;
-    padding: 7px 10px;
-    font-size: 0.78rem;
-    line-height: 1.25;
-    text-align: center;
-    text-wrap: balance;
+    gap: 3px;
+    padding: 8px 6px;
+    font-size: clamp(8px, 2.55vw, 0.84rem);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    white-space: nowrap;
   }
 
   .pedidos__chip svg {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 340px) {
+  .pedidos__chip {
+    gap: 2px;
+    padding: 7px 4px;
+    font-size: 7.75px;
+    letter-spacing: -0.03em;
+  }
+
+  .pedidos__chip svg {
+    width: 9px;
+    height: 9px;
   }
 }
 
@@ -3032,6 +3173,11 @@ a.pedidos__chip:focus-visible {
     padding-bottom: 40px;
   }
 
+  .pedidos {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+
   .publico__card {
     flex-basis: 100%;
     max-width: none;
@@ -3212,11 +3358,23 @@ a.pedidos__chip:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .pedidos__chip,
   .pedidos__chip svg,
-  .atencion__cta {
+  .atencion__cta,
+  a.hero__cta[href*="wa.me"]::after,
+  a.hero__cta[href*="whatsapp.com"]::after,
+  a.atencion__cta[href*="wa.me"]::after,
+  a.atencion__cta[href*="whatsapp.com"]::after {
     transition: none;
   }
 
-  .atencion__cta:hover {
+  .atencion__cta:hover,
+  a.hero__cta[href*="wa.me"]:hover::after,
+  a.hero__cta[href*="wa.me"]:focus-visible::after,
+  a.hero__cta[href*="whatsapp.com"]:hover::after,
+  a.hero__cta[href*="whatsapp.com"]:focus-visible::after,
+  a.atencion__cta[href*="wa.me"]:hover::after,
+  a.atencion__cta[href*="wa.me"]:focus-visible::after,
+  a.atencion__cta[href*="whatsapp.com"]:hover::after,
+  a.atencion__cta[href*="whatsapp.com"]:focus-visible::after {
     transform: none;
   }
 }

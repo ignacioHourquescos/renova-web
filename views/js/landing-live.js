@@ -106,6 +106,17 @@
 		});
 	}
 
+	function withYearsMark(value) {
+		return String(value)
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/(\+?\s*40\s*años)/gi, function (raw) {
+				var lead = raw.match(/^\s*/)[0];
+				return lead + '<strong class="years-mark">' + raw.slice(lead.length) + '</strong>';
+			});
+	}
+
 	function safeHref(value) {
 		var text = String(value || "").trim();
 		if (!text) return "";
@@ -161,7 +172,7 @@
 				eyebrow.className = "hero__eyebrow";
 				content.insertBefore(eyebrow, heading);
 			}
-			eyebrow.textContent = hero.eyebrow;
+			eyebrow.innerHTML = withYearsMark(hero.eyebrow);
 		} else if (eyebrow) {
 			eyebrow.remove();
 		}
@@ -173,7 +184,7 @@
 				if (heading && heading.nextSibling) content.insertBefore(subhead, heading.nextSibling);
 				else content.appendChild(subhead);
 			}
-			subhead.textContent = hero.subhead;
+			subhead.innerHTML = withYearsMark(hero.subhead);
 		} else if (subhead) {
 			subhead.remove();
 		}
@@ -236,7 +247,7 @@
 			var wrap = section.querySelector(".section-title");
 			if (wrap) wrap.appendChild(lead);
 		}
-		if (lead) lead.textContent = text;
+		if (lead) lead.innerHTML = withYearsMark(text);
 	}
 
 	function applyCustomImages(items) {
@@ -353,6 +364,44 @@
 		});
 	}
 
+	function telHref(phone) {
+		var digits = String(phone || "").replace(/\D/g, "");
+		if (digits.length < 8) return "";
+		var local = digits.indexOf("54") === 0 ? digits : digits.replace(/^0/, "");
+		return "tel:+" + (local.indexOf("54") === 0 ? local : "54" + local);
+	}
+
+	function applyPhone(root, footer) {
+		var phone = String(footer.phone || "").trim();
+		if (!phone) return;
+		var node = root.querySelector(".site-footer__phone");
+		if (!node) {
+			node = document.createElement("p");
+			node.className = "site-footer__phone";
+			var privacy = null;
+			Array.prototype.forEach.call(root.children, function (child) {
+				if (privacy || child.tagName !== "P") return;
+				if (child.classList.contains("site-footer__qr") || child.classList.contains("site-footer__brand") || child.classList.contains("site-footer__phone")) return;
+				var link = child.querySelector("a");
+				if (link && !/^tel:/i.test(link.getAttribute("href") || "")) privacy = child;
+			});
+			var legal = root.querySelector(".site-footer__legal");
+			if (privacy) root.insertBefore(node, privacy);
+			else if (legal) root.insertBefore(node, legal);
+			else root.appendChild(node);
+		}
+		var href = telHref(phone);
+		node.textContent = "";
+		if (!href) {
+			node.textContent = phone;
+			return;
+		}
+		var link = document.createElement("a");
+		link.setAttribute("href", href);
+		link.textContent = phone;
+		node.appendChild(link);
+	}
+
 	function applyFooter(site) {
 		var footer = site && site.footer;
 		if (!footer) return;
@@ -364,12 +413,13 @@
 			var plain = [];
 			Array.prototype.forEach.call(root.children, function (node) {
 				if (node.tagName !== "P") return;
-				if (node.classList.contains("site-footer__brand") || node.classList.contains("site-footer__qr") || node.classList.contains("site-footer__legal")) return;
+				if (node.classList.contains("site-footer__brand") || node.classList.contains("site-footer__qr") || node.classList.contains("site-footer__legal") || node.classList.contains("site-footer__phone")) return;
 				plain.push(node);
 			});
 			var legalSet = false;
 			plain.forEach(function (node) {
 				var link = node.querySelector("a");
+				if (link && /^tel:/i.test(link.getAttribute("href") || "")) return;
 				if (link && footer.privacyLabel) {
 					link.textContent = footer.privacyLabel;
 					var privacyHref = safeHref(footer.privacyHref);
@@ -383,6 +433,7 @@
 				}
 				if (footer.address) node.textContent = footer.address;
 			});
+			applyPhone(root, footer);
 			var copy = root.querySelector(".site-footer__legal");
 			if (copy && footer.copyright) copy.textContent = footer.copyright;
 			var privacy = root.querySelector(".site-footer__privacy p");
