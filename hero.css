@@ -328,7 +328,7 @@ a.atencion__cta[href*="whatsapp.com"]:focus-visible::after {
 /* Escritorio: texto a la izquierda, lo importante de la imagen a la derecha. */
 @media (min-width: 900px) {
   .hero {
-    --hero-frame: clamp(32px, 4vw, 80px);
+    --hero-frame: clamp(44px, 5vw, 100px);
     position: relative;
     align-items: stretch;
     min-height: 100vh;
