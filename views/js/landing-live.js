@@ -191,6 +191,16 @@
 		} else if (eyebrow) {
 			eyebrow.remove();
 		}
+		if (!content.querySelector(".hero__logo") && !(heroNode && heroNode.querySelector(".hero__brand"))) {
+			var navLogo = document.querySelector(".site-nav__brand img");
+			if (navLogo) {
+				var heroLogo = document.createElement("img");
+				heroLogo.className = "hero__logo";
+				heroLogo.src = navLogo.getAttribute("src") || "";
+				heroLogo.alt = navLogo.getAttribute("alt") || "";
+				content.insertBefore(heroLogo, heading || content.firstChild);
+			}
+		}
 		var subhead = content.querySelector(".hero__subhead");
 		if (hero.subhead) {
 			if (!subhead) {
@@ -211,36 +221,15 @@
 				if (node.tagName === "A" && href) node.setAttribute("href", href);
 			});
 		}
-		applyResponseNote(hero, content);
+		var responseNode = content.querySelector(".hero__response");
+		if (responseNode) responseNode.remove();
+		if (heroNode) heroNode.classList.remove("hero--with-note");
 		if (hero.heading) {
 			var brand = document.querySelector(".site-footer__brand");
 			document.title = hero.heading + (brand && brand.textContent ? " | " + brand.textContent : "");
 		}
 		var meta = document.querySelector('meta[name="description"]');
 		if (meta && hero.subhead) meta.setAttribute("content", hero.subhead);
-	}
-
-	var RESPONSE_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.25" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
-
-	function applyResponseNote(hero, content) {
-		if (!hero || typeof hero.responseNote !== "string") return;
-		var note = hero.responseNote.trim();
-		var node = content.querySelector(".hero__response");
-		var heroNode = content.closest ? content.closest(".hero") : null;
-		if (!note) {
-			if (node) node.remove();
-			if (heroNode) heroNode.classList.remove("hero--with-note");
-			return;
-		}
-		if (!node) {
-			node = document.createElement("p");
-			node.className = "hero__response";
-			node.innerHTML = RESPONSE_ICON + "<span></span>";
-			content.appendChild(node);
-		}
-		var label = node.querySelector("span");
-		if (label) label.textContent = note;
-		if (heroNode) heroNode.classList.add("hero--with-note");
 	}
 
 	function applyClientsCopy(extras) {
