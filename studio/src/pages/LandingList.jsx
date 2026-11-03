@@ -8,6 +8,10 @@ import { Spinner } from "../components/Spinner.jsx";
 
 const SMALL_WORDS = new Set(["a", "al", "con", "de", "del", "e", "el", "en", "la", "las", "los", "o", "para", "por", "tu", "u", "y"]);
 
+// Columnas de métricas (Visitas / Click WPP) ocultas por ahora: no se usan en la tabla.
+// Poner en `true` para volver a mostrarlas; los datos se siguen cargando y guardando igual.
+const SHOW_METRIC_COLUMNS = false;
+
 function landingName(slug) {
   return String(slug)
     .split("-")
@@ -211,8 +215,8 @@ export function LandingList() {
               <tr>
                 <th className="stats__page" scope="col">Página</th>
                 <th className="stats__brief-col" scope="col">Descripción</th>
-                <th className="stats__num" scope="col">Visitas</th>
-                <th className="stats__num" scope="col">Click WPP</th>
+                {SHOW_METRIC_COLUMNS ? <th className="stats__num" scope="col">Visitas</th> : null}
+                {SHOW_METRIC_COLUMNS ? <th className="stats__num" scope="col">Click WPP</th> : null}
                 <th className="stats__phone" scope="col">WhatsApp</th>
                 <th className="stats__message" scope="col" title="Texto que se precarga al abrir WhatsApp desde esta página.">Mensaje</th>
                 <th className="stats__action" scope="col"><span className="sr-only">Acciones</span></th>
@@ -239,8 +243,8 @@ export function LandingList() {
                         }}
                       />
                     </td>
-                    <td className="stats__num">{(landing.visits ?? 0).toLocaleString("es-AR")}</td>
-                    <td className="stats__num">{(landing.wppClicks ?? 0).toLocaleString("es-AR")}</td>
+                    {SHOW_METRIC_COLUMNS ? <td className="stats__num">{(landing.visits ?? 0).toLocaleString("es-AR")}</td> : null}
+                    {SHOW_METRIC_COLUMNS ? <td className="stats__num">{(landing.wppClicks ?? 0).toLocaleString("es-AR")}</td> : null}
                     <td className="stats__phone">
                       <PhoneCell
                         label={`WhatsApp de ${name}`}
@@ -323,8 +327,8 @@ export function LandingList() {
                       }}
                     />
                   </td>
-                  <td className="stats__num">—</td>
-                  <td className="stats__num">{(alta.wppClicks ?? 0).toLocaleString("es-AR")}</td>
+                  {SHOW_METRIC_COLUMNS ? <td className="stats__num">—</td> : null}
+                  {SHOW_METRIC_COLUMNS ? <td className="stats__num">{(alta.wppClicks ?? 0).toLocaleString("es-AR")}</td> : null}
                   <td className="stats__phone">
                     <PhoneCell
                       label="WhatsApp de Alta"
