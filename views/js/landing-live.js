@@ -1,3 +1,18 @@
+(function () {
+	if (window.__renovaCtaEntrance) return;
+	var current = document.currentScript;
+	if (!current || !current.src) return;
+	var url = current.src.replace(/[^/?#]+(?=($|[?#]))/, "cta-entrance.js").replace(/"/g, "");
+	if (document.readyState === "loading") {
+		document.write('<script src="' + url + '"><\/script>');
+		return;
+	}
+	var script = document.createElement("script");
+	script.src = url;
+	script.async = false;
+	document.head.appendChild(script);
+})();
+
 /**
  * Lee la landing en Firestore (renova-landing) y actualiza los textos publicados.
  */
