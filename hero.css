@@ -197,7 +197,7 @@ body {
   justify-content: center;
   min-width: min(100%, 240px);
   padding: 16px 28px;
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--color-accent);
   color: var(--color-accent-text);
   font-family: var(--font-heading);
@@ -209,6 +209,30 @@ body {
 a.hero__cta:hover,
 a.hero__cta:focus-visible {
   background: var(--color-accent-dark);
+}
+
+.hero__response {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.hero__response svg {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  color: var(--color-accent);
+}
+
+.hero--with-note .hero__subhead {
+  margin-bottom: 22px;
+  font-size: clamp(0.98rem, 1.35vw, 1.22rem);
+  line-height: 1.4;
 }
 
 /* Capa de imagen solo para escritorio; en celular se usa el fondo del .hero. */
@@ -255,7 +279,8 @@ a.hero__cta:focus-visible {
     text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
   }
 
-  .hero--mobile-alt .hero__content > .hero__cta {
+  .hero--mobile-alt .hero__content > .hero__cta,
+  .hero--mobile-alt .hero__content > .hero__response {
     text-shadow: none;
   }
 }
@@ -265,8 +290,8 @@ a.hero__cta:focus-visible {
   .hero {
     position: relative;
     align-items: stretch;
-    min-height: 86vh;
-    min-height: 86dvh;
+    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
     text-align: left;
   }
@@ -283,12 +308,14 @@ a.hero__cta:focus-visible {
     bottom: 0;
     z-index: 1;
     display: block;
-    /* Se extiende más allá del borde derecho: así el centro de la imagen cae a la derecha del hero. */
+    /* Alto completo. La foto se alinea a la derecha, un poco más chica, con aire en el borde. */
+    top: 0;
+    bottom: 0;
     left: 0;
-    right: -30%;
+    right: 0;
     background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-position: right 2.5vw center;
+    background-size: auto 96%;
     /* A la izquierda la imagen queda tenue (se adivina detrás del texto) y gana fuerza hacia la derecha. */
     -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.32) 0, rgba(0, 0, 0, 0.5) 20%, #000 42%);
     mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0.32) 0, rgba(0, 0, 0, 0.5) 20%, #000 42%);
@@ -305,7 +332,8 @@ a.hero__cta:focus-visible {
     text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
   }
 
-  .hero__content > .hero__cta {
+  .hero__content > .hero__cta,
+  .hero__content > .hero__response {
     text-shadow: none;
   }
 
@@ -334,6 +362,12 @@ a.hero__cta:focus-visible {
   .hero__subhead {
     margin: 0 0 26px;
     font-size: clamp(1rem, 1.2vw, 1.2rem);
+  }
+
+  .hero--with-note .hero__subhead {
+    margin-bottom: 18px;
+    font-size: clamp(0.95rem, 1.05vw, 1.08rem);
+    line-height: 1.38;
   }
 
   .hero__cta {
@@ -714,7 +748,7 @@ a.hero__cta:focus-visible {
   margin-top: 18px;
   padding: 12px 18px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--color-accent);
   color: var(--color-accent-text);
   font-family: var(--font-heading);
@@ -1006,7 +1040,7 @@ a.hero__cta:focus-visible {
 
 .destacados__fit {
   opacity: 1;
-  transition: opacity 0.55s ease;
+  transition: opacity 0.7s ease;
 }
 
 .destacados__card.is-out .destacados__fit {
@@ -1019,46 +1053,31 @@ a.hero__cta:focus-visible {
   font-family: var(--font-body);
 }
 
-.site-map__copy {
-  width: min(calc(var(--content) + var(--pad-start) + var(--pad-end)), 100%);
-  margin: 0 auto;
-  padding: 40px var(--pad-end) 28px var(--pad-start);
-  text-align: left;
-}
-
-.site-map .section-title {
-  margin: 0 0 10px;
-}
-
-.site-map .section-title h2 {
-  color: var(--color-accent);
-  font-size: 0.82rem;
-  letter-spacing: 0.14em;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.site-map p {
-  margin: 0 0 12px;
-  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.site-map a {
-  color: var(--color-accent);
-  font-weight: 700;
-  text-underline-offset: 3px;
-}
-
-.site-map a:hover,
-.site-map a:focus-visible {
-  color: var(--color-accent-dark);
-}
-
 .site-map__canvas {
+  position: relative;
   height: 420px;
+  overflow: hidden;
   background: #1c1c1c;
+}
+
+.site-map__card {
+  position: absolute;
+  z-index: 2;
+  bottom: 52px;
+  left: 50%;
+  width: max-content;
+  max-width: calc(100% - 72px);
+  margin: 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  box-shadow: 0 10px 28px rgba(17, 17, 17, 0.2);
+  transform: translateX(-50%);
 }
 
 .site-map__canvas:not(.is-live) {
@@ -1070,10 +1089,90 @@ a.hero__cta:focus-visible {
 }
 
 .site-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: block;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.contacto {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "form"
+    "map";
+  align-items: stretch;
+}
+
+.contacto__pane {
+  min-width: 0;
+}
+
+.contacto__pane--form {
+  grid-area: form;
+}
+
+.contacto__pane--map {
+  grid-area: map;
+}
+
+@media (min-width: 721px) {
+  .contacto {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "map form";
+  }
+
+  .contacto__pane {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contacto .site-map,
+  .contacto .formulario {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .contacto .site-map {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+
+  .contacto .site-map__canvas {
+    flex: 1 1 auto;
+    height: auto;
+    min-height: 360px;
+  }
+
+  .contacto .site-map iframe {
+    top: -150px;
+    height: calc(100% + 150px);
+  }
+
+  .contacto .formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(28px, 4vh, 56px) clamp(18px, 2.2vw, 36px);
+  }
+
+  .contacto .formulario__inner {
+    width: min(640px, 100%);
+  }
+
+  .contacto .formulario__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@container (max-width: 520px) {
+  .contacto .formulario__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .faq {
@@ -1556,10 +1655,9 @@ a.hero__cta:focus-visible {
 }
 
 .libre__cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(14px, 1.6vw, 20px);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
   margin: 32px 0 0;
   padding: 0;
   list-style: none;
@@ -1575,13 +1673,11 @@ a.hero__cta:focus-visible {
 
 .libre__card {
   display: flex;
-  flex: 1 1 250px;
   flex-direction: column;
   align-items: flex-start;
   min-width: 0;
-  max-width: 300px;
   margin: 0;
-  padding: 22px 22px 20px;
+  padding: 22px 18px 20px;
   border: 1px solid #e8e1d0;
   border-radius: 16px;
   background: #fff;
@@ -1614,6 +1710,20 @@ a.hero__cta:focus-visible {
 
 .libre__card p:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 1100px) {
+  .libre__card {
+    padding: 16px 12px 14px;
+  }
+
+  .libre__card h3 {
+    font-size: 0.98rem;
+  }
+
+  .libre__card p {
+    font-size: 0.86rem;
+  }
 }
 
 .libre__actions {
@@ -1718,6 +1828,33 @@ a.hero__cta:focus-visible {
   max-width: 120px;
   height: 44px;
   object-fit: contain;
+}
+
+.site-clients--statement {
+  padding-top: 36px;
+  padding-bottom: 40px;
+}
+
+.site-clients--statement .section-title {
+  margin-bottom: 16px;
+}
+
+.site-clients--statement .section-title h2 {
+  font-size: clamp(1.28rem, 2.2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  text-transform: none;
+}
+
+.site-clients--statement .section-title__sub {
+  max-width: 40rem;
+  margin: 8px auto 0;
+  color: #bdbdbd;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
 }
 
 .site-brands {
@@ -1854,7 +1991,7 @@ a.hero__cta:focus-visible {
   }
 
   .site-map__canvas {
-    height: 280px;
+    height: 420px;
   }
 
   .site-clients {
@@ -1931,7 +2068,7 @@ a.hero__cta:focus-visible {
     margin: 0;
     padding: 0;
     border: 0;
-    border-radius: 8px;
+    border-radius: 999px;
     background: rgba(17, 17, 17, 0.72);
     color: #fff;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.28);
@@ -1984,7 +2121,7 @@ a.hero__cta:focus-visible {
 
   .site-nav__panel a {
     padding: 12px 14px;
-    border-radius: 8px;
+    border-radius: 999px;
     color: #fff;
     font-weight: 700;
     font-size: 0.95rem;
@@ -2006,9 +2143,8 @@ a.hero__cta:focus-visible {
     padding-bottom: 56px;
   }
 
-  .libre__card {
-    flex-basis: 100%;
-    max-width: none;
+  .libre__cards {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .faq .section-title,
@@ -2095,7 +2231,7 @@ a.hero__cta:focus-visible {
   }
 
   .site-map__canvas {
-    height: 280px;
+    height: 420px;
   }
 
   .site-clients {
@@ -2331,7 +2467,7 @@ a.hero__cta:focus-visible {
   margin-top: 22px;
   padding: 14px 18px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--color-accent);
   color: var(--color-accent-text);
   font-family: var(--font-heading);
@@ -2583,6 +2719,45 @@ a.pedidos__chip:focus-visible svg {
 a.pedidos__chip:focus-visible {
   outline: 2px solid #111;
   outline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+  .pedidos__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .pedidos__list li {
+    display: flex;
+    min-width: 0;
+  }
+
+  .pedidos__list li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .pedidos__list li:last-child:nth-child(odd) .pedidos__chip {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .pedidos__chip {
+    width: 100%;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+    line-height: 1.25;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .pedidos__chip svg {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .presentaciones__hint {
