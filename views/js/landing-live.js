@@ -4,6 +4,39 @@
 (function () {
 	"use strict";
 
+	function armMaps() {
+		var docs = [];
+		document.querySelectorAll(".site-map__canvas").forEach(function (canvas) {
+			if (canvas.getAttribute("data-map-armed") === "1") return;
+			canvas.setAttribute("data-map-armed", "1");
+			var frame = canvas.querySelector("iframe");
+			if (frame && frame.getAttribute("loading") === "lazy") {
+				frame.setAttribute("loading", "eager");
+				var src = frame.getAttribute("src");
+				if (src) frame.setAttribute("src", src);
+			}
+			canvas.addEventListener("click", function () {
+				canvas.classList.add("is-live");
+			});
+			var doc = canvas.ownerDocument;
+			if (docs.indexOf(doc) === -1) docs.push(doc);
+		});
+		docs.forEach(function (doc) {
+			doc.addEventListener("mousemove", function (event) {
+				doc.querySelectorAll(".site-map__canvas.is-live").forEach(function (canvas) {
+					var rect = canvas.getBoundingClientRect();
+					var x = event.clientX;
+					var y = event.clientY;
+					if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) {
+						canvas.classList.remove("is-live");
+					}
+				});
+			});
+		});
+	}
+
+	armMaps();
+
 	var config = window.__LANDING_FIREBASE_CONFIG__;
 	if (!config || !config.apiKey || !config.projectId) return;
 
@@ -318,7 +351,8 @@
 			if (mapLink) mapLink.setAttribute("href", "https://www.google.com/maps/search/?api=1&query=" + query);
 			var frame = document.querySelector(".site-map iframe");
 			if (frame) {
-				frame.setAttribute("src", "https://maps.google.com/maps?q=" + query + "&z=16&hl=es&output=embed");
+				var nextSrc = "https://maps.google.com/maps?q=" + query + "&z=16&hl=es&output=embed";
+				if (frame.getAttribute("src") !== nextSrc) frame.setAttribute("src", nextSrc);
 				frame.setAttribute("title", "Mapa de " + place);
 			}
 			var pin = document.querySelector('.quick-access a[data-label="Ubicación"]');

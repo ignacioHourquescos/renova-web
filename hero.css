@@ -55,7 +55,7 @@ body {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 20;
+  z-index: 40;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -224,7 +224,6 @@ a.hero__cta:focus-visible {
 @media (max-width: 899px) {
   .hero--mobile-alt {
     position: relative;
-    isolation: isolate;
     background-image: none !important;
   }
 
@@ -266,8 +265,9 @@ a.hero__cta:focus-visible {
   .hero {
     position: relative;
     align-items: stretch;
+    min-height: 86vh;
+    min-height: 86dvh;
     overflow: hidden;
-    isolation: isolate;
     text-align: left;
   }
 
@@ -322,23 +322,24 @@ a.hero__cta:focus-visible {
   }
 
   .hero__eyebrow {
-    margin-bottom: 14px;
-    font-size: clamp(0.9rem, 1.5vw, 1.25rem);
+    margin-bottom: 12px;
+    font-size: clamp(0.78rem, 1.15vw, 1rem);
   }
 
   .hero h1 {
-    font-size: clamp(3rem, 5.2vw, 5.8rem);
+    margin-bottom: 12px;
+    font-size: clamp(2.35rem, 3.7vw, 4.15rem);
   }
 
   .hero__subhead {
-    margin: 0 0 34px;
-    font-size: clamp(1.2rem, 1.55vw, 1.55rem);
+    margin: 0 0 26px;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
   }
 
   .hero__cta {
-    min-width: min(100%, 280px);
-    padding: 19px 34px;
-    font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+    min-width: min(100%, 240px);
+    padding: 14px 26px;
+    font-size: clamp(0.98rem, 1.15vw, 1.12rem);
   }
 }
 
@@ -999,6 +1000,19 @@ a.hero__cta:focus-visible {
   text-align: center;
 }
 
+.destacados__pool {
+  display: none;
+}
+
+.destacados__fit {
+  opacity: 1;
+  transition: opacity 0.55s ease;
+}
+
+.destacados__card.is-out .destacados__fit {
+  opacity: 0;
+}
+
 .site-map {
   background: #111111;
   color: #ffffff;
@@ -1045,6 +1059,14 @@ a.hero__cta:focus-visible {
 .site-map__canvas {
   height: 420px;
   background: #1c1c1c;
+}
+
+.site-map__canvas:not(.is-live) {
+  cursor: pointer;
+}
+
+.site-map__canvas:not(.is-live) iframe {
+  pointer-events: none;
 }
 
 .site-map iframe {
